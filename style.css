@@ -1,0 +1,36 @@
+body {
+  font-family: "Yu Gothic", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fffdf9;
+  color: #333;
+}
+
+header {
+  background-color: #f6ede2;
+  padding: 1em;
+  text-align: center;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.main-nav li {
+  margin: 0 1.5em;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #5c4033;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #b94c4c;
+}
