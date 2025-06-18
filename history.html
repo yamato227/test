@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ここに history.html 固有のスタイルがあれば追加 */
-        /* もし style.css に全ての共通スタイルがあるなら、この <style> タグは不要 */
+        /* ここは history.html 固有のスタイルのみを記述します */
         .main-content {
             max-width: 960px;
             margin: 40px auto;
@@ -27,57 +26,52 @@
             padding-bottom: 10px;
         }
 
-        .history-section {
-            padding: 20px 0;
-        }
-
-        .history-section h3 {
+        .main-content h3 {
             font-size: 1.5em;
             color: #556b2f;
-            border-left: 5px solid #6b8e23;
-            padding-left: 10px;
-            margin-bottom: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .main-content p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .history-section {
+            margin-bottom: 30px;
         }
 
         .history-section ul {
             list-style: none;
             padding: 0;
-            margin: 0;
         }
 
         .history-section li {
-            background-color: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: 5px;
             margin-bottom: 15px;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 5px solid #6b8e23;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        .history-section .year {
-            font-weight: bold;
-            color: #004d40;
+        .history-section li strong {
+            display: block;
             font-size: 1.1em;
-            flex-shrink: 0; /* 年号が縮まないようにする */
-            width: 100px; /* 年号の幅を固定 */
-        }
-
-        .history-section .event {
-            flex-grow: 1; /* イベント内容が残りのスペースを占める */
+            color: #004d40;
+            margin-bottom: 5px;
         }
 
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            .history-section li {
-                flex-direction: column;
-                align-items: flex-start;
+            .main-content {
+                margin: 20px;
+                padding: 15px;
             }
-            .history-section .year {
-                width: auto;
-                margin-bottom: 5px;
+
+            .main-content h2 {
+                font-size: 1.8em;
             }
         }
     </style>
@@ -85,13 +79,14 @@
 <body>
 
     <header class="header">
-        <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">真宗大谷派 光輪寺</a></h1>
+        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
         <ul>
+            <li><a href="index.html">ホーム</a></li>
             <li class="has-dropdown">
-                <a href="#">光輪寺について <span class="arrow">▼</span></a>
+                <a href="#">光輪寺について</a>
                 <ul class="dropdown">
                     <li><a href="history.html">沿革</a></li>
                     <li><a href="temple.html">本堂・施設紹介</a></li>
@@ -104,45 +99,31 @@
     </nav>
 
     <main class="main-content">
-        <h2>光輪寺の沿革</h2>
+        <h2>沿革</h2>
 
         <section class="history-section">
-            <h3>光輪寺の歴史</h3>
+            <p>光輪寺の歴史は、深い信仰心と共に歩んできました。</p>
+            <h3>当寺の歴史</h3>
             <ul>
                 <li>
-                    <span class="year">〇〇〇〇年〇月</span>
-                    <span class="event">光輪寺がこの地に開創されました。開基は〇〇宗の僧侶、〇〇上人。</span>
+                    <strong>慶長年間 (1596年-1615年)</strong>
+                    <p>当寺の開基は、慶長年間に遡ります。戦乱の世に、人々の心の拠り所として建立されました。</p>
                 </li>
                 <li>
-                    <span class="year">〇〇〇〇年〇月</span>
-                    <span class="event">本堂の改築が行われ、現在の姿に近づきました。</span>
+                    <strong>江戸時代</strong>
+                    <p>江戸時代を通じて、地域住民の信仰の中心として栄え、多くの檀信徒に支えられてきました。</p>
                 </li>
                 <li>
-                    <span class="year">〇〇〇〇年〇月</span>
-                    <span class="event">客殿の増築が完了し、より多くの方にご利用いただけるようになりました。</span>
+                    <strong>明治維新以降</strong>
+                    <p>近代化の波の中でも、伝統を守りつつ、時代の変化に対応しながら法灯を守り続けています。</p>
                 </li>
                 <li>
-                    <span class="year">〇〇〇〇年〇月</span>
-                    <span class="event">地域コミュニティとの連携を強化し、坐禅会や写経会などの文化活動を開始しました。</span>
-                </li>
-                <li>
-                    <span class="year">〇〇〇〇年〇月</span>
-                    <span class="event">現住職が就任し、新たな時代に向けての歩みを進めています。</span>
+                    <strong>現代</strong>
+                    <p>地域社会との連携を深め、仏教の教えを現代社会に伝えるべく、様々な活動を行っています。</p>
                 </li>
             </ul>
+            <p>光輪寺は、これからも皆様と共に、豊かな歴史を刻んでまいります。</p>
         </section>
-
-        <section class="history-section">
-            <h3>開創の精神</h3>
-            <p>
-                光輪寺は、古くからの歴史を持つお寺です。〇〇〇〇年、当時の〇〇上人によって、この地域の安寧と人々の心の平安を願って開かれました。以来、真宗大谷派の教えを基に、地域の方々とともに歩んでまいりました。私たちは、仏様の教えが現代社会を生きる私たちにとって、常に心の拠り所となるよう、日々の勤行に励み、様々な活動を行っています。
-            </p>
-            <p>
-                当寺院は、仏法の光が人々の心に届き、苦悩から解放されることを目指しています。
-                これからも、皆様にとって開かれたお寺であり続けるよう、努めてまいります。
-            </p>
-        </section>
-
     </main>
 
     <footer class="footer">
