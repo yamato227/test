@@ -41,3 +41,46 @@ header {
 .main-nav a:hover {
   color: #b94c4c; /* ホバー時の色も調整が必要かもしれません */
 }
+/* ドロップダウンメニューのスタイル */
+.main-nav .dropdown {
+    display: none; /* デフォルトでは非表示 */
+    position: absolute;
+    /* ナビゲーションの ul が display:flex で中央寄せされているため、
+       left: 0; ではなく、親要素の左端に合わせるには調整が必要な場合があります。
+       親 li の position: relative; が正しく設定されていれば left: 0; で機能します。
+    */
+    left: 0; /* 親 li の左端に合わせる */
+    top: 100%; /* 親 li の下部に配置 */
+    background-color: #6b8e23; /* ドロップダウンの背景色 */
+    min-width: 180px; /* 最小幅 */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* 影 */
+    z-index: 1000; /* 他の要素より手前に表示 */
+    border-radius: 0 0 5px 5px; /* 下部のみ角丸 */
+    padding: 0; /* 内部パディング */
+    list-style: none; /* リストのマークを削除 */
+}
+
+.main-nav .dropdown li {
+    margin: 0; /* ドロップダウン内の li のマージン */
+}
+
+.main-nav .dropdown li a {
+    padding: 10px 20px; /* ドロップダウン内のリンクのパディング */
+    color: white; /* ドロップダウン内のリンクの文字色 */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* 区切り線 */
+    white-space: nowrap; /* テキストの折り返し防止 */
+    display: block; /* クリック領域を広げる */
+}
+
+.main-nav .dropdown li:last-child a {
+    border-bottom: none; /* 最後の項目には区切り線なし */
+}
+
+.main-nav .dropdown li a:hover {
+    background-color: #8fbc8f; /* ドロップダウン内のリンクのホバー色 */
+}
+
+/* ドロップダウン表示時の挙動 */
+.main-nav .has-dropdown:hover .dropdown {
+    display: block; /* has-dropdown クラスを持つ要素にホバーした時にドロップダウンを表示 */
+}
