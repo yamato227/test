@@ -32,6 +32,12 @@
             font-weight: 700;
         }
 
+        /* ヘッダーのサイトタイトルへのリンクスタイル */
+        .header .site-title a {
+            text-decoration: none; /* 下線をなくす */
+            color: inherit; /* 親要素の文字色を継承する */
+        }
+
         /* ナビゲーションのスタイル */
         .main-nav {
             background-color: #556b2f;
@@ -269,7 +275,7 @@
 <body>
 
     <header class="header">
-        <h1 class="site-title">真宗大谷派 光輪寺</h1>
+        <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
@@ -330,7 +336,7 @@
         <p>TEL: 048-202-3377</p>
         <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
         <div>
-            <a href="#">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
         </div>
     </footer>
 
