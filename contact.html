@@ -4,121 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - お問い合わせ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 基本的なリセットとフォント */
-        body {
-            margin: 0;
-            font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            background-color: #fcfcfc;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* ヘッダーのスタイル */
-        .header {
-            background-color: #fff;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .header .site-title {
-            margin: 0;
-            font-size: 2.2em;
-            color: #004d40;
-            font-weight: 700;
-        }
-
-        /* ヘッダーのサイトタイトルへのリンクスタイル */
-        .header .site-title a {
-            text-decoration: none; /* 下線をなくす */
-            color: inherit; /* 親要素の文字色を継承する */
-        }
-
-        /* ナビゲーションのスタイル */
-        .main-nav {
-            background-color: #556b2f;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .main-nav ul li {
-            position: relative;
-            margin: 0 15px;
-        }
-
-        .main-nav ul li a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .main-nav ul li a:hover {
-            background-color: #6b8e23;
-            border-radius: 5px;
-        }
-
-        /* ドロップダウンメニューのスタイル */
-        .main-nav .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #6b8e23;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            z-index: 1000;
-            border-radius: 0 0 5px 5px;
-            padding: 0;
-        }
-
-        .main-nav .dropdown li {
-            margin: 0;
-        }
-
-        .main-nav .dropdown li a {
-            padding: 10px 20px;
-            color: white;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            white-space: nowrap;
-        }
-
-        .main-nav .dropdown li:last-child a {
-            border-bottom: none;
-        }
-
-        .main-nav .dropdown li a:hover {
-            background-color: #8fbc8f;
-        }
-
-        /* ドロップダウン表示時の挙動 */
-        .main-nav .has-dropdown:hover .dropdown {
-            display: block;
-        }
-
-        /* ドロップダウン矢印のスタイル */
-        .main-nav .arrow {
-            margin-left: 5px;
-            font-size: 0.8em;
-        }
-
-        /* メインコンテンツエリア */
+        /* ここは contact.html 固有のスタイルのみを記述します */
         .main-content {
             max-width: 960px;
             margin: 40px auto;
@@ -137,146 +26,61 @@
             padding-bottom: 10px;
         }
 
-        .contact-info {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
         .contact-info p {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .contact-info .tel {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #004d40;
-            text-decoration: none; /* 電話番号のリンク下線をなくす */
-        }
-
-        .contact-info .tel:hover {
-            color: #556b2f;
-        }
-
-        .map-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            height: 400px; /* 地図の高さ */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden; /* 角丸にするために必要 */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .access-info {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .access-info h3 {
-            font-size: 1.5em;
-            color: #556b2f;
-            margin-bottom: 15px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-
-        .access-info p {
             margin-bottom: 1em;
-        }
-
-        .access-info ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .access-info li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .access-info li::before {
-            content: "•";
-            color: #6b8e23;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        /* フッターのスタイル */
-        .footer {
-            background-color: #333;
-            color: #ccc;
-            padding: 30px 20px;
             text-align: center;
-            font-size: 0.9em;
-            margin-top: 50px;
         }
 
-        .footer p {
-            margin: 5px 0;
+        .contact-form {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
 
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #556b2f;
         }
 
-        .footer a:hover {
-            text-decoration: underline;
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #6b8e23;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #556b2f;
         }
 
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            .header .site-title {
-                font-size: 1.8em;
-            }
-
-            .main-nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .main-nav ul li {
-                width: 100%;
-                margin: 0;
-                border-bottom: 1px solid #6b8e23;
-            }
-
-            .main-nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            .main-nav .dropdown {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                background-color: #8fbc8f;
-            }
-
-            .main-nav .dropdown li a {
-                padding-left: 40px;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
             .main-content {
                 margin: 20px;
                 padding: 15px;
@@ -285,23 +89,20 @@
             .main-content h2 {
                 font-size: 1.8em;
             }
-
-            .map-container {
-                height: 300px;
-            }
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">真宗大谷派 光輪寺</a></h1>
+        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
         <ul>
+            <li><a href="index.html">ホーム</a></li>
             <li class="has-dropdown">
-                <a href="#">光輪寺について <span class="arrow">▼</span></a>
+                <a href="#">光輪寺について</a>
                 <ul class="dropdown">
                     <li><a href="history.html">沿革</a></li>
                     <li><a href="temple.html">本堂・施設紹介</a></li>
@@ -317,34 +118,29 @@
         <h2>お問い合わせ</h2>
 
         <section class="contact-info">
-            <p>光輪寺へのお問い合わせは、お電話または下記フォームより承っております。</p>
-            <p>ご不明な点やご質問がございましたら、お気軽にご連絡ください。</p>
-            <p><strong>電話番号:</strong> <a href="tel:0482023377" class="tel">048-202-3377</a></p>
-            <p>（受付時間：午前9時～午後5時）</p>
+            <p>ご質問やご相談がございましたら、お気軽にお問い合わせください。</p>
+            <p>お電話でのご連絡：048-202-3377 （受付時間：午前9時～午後5時）</p>
+            <p>また、以下のフォームからもお問い合わせいただけます。</p>
         </section>
 
-        <section class="map-section">
-            <h3>所在地</h3>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.954605917462!2d139.6053896152504!3d35.80373418015522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x359367c0f1e0a2b9%3A0x7d6f5f3e4e9f7a7!2z44CSMzUzLTAwMDQg5埼玉県志木市本町5丁目2-85!5e0!3m2!1sja!2sjp!4v1678912345678!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <p style="text-align: center;">〒353-0004 埼玉県志木市本町５丁目２−８５</p>
-        </section>
+        <section class="contact-form">
+            <form action="#" method="post">
+                <label for="name">お名前:</label>
+                <input type="text" id="name" name="name" required>
 
-        <section class="access-info">
-            <h3>アクセス</h3>
-            <ul>
-                <li><strong>電車でお越しの場合:</strong><br>
-                    東武東上線「志木駅」南口より徒歩約10分。</li>
-                <li><strong>お車でお越しの場合:</strong><br>
-                    関越自動車道「所沢IC」より約20分。<br>
-                    ※当寺院には駐車場がございません。近隣のコインパーキングをご利用ください。</li>
-                <li><strong>バスでお越しの場合:</strong><br>
-                    志木駅南口より〇〇行バス乗車、「〇〇」バス停下車、徒歩〇分。</li>
-            </ul>
-        </section>
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
 
-        </main>
+                <label for="subject">件名:</label>
+                <input type="text" id="subject" name="subject">
+
+                <label for="message">お問い合わせ内容:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">送信</button>
+            </form>
+        </section>
+    </main>
 
     <footer class="footer">
         <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
