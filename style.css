@@ -29,6 +29,7 @@ header {
 
 .main-nav li {
   margin: 0 1.5em;
+  position: relative; /* ★この行を追加してください */
 }
 
 .main-nav a {
@@ -45,11 +46,7 @@ header {
 .main-nav .dropdown {
     display: none; /* デフォルトでは非表示 */
     position: absolute;
-    /* ナビゲーションの ul が display:flex で中央寄せされているため、
-       left: 0; ではなく、親要素の左端に合わせるには調整が必要な場合があります。
-       親 li の position: relative; が正しく設定されていれば left: 0; で機能します。
-    */
-    left: 0; /* 親 li の左端に合わせる */
+    left: 0; /* 親 li が position: relative; になったので、親 li の左端に揃います */
     top: 100%; /* 親 li の下部に配置 */
     background-color: #6b8e23; /* ドロップダウンの背景色 */
     min-width: 180px; /* 最小幅 */
@@ -78,32 +75,6 @@ header {
 
 .main-nav .dropdown li a:hover {
     background-color: #8fbc8f; /* ドロップダウン内のリンクのホバー色 */
-}
-
-/* ドロップダウン表示時の挙動 */
-.main-nav .has-dropdown:hover .dropdown {
-    display: block; /* has-dropdown クラスを持つ要素にホバーした時にドロップダウンを表示 */
-}
-/* main-nav li のスタイルを修正・追加 */
-.main-nav li {
-  margin: 0 1.5em;
-  position: relative; /* ★追加：ドロップダウンの基準位置として設定 */
-}
-
-/* ドロップダウンメニューのスタイル */
-.main-nav .dropdown {
-    display: none; /* デフォルトでは非表示 */
-    position: absolute;
-    /* 親 li が position: relative; になったので、left: 0; で親 li の左端に揃います */
-    left: 0;
-    top: 100%; /* 親 li の下部に配置 */
-    background-color: #6b8e23; /* ドロップダウンの背景色 */
-    min-width: 180px; /* 最小幅 */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* 影 */
-    z-index: 1000; /* 他の要素より手前に表示 */
-    border-radius: 0 0 5px 5px; /* 下部のみ角丸 */
-    padding: 0; /* 内部パディング */
-    list-style: none; /* リストのマークを削除 */
 }
 
 /* ドロップダウン表示時の挙動 */
