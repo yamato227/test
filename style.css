@@ -1,83 +1,172 @@
+/* style.css */
+
+/* 基本的なリセットとフォント */
 body {
-  font-family: "Yu Gothic", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fffdf9;
-  color: #333;
+    margin: 0;
+    font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background-color: #fcfcfc; /* sougi.htmlのbody背景色を採用 */
+    color: #333;
+    line-height: 1.6;
 }
 
-header {
-  background-color: #f6ede2;
-  padding: 1em;
-  text-align: center;
+/* ヘッダーのスタイル */
+.header {
+    background-color: #fff; /* sougi.htmlのヘッダー背景色を採用 */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-/* ここに背景色を追加します */
+.header .site-title {
+    margin: 0;
+    font-size: 2.2em;
+    color: #004d40;
+    font-weight: 700;
+}
+
+/* ヘッダーのサイトタイトルへのリンクスタイル */
+.header .site-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ナビゲーションのスタイル */
 .main-nav {
-  background-color: #556b2f; /* メニューの背景色を緑に設定 */
-  padding: 10px 0; /* 必要に応じてパディングも追加 */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 必要であれば影も追加 */
+    background-color: #556b2f;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .main-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 1em 0; /* margin は、親要素の padding と合わせて調整してください */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.main-nav li {
-  margin: 0 1.5em;
-  position: relative; /* ★この行を追加してください */
+.main-nav ul li {
+    position: relative; /* ドロップダウンの基準位置として重要 */
+    margin: 0 15px;
 }
 
-.main-nav a {
-  text-decoration: none;
-  color: white; /* メニューの背景色が緑になるため、文字色を白に変更 */
-  font-weight: bold;
-  transition: color 0.3s;
+.main-nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
 }
 
-.main-nav a:hover {
-  color: #b94c4c; /* ホバー時の色も調整が必要かもしれません */
+.main-nav ul li a:hover {
+    background-color: #6b8e23;
+    border-radius: 5px;
 }
+
 /* ドロップダウンメニューのスタイル */
 .main-nav .dropdown {
-    display: none; /* デフォルトでは非表示 */
+    display: none;
     position: absolute;
-    left: 0; /* 親 li が position: relative; になったので、親 li の左端に揃います */
-    top: 100%; /* 親 li の下部に配置 */
-    background-color: #6b8e23; /* ドロップダウンの背景色 */
-    min-width: 180px; /* 最小幅 */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* 影 */
-    z-index: 1000; /* 他の要素より手前に表示 */
-    border-radius: 0 0 5px 5px; /* 下部のみ角丸 */
-    padding: 0; /* 内部パディング */
-    list-style: none; /* リストのマークを削除 */
+    top: 100%;
+    left: 0;
+    background-color: #6b8e23;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border-radius: 0 0 5px 5px;
+    padding: 0;
+    list-style: none;
 }
 
 .main-nav .dropdown li {
-    margin: 0; /* ドロップダウン内の li のマージン */
+    margin: 0;
 }
 
 .main-nav .dropdown li a {
-    padding: 10px 20px; /* ドロップダウン内のリンクのパディング */
-    color: white; /* ドロップダウン内のリンクの文字色 */
-    border-bottom: 1px solid rgba(255,255,255,0.1); /* 区切り線 */
-    white-space: nowrap; /* テキストの折り返し防止 */
-    display: block; /* クリック領域を広げる */
+    padding: 10px 20px;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+    display: block;
 }
 
 .main-nav .dropdown li:last-child a {
-    border-bottom: none; /* 最後の項目には区切り線なし */
+    border-bottom: none;
 }
 
 .main-nav .dropdown li a:hover {
-    background-color: #8fbc8f; /* ドロップダウン内のリンクのホバー色 */
+    background-color: #8fbc8f;
 }
 
 /* ドロップダウン表示時の挙動 */
 .main-nav .has-dropdown:hover .dropdown {
-    display: block; /* has-dropdown クラスを持つ要素にホバーした時にドロップダウンを表示 */
+    display: block;
 }
+
+/* フッターのスタイル */
+/* sougi.htmlのフッターデザインを採用 */
+.footer {
+    background-color: #333; /* sougi.htmlのフッター背景色を採用 */
+    color: #ccc;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #fff; /* sougi.htmlのフッターリンク色を採用 */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 (sougi.htmlのものをベースに調整) */
+@media (max-width: 768px) {
+    .header .site-title {
+        font-size: 1.8em;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #6b8e23;
+    }
+
+    .main-nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .main-nav .dropdown {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: #8fbc8f;
+    }
+
+    .main-nav .dropdown li a {
+        padding-left: 40px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
+
+/* ここから下は各ページ固有のスタイル。必要に応じて各HTMLファイルの <style> タグ内に記述 */
+/* 例: .hero-section, .intro-section, .main-content, .service-list, .service-contact など */
