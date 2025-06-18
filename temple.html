@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光輪寺 - 本堂・施設紹介</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本的なリセットとフォント */
+        body {
+            margin: 0;
+            font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            background-color: #fcfcfc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ヘッダーのスタイル */
+        .header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header .site-title {
+            margin: 0;
+            font-size: 2.2em;
+            color: #004d40;
+            font-weight: 700;
+        }
+
+        /* ナビゲーションのスタイル */
+        .main-nav {
+            background-color: #556b2f;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .main-nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .main-nav ul li a:hover {
+            background-color: #6b8e23;
+            border-radius: 5px;
+        }
+
+        /* ドロップダウンメニューのスタイル */
+        .main-nav .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #6b8e23;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            z-index: 1000;
+            border-radius: 0 0 5px 5px;
+            padding: 0;
+        }
+
+        .main-nav .dropdown li {
+            margin: 0;
+        }
+
+        .main-nav .dropdown li a {
+            padding: 10px 20px;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            white-space: nowrap;
+        }
+
+        .main-nav .dropdown li:last-child a {
+            border-bottom: none;
+        }
+
+        .main-nav .dropdown li a:hover {
+            background-color: #8fbc8f;
+        }
+
+        /* ドロップダウン表示時の挙動 */
+        .main-nav .has-dropdown:hover .dropdown {
+            display: block;
+        }
+
+        /* ドロップダウン矢印のスタイル */
+        .main-nav .arrow {
+            margin-left: 5px;
+            font-size: 0.8em;
+        }
+
+        /* メインコンテンツエリア */
+        .main-content {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .main-content h2 {
+            font-size: 2em;
+            color: #004d40;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .facility-item {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px; /* 画像とテキストの間隔 */
+            flex-wrap: wrap; /* 小さい画面で折り返す */
+        }
+
+        .facility-item.reverse {
+            flex-direction: row-reverse; /* 画像とテキストの左右を反転 */
+        }
+
+        .facility-item h3 {
+            font-size: 1.8em;
+            color: #556b2f;
+            margin-top: 0;
+            margin-bottom: 15px;
+            width: 100%; /* タイトルは常に幅100% */
+            text-align: center; /* 中央寄せ */
+        }
+
+        .facility-item .facility-image {
+            flex: 1; /* 画像が利用可能なスペースを占める */
+            min-width: 280px; /* 最小幅 */
+            max-width: 45%; /* 最大幅 */
+            height: 250px;
+            object-fit: cover; /* 画像をトリミングしてカバー */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .facility-item .facility-description {
+            flex: 1; /* テキストが利用可能なスペースを占める */
+            min-width: 300px; /* 最小幅 */
+        }
+
+        .facility-item p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+        
+        /* フッターのスタイル */
+        .footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .header .site-title {
+                font-size: 1.8em;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav ul li {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid #6b8e23;
+            }
+
+            .main-nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            .main-nav .dropdown {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #8fbc8f;
+            }
+
+            .main-nav .dropdown li a {
+                padding-left: 40px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .main-content {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .main-content h2 {
+                font-size: 1.8em;
+            }
+
+            .facility-item {
+                flex-direction: column; /* モバイルでは縦並び */
+                align-items: center;
+                gap: 15px;
+            }
+
+            .facility-item.reverse {
+                flex-direction: column; /* モバイルでは反転も縦並び */
+            }
+
+            .facility-item .facility-image {
+                max-width: 100%;
+                height: 200px;
+                min-width: unset; /* 最小幅をリセット */
+            }
+
+            .facility-item .facility-description {
+                min-width: unset; /* 最小幅をリセット */
+            }
+
+            .facility-item h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="site-title">真宗大谷派 光輪寺</h1>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li class="has-dropdown">
+                <a href="#">光輪寺について <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                    <li><a href="/about/history.html">沿革</a></li>
+                    <li><a href="/about/temple.html">本堂・施設紹介</a></li>
+                    <li><a href="/about/priest.html">住職紹介</a></li>
+                </ul>
+            </li>
+            <li><a href="/sougi.html/">葬儀・法要について</a></li>
+            <li><a href="/contact.html/">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <h2>本堂・施設紹介</h2>
+
+        <div class="facility-item">
+            <img src="https://via.placeholder.com/400x250/b0c4de/333333?text=本堂写真" alt="光輪寺本堂" class="facility-image">
+            <div class="facility-description">
+                <h3>本堂</h3>
+                <p>
+                    光輪寺の本堂は、日々の勤行や様々な法要が執り行われる中心となる場所です。
+                    厳かな雰囲気に包まれた堂内は、訪れる人々に静寂と安らぎをもたらします。
+                    定期的な清掃と手入れにより、常に美しく保たれており、参拝者が心を落ち着けて故人を偲び、仏様と向き合うことができます。
+                </p>
+            </div>
+        </div>
+
+        <div class="facility-item reverse">
+            <img src="https://via.placeholder.com/400x250/add8e6/333333?text=客殿写真" alt="光輪寺客殿" class="facility-image">
+            <div class="facility-description">
+                <h3>客間</h3>
+                <p>
+                    客間は、ご法事の際に親族の方々がお集まりになる場所としてご利用いただけます。
+                    落ち着いた和の雰囲気の中で、故人との思い出を語り合い、親睦を深める時間をお過ごしください。
+                </p>
+            </div>
+        </div>
+      
+        <div class="facility-item reverse">
+            <img src="https://via.placeholder.com/400x250/afeeee/333333?text=駐車場写真" alt="光輪寺駐車場" class="facility-image">
+            <div class="facility-description">
+                <h3>駐車場</h3>
+                <p>
+                    当寺院には、駐車場がございません。
+　　　　　　　　　　　最寄りにコインパーキングがございますので、そちらをご利用ください。
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
+        <p>TEL: 048-202-3377</p>
+        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
+        <div>
+            <a href="#">ホーム</a> | <a href="#">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+        </div>
+    </footer>
+
+</body>
+</html>
