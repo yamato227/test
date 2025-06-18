@@ -3,110 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光輪寺の沿革 | 真宗大谷派 浄土真宗 光輪寺（埼玉県志木市）</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>光輪寺 - 沿革</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 以下、元のCSSそのまま（省略せず完全に含めています） */
-        body {
-            margin: 0;
-            font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            background-color: #fcfcfc;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .header {
-            background-color: #fff;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .header .site-title {
-            margin: 0;
-            font-size: 2.2em;
-            color: #004d40;
-            font-weight: 700;
-        }
-
-        .main-nav {
-            background-color: #556b2f;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .main-nav ul li {
-            position: relative;
-            margin: 0 15px;
-        }
-
-        .main-nav ul li a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .main-nav ul li a:hover {
-            background-color: #6b8e23;
-            border-radius: 5px;
-        }
-
-        .main-nav .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #6b8e23;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            z-index: 1000;
-            border-radius: 0 0 5px 5px;
-            padding: 0;
-        }
-
-        .main-nav .dropdown li {
-            margin: 0;
-        }
-
-        .main-nav .dropdown li a {
-            padding: 10px 20px;
-            color: white;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            white-space: nowrap;
-        }
-
-        .main-nav .dropdown li:last-child a {
-            border-bottom: none;
-        }
-
-        .main-nav .dropdown li a:hover {
-            background-color: #8fbc8f;
-        }
-
-        .main-nav .has-dropdown:hover .dropdown {
-            display: block;
-        }
-
-        .main-nav .arrow {
-            margin-left: 5px;
-            font-size: 0.8em;
-        }
-
+        /* ここに history.html 固有のスタイルがあれば追加 */
+        /* もし style.css に全ての共通スタイルがあるなら、この <style> タグは不要 */
         .main-content {
             max-width: 960px;
             margin: 40px auto;
@@ -125,107 +27,57 @@
             padding-bottom: 10px;
         }
 
-        .main-content h3 {
+        .history-section {
+            padding: 20px 0;
+        }
+
+        .history-section h3 {
             font-size: 1.5em;
             color: #556b2f;
-            margin-top: 30px;
+            border-left: 5px solid #6b8e23;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        .history-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .history-section li {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 5px;
             margin-bottom: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
         }
 
-        .main-content p {
-            margin-bottom: 1em;
-            text-align: justify;
+        .history-section .year {
+            font-weight: bold;
+            color: #004d40;
+            font-size: 1.1em;
+            flex-shrink: 0; /* 年号が縮まないようにする */
+            width: 100px; /* 年号の幅を固定 */
         }
 
-        .main-content ul {
-            list-style: disc;
-            margin-left: 20px;
-            margin-bottom: 1em;
+        .history-section .event {
+            flex-grow: 1; /* イベント内容が残りのスペースを占める */
         }
 
-        .main-content ol {
-            list-style: decimal;
-            margin-left: 20px;
-            margin-bottom: 1em;
-        }
-
-        .history-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .footer {
-            background-color: #333;
-            color: #ccc;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.9em;
-            margin-top: 50px;
-        }
-
-        .footer p {
-            margin: 5px 0;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            .header .site-title {
-                font-size: 1.8em;
-            }
-
-            .main-nav ul {
+            .history-section li {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
-            .main-nav ul li {
-                width: 100%;
-                margin: 0;
-                border-bottom: 1px solid #6b8e23;
-            }
-
-            .main-nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            .main-nav .dropdown {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                background-color: #8fbc8f;
-            }
-
-            .main-nav .dropdown li a {
-                padding-left: 40px;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            .main-content {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .main-content h2 {
-                font-size: 1.8em;
-            }
-
-            .main-content h3 {
-                font-size: 1.3em;
+            .history-section .year {
+                width: auto;
+                margin-bottom: 5px;
             }
         }
     </style>
@@ -233,7 +85,7 @@
 <body>
 
     <header class="header">
-        <h1 class="site-title">真宗大谷派 光輪寺</h1>
+        <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
@@ -254,22 +106,43 @@
     <main class="main-content">
         <h2>光輪寺の沿革</h2>
 
-        <p>
-            光輪寺は、真宗大谷派に属する寺院として、人々の心のよりどころとなってまいりました。
-            開教以来、幾多の変遷を経て、今日に至るまでその法灯を守り続けています。
-        </p>
-        <img src="https://via.placeholder.com/800x400/add8e6/333333?text=光輪寺の歴史的写真" alt="光輪寺の歴史的な建物" class="history-image">
+        <section class="history-section">
+            <h3>光輪寺の歴史</h3>
+            <ul>
+                <li>
+                    <span class="year">〇〇〇〇年〇月</span>
+                    <span class="event">光輪寺がこの地に開創されました。開基は〇〇宗の僧侶、〇〇上人。</span>
+                </li>
+                <li>
+                    <span class="year">〇〇〇〇年〇月</span>
+                    <span class="event">本堂の改築が行われ、現在の姿に近づきました。</span>
+                </li>
+                <li>
+                    <span class="year">〇〇〇〇年〇月</span>
+                    <span class="event">客殿の増築が完了し、より多くの方にご利用いただけるようになりました。</span>
+                </li>
+                <li>
+                    <span class="year">〇〇〇〇年〇月</span>
+                    <span class="event">地域コミュニティとの連携を強化し、坐禅会や写経会などの文化活動を開始しました。</span>
+                </li>
+                <li>
+                    <span class="year">〇〇〇〇年〇月</span>
+                    <span class="event">現住職が就任し、新たな時代に向けての歩みを進めています。</span>
+                </li>
+            </ul>
+        </section>
 
-        <h3>開山と初期の発展</h3>
-        <p>
-            当寺は〇〇年（西暦〇〇年）に、志木開教所として開設されました。
-            仏法を広める重要な拠点となり、多くの信徒の帰依を集めました。
-        </p>
-        <ul>
-            <li><strong>〇〇年（西暦〇〇年）</strong>: 光輪寺 志木開教所 開教。</li>
-            <li><strong>〇〇年（西暦〇〇年）</strong>: 初代住職 〇〇上人が就任。</li>
-            <li><strong>〇〇年（西暦〇〇年）</strong>: 本堂の一部を増改築。</li>
-        </ul>
+        <section class="history-section">
+            <h3>開創の精神</h3>
+            <p>
+                光輪寺は、古くからの歴史を持つお寺です。〇〇〇〇年、当時の〇〇上人によって、この地域の安寧と人々の心の平安を願って開かれました。以来、真宗大谷派の教えを基に、地域の方々とともに歩んでまいりました。私たちは、仏様の教えが現代社会を生きる私たちにとって、常に心の拠り所となるよう、日々の勤行に励み、様々な活動を行っています。
+            </p>
+            <p>
+                当寺院は、仏法の光が人々の心に届き、苦悩から解放されることを目指しています。
+                これからも、皆様にとって開かれたお寺であり続けるよう、努めてまいります。
+            </p>
+        </section>
+
     </main>
 
     <footer class="footer">
@@ -277,9 +150,7 @@
         <p>TEL: 048-202-3377</p>
         <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
         <div>
-            <a href="index.html">ホーム</a> | 
-            <a href="contact.html">お問い合わせ</a> | 
-            <a href="privacy.html">プライバシーポリシー</a>
+            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
         </div>
     </footer>
 
