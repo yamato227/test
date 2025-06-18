@@ -4,122 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - 葬儀・法要について</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 基本的なリセットとフォント */
-        body {
-            margin: 0;
-            font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            background-color: #fcfcfc;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* ヘッダーのスタイル */
-        .header {
-            background-color: #fff;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .header .site-title {
-            margin: 0;
-            font-size: 2.2em;
-            color: #004d40;
-            font-weight: 700;
-        }
-
-        /* ヘッダーのサイトタイトルへのリンクスタイル */
-        .header .site-title a {
-            text-decoration: none; /* 下線をなくす */
-            color: inherit; /* 親要素の文字色を継承する */
-        }
-
-
-        /* ナビゲーションのスタイル */
-        .main-nav {
-            background-color: #556b2f;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .main-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .main-nav ul li {
-            position: relative;
-            margin: 0 15px;
-        }
-
-        .main-nav ul li a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .main-nav ul li a:hover {
-            background-color: #6b8e23;
-            border-radius: 5px;
-        }
-
-        /* ドロップダウンメニューのスタイル */
-        .main-nav .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #6b8e23;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            z-index: 1000;
-            border-radius: 0 0 5px 5px;
-            padding: 0;
-        }
-
-        .main-nav .dropdown li {
-            margin: 0;
-        }
-
-        .main-nav .dropdown li a {
-            padding: 10px 20px;
-            color: white;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            white-space: nowrap;
-        }
-
-        .main-nav .dropdown li:last-child a {
-            border-bottom: none;
-        }
-
-        .main-nav .dropdown li a:hover {
-            background-color: #8fbc8f;
-        }
-
-        /* ドロップダウン表示時の挙動 */
-        .main-nav .has-dropdown:hover .dropdown {
-            display: block;
-        }
-
-        /* ドロップダウン矢印のスタイル */
-        .main-nav .arrow {
-            margin-left: 5px;
-            font-size: 0.8em;
-        }
-
-        /* メインコンテンツエリア */
+        /* ここは sougi.html 固有のスタイルのみを記述します */
         .main-content {
             max-width: 960px;
             margin: 40px auto;
@@ -151,7 +40,7 @@
         }
 
         .service-list {
-            list-style: none; /* デフォルトのリストマークを削除 */
+            list-style: none;
             padding: 0;
             margin-bottom: 2em;
         }
@@ -175,7 +64,7 @@
         .service-contact {
             text-align: center;
             padding: 30px;
-            background-color: #e0f2f1; /* 少し明るい緑 */
+            background-color: #e0f2f1;
             border-radius: 8px;
             margin-top: 40px;
         }
@@ -202,65 +91,8 @@
             background-color: #556b2f;
         }
 
-        /* フッターのスタイル */
-        .footer {
-            background-color: #333;
-            color: #ccc;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.9em;
-            margin-top: 50px;
-        }
-
-        .footer p {
-            margin: 5px 0;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* レスポンシブ対応 */
+        /* レスポンシブ対応 (sougi.htmlのメディアクエリに合わせる) */
         @media (max-width: 768px) {
-            .header .site-title {
-                font-size: 1.8em;
-            }
-
-            .main-nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .main-nav ul li {
-                width: 100%;
-                margin: 0;
-                border-bottom: 1px solid #6b8e23;
-            }
-
-            .main-nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            .main-nav .dropdown {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                background-color: #8fbc8f;
-            }
-
-            .main-nav .dropdown li a {
-                padding-left: 40px;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
             .main-content {
                 margin: 20px;
                 padding: 15px;
@@ -280,13 +112,14 @@
 <body>
 
     <header class="header">
-        <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">真宗大谷派 光輪寺</a></h1>
+        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
         <ul>
+            <li><a href="index.html">ホーム</a></li>
             <li class="has-dropdown">
-                <a href="#">光輪寺について <span class="arrow">▼</span></a>
+                <a href="#">光輪寺について</a>
                 <ul class="dropdown">
                     <li><a href="history.html">沿革</a></li>
                     <li><a href="temple.html">本堂・施設紹介</a></li>
