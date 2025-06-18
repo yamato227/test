@@ -64,11 +64,30 @@
             padding: 15px;
         }
 
-        .facility-item h4 {
+        .facility-item h4 { /* 新しくh4のスタイルを追加 */
             font-size: 1.3em;
             color: #004d40;
             margin-bottom: 10px;
         }
+
+        /* 画像なしの施設項目のためのスタイル */
+        .facility-item.no-image {
+            display: block; /* Flexboxではなくブロック要素として扱う */
+            text-align: left; /* テキストを左寄せに */
+            padding-left: 15px; /* 適度なインデント */
+        }
+        .facility-item.no-image .facility-item-text {
+            width: 100%; /* テキストが100%幅を占める */
+            padding: 0;
+            margin-left: 0; /* 左寄せにするため */
+        }
+        .facility-item.no-image h3 {
+            text-align: left; /* タイトルも左寄せ */
+            margin-left: 0;
+            padding-left: 0;
+            border-bottom: none; /* 下線を消す場合は */
+        }
+
 
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
@@ -95,6 +114,18 @@
                 width: 100%;
                 padding: 0;
                 text-align: center; /* テキストも中央寄せ */
+            }
+
+            /* レスポンシブ時の画像なし項目 */
+            .facility-item.no-image {
+                text-align: left; /* スマートフォンでも左寄せを維持 */
+                padding-left: 0;
+            }
+            .facility-item.no-image .facility-item-text {
+                 text-align: left;
+            }
+            .facility-item.no-image h3 {
+                text-align: left;
             }
         }
     </style>
@@ -127,7 +158,7 @@
         <p>光輪寺の境内には、皆様の心の安らぎを育む様々な施設がございます。</p>
 
         <section class="facility-item">
-            <img src="img/temple_main.jpg" alt="本堂の外観" />
+            <img src="hondo.jpg" alt="本堂の外観" />
             <div class="facility-item-text">
                 <h3>本堂</h3>
                 <p>当寺の中心となる本堂です。日々の勤行や法要が執り行われ、皆様の心の拠り所となっています。静謐な空間で、仏様と向き合う時間をお過ごしください。</p>
@@ -135,21 +166,19 @@
         </section>
 
         <section class="facility-item">
-            <img src="img/temple_nookotu.jpg" alt="納骨堂" />
-            <div class="facility-item-text">
-                <h3>納骨堂</h3>
-                <p>大切なお骨をお預かりし、永代にわたりご供養する納骨堂です。ご遺族がいつでもお参りできるよう、清潔で管理の行き届いた空間を提供しております。</p>
+            <img src="kyakuma.jpg" alt="客間" /> <div class="facility-item-text">
+                <h3>客間</h3>
+                <p>ご法事の際に親族の方々がお集まりになる場所としてご利用いただけます。落ち着いた和の雰囲気の中で、故人との思い出を語り合い、親睦を深める時間をお過ごしください。</p>
             </div>
         </section>
 
-        <section class="facility-item">
-            <img src="img/temple_kaikan.jpg" alt="会館" />
+        <section class="facility-item no-image">
             <div class="facility-item-text">
-                <h3>会館（控室）</h3>
-                <p>法事や葬儀の際に、ご遺族や参列者の皆様にご利用いただける会館です。控え室や休憩スペースとして、落ち着いてお過ごしいただけます。</p>
+                <h3>駐車場</h3>
+                <p>当寺院に駐車場はございません。近隣のコインパーキングをご利用ください。</p>
             </div>
         </section>
-    </main>
+        </main>
 
     <footer class="footer">
         <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
