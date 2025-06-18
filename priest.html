@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>光輪寺 - 住職紹介</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" /> <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
     <style>
-        /* ここに priest.html 固有のスタイルがあれば追加 */
-        /* もし style.css に全ての共通スタイルがあるなら、この <style> タグは不要 */
+        /* ここに priest.html 固有のスタイルのみを記述します */
+        /* 共通スタイル（ヘッダー、ナビゲーション、フッターなど）は style.css にあることを前提とします */
+
+        /* ヘッダーのサイトタイトルへのリンクスタイル（style.cssに移動推奨） */
+        /* もし style.css に共通のスタイルがあるなら、この部分は削除しても構いません */
+        .header .site-title a {
+            text-decoration: none; /* 下線をなくす */
+            color: inherit; /* 親要素の文字色を継承する */
+        }
+
         .main-content {
             max-width: 960px;
             margin: 40px auto;
@@ -168,7 +175,7 @@
     <footer class="footer">
         <p>〒353-0004 埼玉県志木市本町５丁目２−８５</p>
         <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
+        <p>© 2025 kourin-ji All Rights Reserved.</p>
         <div>
             <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
         </div>
