@@ -9,6 +9,13 @@
     <style>
         /* ここに index.html 固有のスタイルがあれば追加 */
         /* 例えば、ヒーローイメージやトップページ専用のレイアウトなど */
+
+        /* ヘッダーのサイトタイトルへのリンクスタイル（style.cssに移動推奨） */
+        .header .site-title a {
+            text-decoration: none; /* 下線をなくす */
+            color: inherit; /* 親要素の文字色を継承する */
+        }
+
         .hero-section {
             background-image: url('img/main-visual.jpg'); /* トップページのメインビジュアル画像 */
             background-size: cover;
@@ -76,31 +83,6 @@
             text-align: justify;
         }
 
-        /* CTAボタンが不要になったため、以下のスタイルは適用されなくなりますが、残しておきます。 */
-        .cta-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .cta-buttons a {
-            display: inline-block;
-            background-color: #6b8e23;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-buttons a:hover {
-            background-color: #556b2f;
-        }
-
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .hero-section {
@@ -123,16 +105,6 @@
 
             .intro-section h3 {
                 font-size: 1.8em;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-buttons a {
-                width: 80%;
-                text-align: center;
             }
         }
     </style>
@@ -173,7 +145,7 @@
                 私たちの寺院は、地域社会に根ざし、皆様の生活に寄り添う存在でありたいと願っています。
                 仏教の教えを通じて、心の豊かさと穏やかさを育むお手伝いをさせていただきます。
             </p>
-            </section>
+        </section>
 
         </main>
 
