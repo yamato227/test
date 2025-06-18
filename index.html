@@ -7,18 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ここに index.html 固有のスタイルがあれば追加 */
-        /* 例えば、ヒーローイメージやトップページ専用のレイアウトなど */
-
-        /* ヘッダーのサイトタイトルへのリンクスタイル（style.cssに移動推奨） */
-        /* もし style.css に共通のスタイルがあるなら、この部分は削除しても構いません */
-        .header .site-title a {
-            text-decoration: none; /* 下線をなくす */
-            color: inherit; /* 親要素の文字色を継承する */
-        }
-
+        /* ここは index.html 固有のスタイルのみを記述します */
         .hero-section {
-            background-image: url('img/unnamed.webp'); /* ここを修正しました */
+            background-image: url('img/unnamed.webp');
             background-size: cover;
             background-position: center;
             color: white;
@@ -84,7 +75,7 @@
             text-align: justify;
         }
 
-        /* レスポンシブ対応 */
+        /* レスポンシブ対応 (sougi.htmlのメディアクエリに合わせる) */
         @media (max-width: 768px) {
             .hero-section {
                 height: 300px;
@@ -113,13 +104,14 @@
 <body>
 
     <header class="header">
-        <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">真宗大谷派 光輪寺</a></h1>
+        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
         <ul>
+            <li><a href="index.html">ホーム</a></li>
             <li class="has-dropdown">
-                <a href="#">光輪寺について </a>
+                <a href="#">光輪寺について</a>
                 <ul class="dropdown">
                     <li><a href="history.html">沿革</a></li>
                     <li><a href="temple.html">本堂・施設紹介</a></li>
@@ -148,12 +140,12 @@
             </p>
         </section>
 
-        </main>
+    </main>
 
     <footer class="footer">
         <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
         <p>TEL: 048-202-3377</p>
-        <p>© 2025 kourin-ji All Rights Reserved.</p>
+        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
         <div>
             <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
         </div>
