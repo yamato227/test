@@ -1,5 +1,9 @@
 /* style.css */
 
+/* Google Fonts - Noto Serif JP をインポート */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+
+
 /* 基本的なリセットとフォント */
 body {
     margin: 0;
@@ -21,7 +25,10 @@ body {
     margin: 0;
     font-size: 2.2em;
     color: #004d40;
-    font-weight: 700;
+    /* font-weight: 700;  ← Noto Serif JP の 900 を使うのでコメントアウトまたは削除 */
+    /* ここに Noto Serif JP を適用 */
+    font-family: "Noto Serif JP", serif; /* ヘッダーのサイトタイトルにNoto Serif JPを適用 */
+    font-weight: 900; /* Noto Serif JP の 900 ウェイトを明示的に指定 */
 }
 
 /* ヘッダーのサイトタイトルへのリンクスタイル */
