@@ -1,17 +1,75 @@
-/* style2.css の関連部分を修正 */
+/* style2.css */
+
+/* Google Fonts - Noto Serif JP をインポート */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=swap');
+
+
+/* 基本的なリセットとフォント */
+body {
+    margin: 0;
+    font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background-color: white; /* 背景を白に変更 */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ヘッダーのスタイル */
+.header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.header .site-title {
+    margin: 0;
+    font-size: 2.2em;
+    color: #004d40;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+}
+
+.header .site-title a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* ナビゲーションのスタイル */
 .main-nav {
-    background-color: #4a6047; /* 落ち着いた緑に変更 */
+    background-color: #CAE5CD; /* メニューバーの背景色を#CAE5CDに変更 */
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* ... 既存の .main-nav ul, li, a のスタイルはそのまま ... */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav ul li {
+    position: relative;
+    margin: 0 5px; /* メニュー項目間の余白を調整 */
+}
+
+.main-nav ul li a {
+    display: block;
+    color: #333; /* 文字色を濃いめに変更 (背景色に合わせて) */
+    text-decoration: none;
+    padding: 10px 20px; /* 四角く見せるためのパディング */
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    background-color: #CAE5CD; /* 通常時のメニュー項目の背景色 */
+    border-radius: 5px; /* 角を少し丸くする */
+}
 
 .main-nav ul li a:hover {
-    background-color: #6b8e23; /* 現状維持（この色で問題なければ） */
-    border-radius: 5px;
+    background-color: #b0d8b5; /* ホバー時の背景色を少し暗く */
+    color: #004d40; /* ホバー時の文字色を強調 */
 }
 
 /* ドロップダウンメニューのスタイル */
@@ -20,7 +78,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #4a6047; /* 親メニューと同じ色に変更 */
+    background-color: #CAE5CD; /* ドロップダウンの背景色も#CAE5CDに変更 */
     min-width: 180px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     z-index: 1000;
@@ -29,25 +87,205 @@
     list-style: none;
 }
 
-/* ... 既存の .main-nav .dropdown li, li a のスタイルはそのまま ... */
-
-.main-nav .dropdown li a:hover {
-    background-color: #6b8e23; /* 親メニューのホバー色と同じに変更 */
+.main-nav .dropdown li {
+    margin: 0;
 }
 
-/* ... その他の既存スタイルはそのまま ... */
+.main-nav .dropdown li a {
+    padding: 10px 20px;
+    color: #333; /* ドロップダウンの文字色 */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* 罫線を少し濃く */
+    white-space: nowrap;
+    display: block;
+    background-color: #CAE5CD; /* ドロップダウン項目の通常時の背景色 */
+}
 
-/* レスポンシブ対応のドロップダウン部分も同様に修正 */
+.main-nav .dropdown li:last-child a {
+    border-bottom: none;
+}
+
+.main-nav .dropdown li a:hover {
+    background-color: #b0d8b5; /* ドロップダウンのホバー背景色 */
+    color: #004d40; /* ドロップダウンのホバー文字色 */
+}
+
+/* ドロップダウン表示時の挙動 */
+.main-nav .has-dropdown:hover .dropdown {
+    display: block;
+}
+
+/* フッターのスタイル */
+.footer {
+    background-color: #333;
+    color: #ccc;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ヒーローセクションのスタイル */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* ビューポートの高さに合わせて全画面表示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* テキストの色 */
+    overflow: hidden; /* 動画がはみ出さないように */
+    text-align: center;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* オーバーレイより下に配置 */
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* 画面いっぱいに動画を拡大表示 */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 77, 64, 0.5); /* 濃い緑の半透明オーバーレイ */
+    z-index: 2; /* 動画の上に配置 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3; /* オーバーレイの上に配置 */
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-family: 'Noto Serif JP', serif; /* Noto Sans JP を Noto Serif JP に変更 (一貫性のため) */
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* 各セクションの共通スタイル (メインコンテンツ内) */
+/* index2.html <style> タグ内のスタイルをここに移動してもOKですが、重複を避けるため残します */
+/* ヒーローセクション以外のセクションの背景色もデフォルトで白になります */
+
+
+/* レスポンシブ対応 (全般) */
 @media (max-width: 768px) {
-    /* ... 既存のスタイル ... */
+    .header .site-title {
+        font-size: 1.8em;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #c8dcd9; /* メニュー項目の間の線 */
+    }
+
+    .main-nav ul li:last-child {
+        border-bottom: none;
+    }
 
     .main-nav .dropdown {
-        background-color: #4a6047; /* レスポンシブ時のドロップダウンも変更 */
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: #dbebe6; /* レスポンシブ時のドロップダウン背景色を少し調整 */
+    }
+
+    .main-nav .dropdown li a {
+        padding-left: 40px;
+        border-bottom: 1px solid rgba(0,0,0,0.05); /* ドロップダウン項目の線 */
     }
 
     .main-nav .dropdown li a:hover {
-        background-color: #6b8e23; /* レスポンシブ時のドロップダウンホバーも変更 */
+        background-color: #b0d8b5; /* ドロップダウンのホバー背景色 */
     }
 
-    /* ... 既存のスタイル ... */
+    /* レスポンシブ対応のヒーローセクション */
+    .hero-title {
+        font-size: 2.5em;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+    }
+
+    /* 各セクションの共通スタイル (メインコンテンツ内) - レスポンシブ */
+    .intro-section, .features-section, .news-section, .access-section {
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    .intro-section h2, .features-section h2, .news-section h2, .access-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .feature-card {
+        width: 90%;
+        min-width: unset;
+    }
+
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-item .date {
+        margin-bottom: 5px;
+    }
+
+    .news-item .title {
+        width: 100%;
+    }
 }
