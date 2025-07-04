@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>真宗大谷派 光輪寺 - 心の安らぎを見つける場所</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ここは index.html 固有のスタイルのみを記述します */
+        /* ここは index2.html 固有のスタイルのみを記述します */
         /*
-         * hero-section のスタイルは style.css に移動しましたが、
-         * 必要に応じて特定の調整をここに記述することも可能です。
+         * hero-section などの共通スタイルは style2.css に記述します。
+         * ここには、そのページでしか使わない特殊なスタイルのみを記述してください。
          */
 
         /* 各セクションの共通スタイル (メインコンテンツ内) */
@@ -156,11 +156,11 @@
 
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
-            .hero-section h2 {
+            .hero-section h2 { /* この部分は style2.css に移動されます */
                 font-size: 2em;
             }
 
-            .hero-section p {
+            .hero-section p { /* この部分は style2.css に移動されます */
                 font-size: 0.9em;
             }
 
@@ -197,12 +197,12 @@
 <body>
 
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
+        <h1 class="site-title"><a href="index2.html">真宗大谷派 光輪寺</a></h1>
     </header>
 
     <nav class="main-nav">
         <ul>
-            <li><a href="index.html">ホーム</a></li>
+            <li><a href="index2.html">ホーム</a></li>
             <li class="has-dropdown">
                 <a href="#">光輪寺について</a>
                 <ul class="dropdown">
@@ -220,7 +220,9 @@
         <section class="hero-section">
             <div class="video-background">
                 <video autoplay muted loop playsinline poster="unnamed.webp">
-                    <source src="te.webm" type="video/webm"> お使いのブラウザは動画に対応していません。
+                    <source src="te.webm" type="video/webm">
+                    <source src="te.mp4" type="video/mp4">
+                    お使いのブラウザは動画に対応していません。
                 </video>
             </div>
             <div class="hero-overlay"></div>
@@ -241,24 +243,21 @@
             <h2>光輪寺の主なご案内</h2>
             <div class="feature-cards">
                 <div class="feature-card">
-                    <img src="img/temple_main.jpg" alt="本堂">
-                    <div class="feature-card-content">
+                    <img src="hondo.jpg" alt="本堂"> <div class="feature-card-content">
                         <h3>本堂・施設紹介</h3>
                         <p>当寺の中心となる本堂や、親族が集う客間など、境内の施設をご案内いたします。</p>
                         <a href="temple.html" class="btn">詳しく見る</a>
                     </div>
                 </div>
                 <div class="feature-card">
-                    <img src="img/sougi_img.jpg" alt="葬儀・法要">
-                    <div class="feature-card-content">
+                    <img src="kuyou1.jpg" alt="葬儀・法要"> <div class="feature-card-content">
                         <h3>葬儀・法要について</h3>
                         <p>ご葬儀、年忌法要、各種ご供養について、丁寧にご説明し、お手伝いいたします。</p>
                         <a href="sougi.html" class="btn">詳しく見る</a>
                     </div>
                 </div>
                 <div class="feature-card">
-                    <img src="img/priest.jpg" alt="住職紹介">
-                    <div class="feature-card-content">
+                    <img src="priest.jpg" alt="住職紹介"> <div class="feature-card-content">
                         <h3>住職紹介</h3>
                         <p>光輪寺の住職をご紹介いたします。ご法話や仏事のご相談など、お気軽にお声がけください。</p>
                         <a href="priest.html" class="btn">詳しく見る</a>
@@ -303,7 +302,7 @@
         <p>TEL: 048-202-3377</p>
         <p>© 2025 kourin-ji All Rights Reserved.</p>
         <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+            <a href="index2.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
         </div>
     </footer>
 
