@@ -1,0 +1,279 @@
+/* style2.css */
+
+/* Google Fonts - Noto Serif JP をインポート */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=swap');
+
+
+/* 基本的なリセットとフォント */
+body {
+    margin: 0;
+    font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background-color: #fcfcfc; /* sougi.htmlのbody背景色を採用 */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ヘッダーのスタイル */
+.header {
+    background-color: #fff; /* sougi.htmlのヘッダー背景色を採用 */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.header .site-title {
+    margin: 0;
+    font-size: 2.2em;
+    color: #004d40;
+    font-family: "Noto Serif JP", serif; /* ヘッダーのサイトタイトルにNoto Serif JPを適用 */
+    font-weight: 900; /* Noto Serif JP の 900 ウェイトを明示的に指定 */
+}
+
+/* ヘッダーのサイトタイトルへのリンクスタイル */
+.header .site-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ナビゲーションのスタイル */
+.main-nav {
+    background-color: #556b2f;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav ul li {
+    position: relative; /* ドロップダウンの基準位置として重要 */
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.main-nav ul li a:hover {
+    background-color: #6b8e23;
+    border-radius: 5px;
+}
+
+/* ドロップダウンメニューのスタイル */
+.main-nav .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #6b8e23;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 1000;
+    border-radius: 0 0 5px 5px;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav .dropdown li {
+    margin: 0;
+}
+
+.main-nav .dropdown li a {
+    padding: 10px 20px;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+    display: block;
+}
+
+.main-nav .dropdown li:last-child a {
+    border-bottom: none;
+}
+
+.main-nav .dropdown li a:hover {
+    background-color: #8fbc8f;
+}
+
+/* ドロップダウン表示時の挙動 */
+.main-nav .has-dropdown:hover .dropdown {
+    display: block;
+}
+
+/* フッターのスタイル */
+.footer {
+    background-color: #333;
+    color: #ccc;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ヒーローセクションのスタイル */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* ビューポートの高さに合わせて全画面表示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* テキストの色 */
+    overflow: hidden; /* 動画がはみ出さないように */
+    text-align: center;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* オーバーレイより下に配置 */
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* 画面いっぱいに動画を拡大表示 */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 77, 64, 0.5); /* 濃い緑の半透明オーバーレイ */
+    z-index: 2; /* 動画の上に配置 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3; /* オーバーレイの上に配置 */
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: "Noto Serif JP", serif; /* サイトタイトルと同じフォント */
+    font-weight: 900; /* 太字 */
+    font-size: 3.5em; /* 大きめのフォントサイズ */
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* 文字に影をつけて見やすく */
+}
+
+.hero-subtitle {
+    font-family: 'Noto Sans JP', sans-serif; /* サブタイトルは読みやすいゴシック体も検討 */
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* レスポンシブ対応 (全般) */
+@media (max-width: 768px) {
+    .header .site-title {
+        font-size: 1.8em;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #6b8e23;
+    }
+
+    .main-nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .main-nav .dropdown {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: #8fbc8f;
+    }
+
+    .main-nav .dropdown li a {
+        padding-left: 40px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* レスポンシブ対応のヒーローセクション */
+    .hero-title {
+        font-size: 2.5em; /* スマホでは少し小さく */
+    }
+    .hero-subtitle {
+        font-size: 1em; /* スマホではさらに小さく */
+    }
+
+    /* 各セクションの共通スタイル (メインコンテンツ内) */
+    .intro-section, .features-section, .news-section, .access-section {
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    .intro-section h2, .features-section h2, .news-section h2, .access-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .feature-card {
+        width: 90%; /* スマホでは1列表示 */
+        min-width: unset;
+    }
+
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-item .date {
+        margin-bottom: 5px;
+    }
+
+    .news-item .title {
+        width: 100%;
+    }
+}
