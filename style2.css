@@ -8,14 +8,14 @@
 body {
     margin: 0;
     font-family: 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-    background-color: white; /* 背景を白に変更 */
+    background-color: white; /* 背景を白に設定 */
     color: #333;
     line-height: 1.6;
 }
 
 /* ヘッダーのスタイル */
 .header {
-    background-color: #fff;
+    background-color: #fff; /* デフォルトの白 */
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
@@ -36,7 +36,7 @@ body {
 
 /* ナビゲーションのスタイル */
 .main-nav {
-    background-color: #CAE5CD; /* メニューバーの背景色を#CAE5CDに変更 */
+    background-color: #f0f0f0; /* メニューバーのデフォルト色 (少しグレー) */
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -52,24 +52,24 @@ body {
 
 .main-nav ul li {
     position: relative;
-    margin: 0 5px; /* メニュー項目間の余白を調整 */
+    margin: 0 5px;
 }
 
 .main-nav ul li a {
     display: block;
-    color: #333; /* 文字色を濃いめに変更 (背景色に合わせて) */
+    color: #333;
     text-decoration: none;
-    padding: 10px 20px; /* 四角く見せるためのパディング */
+    padding: 10px 20px;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
     white-space: nowrap;
-    background-color: #CAE5CD; /* 通常時のメニュー項目の背景色 */
-    border-radius: 5px; /* 角を少し丸くする */
+    background-color: transparent; /* デフォルトで透明 */
+    border-radius: 5px;
 }
 
 .main-nav ul li a:hover {
-    background-color: #b0d8b5; /* ホバー時の背景色を少し暗く */
-    color: #004d40; /* ホバー時の文字色を強調 */
+    background-color: #e0e0e0; /* ホバー時の色 (少し暗いグレー) */
+    color: #000;
 }
 
 /* ドロップダウンメニューのスタイル */
@@ -78,7 +78,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #CAE5CD; /* ドロップダウンの背景色も#CAE5CDに変更 */
+    background-color: #f0f0f0; /* ドロップダウンのデフォルト色 */
     min-width: 180px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     z-index: 1000;
@@ -93,11 +93,11 @@ body {
 
 .main-nav .dropdown li a {
     padding: 10px 20px;
-    color: #333; /* ドロップダウンの文字色 */
-    border-bottom: 1px solid rgba(0,0,0,0.1); /* 罫線を少し濃く */
+    color: #333;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     white-space: nowrap;
     display: block;
-    background-color: #CAE5CD; /* ドロップダウン項目の通常時の背景色 */
+    background-color: transparent; /* ドロップダウン項目の背景も透明 */
 }
 
 .main-nav .dropdown li:last-child a {
@@ -105,8 +105,8 @@ body {
 }
 
 .main-nav .dropdown li a:hover {
-    background-color: #b0d8b5; /* ドロップダウンのホバー背景色 */
-    color: #004d40; /* ドロップダウンのホバー文字色 */
+    background-color: #e0e0e0; /* ドロップダウンのホバー色 */
+    color: #000;
 }
 
 /* ドロップダウン表示時の挙動 */
@@ -143,12 +143,12 @@ body {
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh; /* ビューポートの高さに合わせて全画面表示 */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white; /* テキストの色 */
-    overflow: hidden; /* 動画がはみ出さないように */
+    color: white;
+    overflow: hidden;
     text-align: center;
 }
 
@@ -159,7 +159,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 1; /* オーバーレイより下に配置 */
+    z-index: 1;
 }
 
 .video-background video {
@@ -171,7 +171,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    object-fit: cover; /* 画面いっぱいに動画を拡大表示 */
+    object-fit: cover;
 }
 
 .hero-overlay {
@@ -180,13 +180,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 77, 64, 0.5); /* 濃い緑の半透明オーバーレイ */
-    z-index: 2; /* 動画の上に配置 */
+    background-color: rgba(0, 0, 0, 0.5); /* デフォルトの半透明黒 */
+    z-index: 2;
 }
 
 .hero-content {
     position: relative;
-    z-index: 3; /* オーバーレイの上に配置 */
+    z-index: 3;
     max-width: 800px;
     padding: 0 20px;
 }
@@ -201,7 +201,7 @@ body {
 }
 
 .hero-subtitle {
-    font-family: 'Noto Serif JP', serif; /* Noto Sans JP を Noto Serif JP に変更 (一貫性のため) */
+    font-family: 'Noto Serif JP', serif;
     font-weight: 400;
     font-size: 1.3em;
     line-height: 1.6;
@@ -209,7 +209,145 @@ body {
 }
 
 /* 各セクションの共通スタイル (メインコンテンツ内) */
-/* ヒーローセクション以外のセクションの背景色もデフォルトで白になります */
+.intro-section, .features-section, .news-section, .access-section {
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.intro-section h2, .features-section h2, .news-section h2, .access-section h2 {
+    font-size: 2em;
+    color: #004d40;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* 特徴セクションのカード */
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: calc(33% - 20px);
+    min-width: 280px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-card-content {
+    padding: 20px;
+}
+
+.feature-card-content h3 {
+    font-size: 1.3em;
+    color: #556b2f;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.feature-card-content p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.feature-card-content .btn {
+    display: inline-block;
+    background-color: #6b8e23;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.feature-card-content .btn:hover {
+    background-color: #556b2f;
+}
+
+/* お知らせセクション */
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.news-item {
+    border-bottom: 1px dashed #eee;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item .date {
+    font-size: 0.9em;
+    color: #777;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.news-item .title {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.news-item .title a {
+    color: #004d40;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.news-item .title a:hover {
+    color: #556b2f;
+    text-decoration: underline;
+}
+
+/* アクセスセクション */
+.access-map {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.access-map iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
 
 /* レスポンシブ対応 (全般) */
@@ -226,7 +364,7 @@ body {
     .main-nav ul li {
         width: 100%;
         margin: 0;
-        border-bottom: 1px solid #c8dcd9; /* メニュー項目の間の線 */
+        border-bottom: 1px solid #e0e0e0; /* レスポンシブ時の線の色 */
     }
 
     .main-nav ul li:last-child {
@@ -239,16 +377,16 @@ body {
         width: 100%;
         box-shadow: none;
         border-radius: 0;
-        background-color: #dbebe6; /* レスポンシブ時のドロップダウン背景色を少し調整 */
+        background-color: #ebebeb; /* レスポンシブ時のドロップダウン背景色 */
     }
 
     .main-nav .dropdown li a {
         padding-left: 40px;
-        border-bottom: 1px solid rgba(0,0,0,0.05); /* ドロップダウン項目の線 */
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .main-nav .dropdown li a:hover {
-        background-color: #b0d8b5; /* ドロップダウンのホバー背景色 */
+        background-color: #e0e0e0;
     }
 
     /* レスポンシブ対応のヒーローセクション */
