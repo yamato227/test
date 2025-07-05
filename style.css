@@ -177,3 +177,86 @@ body {
 
 /* ここから下は各ページ固有のスタイル。必要に応じて各HTMLファイルの <style> タグ内に記述 */
 /* 例: .hero-section, .intro-section, .main-content, .service-list, .service-contact など */
+/* style.css の末尾に追加 */
+
+/* privacy-policy.html ページ固有のスタイル */
+/* main-content, h2 のスタイルは他のページと共通なので、style.css の既存のスタイルがあればそれを流用します。
+   もし共通スタイルとして定義されていない場合は、以下を追加してください。 */
+
+/* .main-content と .main-content h2 は、他のページと共通であれば別途定義不要。
+   もし style.css にまだ存在しない場合は、基本スタイルとして追加してください。 */
+/*
+.main-content {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.main-content h2 {
+    font-size: 2em;
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+*/
+
+.privacy-section h3 {
+    font-size: 1.5em;
+    color: #556b2f;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.privacy-section p {
+    margin-bottom: 1em;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.privacy-section ul {
+    list-style: disc; /* 黒丸リスト */
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+.privacy-section li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+.privacy-section .last-update {
+    text-align: right;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* レスポンシブ対応 (privacy-policy.html) */
+@media (max-width: 768px) {
+    /* .main-content と .main-content h2 のレスポンシブは、共通スタイルがあれば別途定義不要。 */
+    /*
+    .main-content {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .main-content h2 {
+        font-size: 1.8em;
+    }
+    */
+
+    .privacy-section h3 {
+        font-size: 1.3em;
+    }
+
+    .privacy-section ul {
+        margin-left: 15px;
+    }
+}
