@@ -913,3 +913,72 @@ body {
         font-size: 1.8em;
     }
 }
+/* style2.css の末尾に追加 */
+
+/* news.html (news2.html) ページ固有のスタイル */
+.main-content {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.main-content h2 {
+    font-size: 2em;
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.news-archive {
+    margin-top: 30px;
+}
+
+.news-item-full {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.news-item-full .news-date {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.news-item-full h3 {
+    font-size: 1.5em;
+    color: #004d40;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.news-item-full p {
+    margin-bottom: 0.8em;
+    text-align: justify;
+}
+
+/* レスポンシブ対応 (news2.html) */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .main-content h2 {
+        font-size: 1.8em;
+    }
+
+    .news-item-full h3 {
+        font-size: 1.3em;
+    }
+}
