@@ -499,3 +499,109 @@ body {
         font-size: 1.8em;
     }
 }
+/* style2.css の末尾に追加 */
+
+/* priest.html (priest2.html) ページ固有のスタイル */
+.main-content {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.main-content h2 {
+    font-size: 2em;
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.priest-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.priest-section .priest-image {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.priest-name {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #004d40;
+    margin-bottom: 5px;
+}
+
+.priest-title {
+    font-size: 1.2em;
+    color: #556b2f;
+    margin-bottom: 20px;
+}
+
+.priest-profile, .priest-message {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+.priest-profile h3, .priest-message h3 {
+    font-size: 1.5em;
+    color: #556b2f;
+    border-bottom: 2px dashed #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.priest-profile ul {
+    list-style: none;
+    padding: 0;
+}
+
+.priest-profile li {
+    margin-bottom: 8px;
+    line-height: 1.8;
+}
+
+.priest-message p {
+    margin-bottom: 1em;
+}
+
+/* priest.html (priest2.html) のレスポンシブ対応 */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .main-content h2 {
+        font-size: 1.8em;
+    }
+    .priest-name {
+        font-size: 1.5em;
+    }
+    .priest-title {
+        font-size: 1em;
+    }
+    .priest-profile, .priest-message {
+        padding: 0 10px;
+    }
+    .priest-profile h3, .priest-message h3 {
+        font-size: 1.3em;
+    }
+}
