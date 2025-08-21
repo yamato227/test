@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -17,7 +16,7 @@ box-sizing: border-box;
 
     body {
         font-family: 'Noto Serif JP', serif;
-        background-color: #f0f4f7;
+        background-color: #ffffff;
         color: #333;
         line-height: 1.7;
     }
@@ -117,291 +116,89 @@ box-sizing: border-box;
         background-color: #f4f4f4;
     }
 
-    /* ヒーローセクション (index.html用) */
-    .hero-section {
-        position: relative;
-        height: 100vh;
-        overflow: hidden;
-        color: white;
+    /* ハンバーガーメニュー */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #333;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* メインコンテンツ */
+    main {
+        margin-top: 80px;
+        background-color: #ffffff;
+    }
+
+    /* 共通ページヘッダー（space.png背景を適用） */
+    .page-header {
+        background-image: url('space.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
         text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 80px;
+        padding: 100px 20px 60px;
+        position: relative;
     }
 
-    .hero-video-bg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-    }
-
-    .video-overlay {
+    /* ページヘッダーにオーバーレイを追加して文字を読みやすくする */
+    .page-header::before {
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        right: 0;
+        bottom: 0;
         background: rgba(0, 0, 0, 0.4);
-        z-index: -1;
-    }
-
-    .hero-content {
-        position: relative;
         z-index: 1;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .hero-content h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-        font-size: 1.5rem;
-        font-weight: 400;
-    }
-
-    /* イントロセクション (index.html用) */
-    .intro-section {
-        padding: 80px 20px;
-        text-align: center;
-        background-color: #f9f9f9;
-    }
-
-    .intro-section h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #004d40;
-        margin-bottom: 2rem;
-    }
-
-    .intro-text {
-        max-width: 800px;
-        margin: 0 auto;
-        font-size: 1.1rem;
-        line-height: 1.8;
-    }
-
-    /* ニュースセクション (index.html用) */
-    .news-section {
-        padding: 80px 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .news-section h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #004d40;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .news-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .news-item {
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .news-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .news-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .news-content {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    .news-date {
-        display: block;
-        font-size: 0.9rem;
-        color: #888;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-    }
-
-    .news-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 0.5rem;
-    }
-
-    .news-summary {
-        font-size: 1rem;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    /* サービスセクション (index.html用) */
-    .services-section {
-        padding: 80px 20px;
-        background-color: #f0f4f7;
-        text-align: center;
-    }
-
-    .services-section h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #004d40;
-        margin-bottom: 3rem;
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .service-card {
-        background-color: #fff;
-        padding: 2.5rem;
-        border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: center;
-    }
-
-    .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-
-    .service-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    .service-card h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #004d40;
-        margin-bottom: 1rem;
-    }
-
-    .service-card p {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.6;
-    }
-
-    /* フッター */
-    .footer {
-        background-color: #333;
-        color: #fff;
-        padding: 50px 20px 20px;
-        text-align: center;
-    }
-
-    .footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        border-bottom: 1px solid #444;
-        padding-bottom: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .footer-section {
-        text-align: left;
-    }
-
-    .footer-section h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        color: #eee;
-    }
-
-    .footer-section p {
-        font-size: 0.9rem;
-        line-height: 1.8;
-        color: #ccc;
-    }
-
-    .footer-nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .footer-nav a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: color 0.3s ease;
-    }
-
-    .footer-nav a:hover {
-        color: #6699ff;
-    }
-
-    .footer-bottom {
-        font-size: 0.9rem;
-        color: #aaa;
-    }
-
-    /* 共通ページヘッダー＆コンテンツスタイル (index.html以外のページ用) */
-    .page-header {
-        background-color: #f0f4f7;
-        text-align: center;
-        padding: 100px 20px 60px;
-        margin-top: 80px;
     }
 
     .page-header-content {
         max-width: 800px;
         margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        color: white;
     }
 
     .page-header h1 {
         font-size: 3rem;
         font-weight: 700;
-        color: #004d40;
         margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
     .page-header p {
         font-size: 1.2rem;
-        color: #555;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
 
+    /* コンテンツセクション（白背景） */
     .content-section {
         padding: 60px 20px;
+        background-color: #ffffff;
     }
 
     .container {
@@ -507,6 +304,67 @@ box-sizing: border-box;
         color: #555;
     }
 
+    /* フッター */
+    .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 50px 20px 20px;
+        text-align: center;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        border-bottom: 1px solid #444;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section {
+        text-align: left;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #eee;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: #ccc;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+        color: #6699ff;
+    }
+
+    .footer-bottom {
+        font-size: 0.9rem;
+        color: #aaa;
+    }
+
     /* メディアクエリ */
     @media (max-width: 768px) {
         .header-container {
@@ -555,39 +413,16 @@ box-sizing: border-box;
             border-bottom: none;
         }
         main {
-            margin-top: 70px;
+            margin-top: 60px;
         }
-        .hero-content h1 {
+        .page-header {
+            padding: 80px 20px 40px;
+        }
+        .page-header h1 {
             font-size: 2.2rem;
         }
-        .hero-content p {
+        .page-header p {
             font-size: 1rem;
-        }
-        .intro-section {
-            padding: 60px 20px;
-        }
-        .intro-section h2 {
-            font-size: 2rem;
-        }
-        .news-section,
-        .services-section {
-            padding: 60px 20px;
-        }
-        .news-section h2,
-        .services-section h2 {
-            font-size: 1.8rem;
-        }
-        .news-item {
-            flex-direction: column;
-            text-align: center;
-            gap: 0.5rem;
-        }
-        .news-date {
-            min-width: auto;
-        }
-        .services-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
         }
         .footer-content {
             grid-template-columns: 1fr;
@@ -645,7 +480,7 @@ box-sizing: border-box;
     </div>
 </header>
 
-<main style="background-image: url('space.png'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
+<main>
     <div class="page-header">
         <div class="page-header-content">
             <h1>沿革</h1>
@@ -700,7 +535,7 @@ box-sizing: border-box;
                     </div>
                     <div class="principle-item">
                         <div class="icon-container">
-                            <i class="fas fa-community"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <h3>地域との絆</h3>
                         <p>地域コミュニティの中心として、人々のつながりを深めていきます。</p>
@@ -744,6 +579,28 @@ box-sizing: border-box;
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// ハンバーガーメニューの機能
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // メニュー項目をクリックした時にメニューを閉じる
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>
