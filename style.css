@@ -13,7 +13,7 @@ body {
     line-height: 1.7;
 }
 
-/* ãƒ˜ãƒƒãƒ€ãƒ¼ */
+/* ヘッダー */
 .header {
     background: #ffffff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -51,7 +51,7 @@ body {
     object-fit: contain;
 }
 
-/* ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ */
+/* ナビゲーション */
 .nav {
     display: flex;
     list-style: none;
@@ -86,7 +86,7 @@ body {
     width: 100%;
 }
 
-/* ãƒ‰ãƒ­ãƒƒãƒ—ãƒ€ã‚¦ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ */
+/* ドロップダウンメニュー */
 .has-dropdown {
     position: relative;
 }
@@ -133,7 +133,7 @@ body {
     display: none;
 }
 
-/* ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼ãƒ¡ãƒ‹ãƒ¥ãƒ¼ */
+/* ハンバーガーメニュー */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -162,12 +162,12 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* ãƒ¡ã‚¤ãƒ³ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ */
+/* メインコンテンツ */
 main {
     margin-top: 80px;
 }
 
-/* ãƒ’ãƒ¼ãƒ­ãƒ¼ã‚»ã‚¯ã‚·ãƒ§ãƒ³ */
+/* ヒーローセクション */
 .hero-section {
     position: relative;
     width: 100%;
@@ -206,7 +206,7 @@ main {
     line-height: 1.8;
 }
 
-/* å‹•ç”»èƒŒæ™¯ã®ã‚¹ã‚¿ã‚¤ãƒ« */
+/* 動画背景のスタイル */
 .video-background {
     position: absolute;
     top: 0;
@@ -240,7 +240,7 @@ main {
     z-index: 2;
 }
 
-/* ã‚¤ãƒ³ãƒˆãƒ­ã‚»ã‚¯ã‚·ãƒ§ãƒ³ */
+/* イントロセクション */
 .intro-section {
     padding: 80px 20px;
     background: #ffffff;
@@ -267,7 +267,7 @@ main {
     color: #555;
 }
 
-/* ãŠçŸ¥ã‚‰ã›ã‚»ã‚¯ã‚·ãƒ§ãƒ³ */
+/* お知らせセクション */
 .news-section {
     padding: 80px 20px;
     background: #f8f9fa;
@@ -312,7 +312,7 @@ main {
     color: #555;
 }
 
-/* ã‚µãƒ¼ãƒ“ã‚¹ã‚»ã‚¯ã‚·ãƒ§ãƒ³ */
+/* サービスセクション */
 .services-section {
     padding: 80px 20px;
     background: white;
@@ -368,7 +368,7 @@ main {
     line-height: 1.6;
 }
 
-/* ãƒ•ãƒƒã‚¿ãƒ¼ */
+/* フッター */
 .footer {
     background: #2c2c2c;
     color: #ccc;
@@ -432,22 +432,22 @@ main {
     font-size: 0.9rem;
 }
 
-/* ãƒ¬ã‚¹ãƒãƒ³ã‚·ãƒ–ãƒ‡ã‚¶ã‚¤ãƒ³ */
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
     .header-container {
-        height: 70px;
+        height: 60px; /* ヘッダーの高さを調整 */
     }
 
     .logo-image {
-        height: 50px;
+        height: 40px; /* ロゴの高さを調整 */
     }
 
     .nav {
         position: fixed;
-        top: 70px;
+        top: 60px; /* ヘッダーの高さに合わせて調整 */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
         background: white;
         flex-direction: column;
         align-items: center;
@@ -490,7 +490,7 @@ main {
     }
 
     main {
-        margin-top: 70px;
+        margin-top: 60px; /* ヘッダーの高さに合わせて調整 */
     }
 
     .hero-content h1 {
