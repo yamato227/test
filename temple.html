@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - 本堂・施設紹介</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* ここは temple.html 固有のスタイルのみを記述します */
         .main-content {
@@ -55,102 +56,94 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin: 15px;
             object-fit: cover;
+            aspect-ratio: 16 / 9;
+            margin-right: 5%;
         }
 
-        .facility-item-text {
+        .facility-item:nth-child(even) img {
+            margin-left: 5%;
+            margin-right: 0;
+        }
+        
+        .facility-item .facility-item-text {
             width: 50%;
-            padding: 15px;
         }
 
-        .facility-item h4 { /* 新しくh4のスタイルを追加 */
-            font-size: 1.3em;
+        .facility-item h3 {
             color: #004d40;
-            margin-bottom: 10px;
         }
 
-        /* 画像なしの施設項目のためのスタイル */
-        .facility-item.no-image {
-            display: block; /* Flexboxではなくブロック要素として扱う */
-            text-align: left; /* テキストを左寄せに */
-            padding-left: 15px; /* 適度なインデント */
-        }
-        .facility-item.no-image .facility-item-text {
-            width: 100%; /* テキストが100%幅を占める */
-            padding: 0;
-            margin-left: 0; /* 左寄せにするため */
-        }
-        .facility-item.no-image h3 {
-            text-align: left; /* タイトルも左寄せ */
-            margin-left: 0;
-            padding-left: 0;
-            border-bottom: none; /* 下線を消す場合は */
+        .no-image {
+            display: block;
         }
 
+        .no-image .facility-item-text {
+            width: 100%;
+        }
 
-        /* レスポンシブ対応 */
+        .no-image .facility-item-text h3 {
+            text-align: center;
+        }
+
+        .no-image .facility-item-text p {
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
-            .main-content {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .main-content h2 {
-                font-size: 1.8em;
-            }
-
-            .facility-item, .facility-item:nth-child(even) {
-                flex-direction: column; /* スマートフォンでは縦並び */
+            .facility-item,
+            .facility-item:nth-child(even) {
+                flex-direction: column;
                 align-items: center;
+                text-align: center;
             }
 
             .facility-item img {
-                width: 90%;
-                margin: 15px 0;
-            }
-
-            .facility-item-text {
                 width: 100%;
-                padding: 0;
-                text-align: center; /* テキストも中央寄せ */
+                max-width: 100%;
+                margin: 0 0 20px 0;
             }
 
-            /* レスポンシブ時の画像なし項目 */
-            .facility-item.no-image {
-                text-align: left; /* スマートフォンでも左寄せを維持 */
-                padding-left: 0;
+            .facility-item:nth-child(even) img {
+                margin: 0 0 20px 0;
             }
-            .facility-item.no-image .facility-item-text {
-                 text-align: left;
-            }
-            .facility-item.no-image h3 {
-                text-align: left;
+
+            .facility-item .facility-item-text {
+                width: 100%;
+                margin: 0;
+                padding: 0 15px;
             }
         }
     </style>
 </head>
 <body>
-
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
-    </header>
-
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li class="has-dropdown">
-                <a href="#">光輪寺について</a>
-                <ul class="dropdown">
-                    <li><a href="history.html">沿革</a></li>
-                    <li><a href="temple.html">本堂・施設紹介</a></li>
-                    <li><a href="priest.html">住職紹介</a></li>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
+            </a>
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
-            </li>
-            <li><a href="sougi.html">葬儀・法要について</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-    </nav>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
     <main class="main-content">
         <h2>本堂・施設紹介</h2>
@@ -166,7 +159,8 @@
         </section>
 
         <section class="facility-item">
-            <img src="kyakuma.jpg" alt="客間" /> <div class="facility-item-text">
+            <img src="kyakuma.jpg" alt="客間" />
+            <div class="facility-item-text">
                 <h3>客間</h3>
                 <p>ご法事の際に親族の方々がお集まりになる場所としてご利用いただけます。落ち着いた和の雰囲気の中で、故人との思い出を語り合い、親睦を深める時間をお過ごしください。</p>
             </div>
@@ -178,16 +172,40 @@
                 <p>当寺院に駐車場はございません。近隣のコインパーキングをご利用ください。</p>
             </div>
         </section>
-        </main>
+    </main>
 
     <footer class="footer">
-        <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
-        <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
-        <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                        埼玉県志木市本町５丁目２−８<br>
+                        TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                        駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                        法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
