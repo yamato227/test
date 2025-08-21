@@ -54,7 +54,7 @@
         }
 
         .logo-image {
-            height: 60px;
+            height: 60px; /* PCでのロゴの高さ */
             width: auto;
             object-fit: contain;
         }
@@ -79,8 +79,6 @@
         .nav a:hover {
             color: #004d40;
         }
-
-
 
         .has-dropdown {
             position: relative;
@@ -134,22 +132,21 @@
         .hamburger {
             display: none;
             flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
             cursor: pointer;
+            padding: 5px;
         }
 
         .hamburger span {
-            display: block;
-            width: 100%;
+            width: 25px;
             height: 3px;
-            background-color: #333;
-            transition: all 0.3s ease-in-out;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(-45deg) translate(-5px, 6px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -157,7 +154,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         /* ページコンテンツ */
@@ -177,12 +174,12 @@
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 100px 20px 100px; /* 上下のサイズを3分の2に縮小 */
+            padding: 100px 20px 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 80px; /* ヘッダーの高さ分スペースを空ける */
+            margin-top: 80px;
         }
         
         .hero-section .page-title {
@@ -318,35 +315,43 @@
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
             .header-container {
-                height: 60px;
+                height: 60px; /* ヘッダーの高さを調整 */
             }
 
             .logo-image {
-                height: 50px;
+                height: 40px; /* ロゴの高さを調整 */
             }
 
             .nav {
-                display: none;
                 position: fixed;
-                top: 60px;
-                left: -100%;
-                width: 70%;
-                height: calc(100vh - 60px);
-                background-color: #fff;
+                top: 60px; /* ヘッダーの高さに合わせて調整 */
+                right: -100%; /* 初期位置を右端に */
+                width: 50%; /* 幅を半分に */
+                height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
+                background: white;
                 flex-direction: column;
+                align-items: flex-start; /* メニューアイテムを左寄せに */
+                justify-content: flex-start;
                 padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                padding-left: 1rem; /* 左側に少し余白を追加 */
+                gap: 0.5rem;
+                transition: right 0.3s ease; /* スライドインのアニメーション */
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1); /* 左側にシャドウ */
             }
 
             .nav.active {
-                left: 0;
+                right: 0; /* アクティブ時に右から表示 */
             }
 
             .nav a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
+                font-size: 1.1rem;
+                padding: 0.7rem 0;
+                width: 100%; /* 幅を親要素に合わせる */
+                border-bottom: 1px solid #eee; /* 区切り線 */
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
             }
 
             .hamburger {
@@ -361,7 +366,8 @@
                 visibility: visible;
                 transform: none;
                 padding: 0;
-                margin-top: 1rem;
+                margin-top: 0.5rem;
+                margin-left: 1rem; /* ドロップダウンも少し左に寄せる */
             }
 
             .dropdown a {
@@ -370,13 +376,17 @@
                 padding: 0.5rem 0;
                 border-bottom: none;
             }
-            
-            .hero-section {
-                padding: 80px 20px; /* スマートフォン向けにさらに縮小 */
+
+            main {
+                margin-top: 60px; /* ヘッダーの高さに合わせて調整 */
             }
 
             .hero-section .page-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
             }
 
             .service-item {
