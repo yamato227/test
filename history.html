@@ -6,489 +6,14 @@
     <title>沿革 - 真宗大谷派 光輪寺</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* 基本スタイル */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Noto Serif JP', serif;
-            background-color: #ffffff;
-            color: #333;
-            line-height: 1.7;
-        }
-
-        /* ヘッダー */
-        .header {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 0 20px;
-            transition: background 0.3s ease, backdrop-filter 0.3s ease;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            display: block;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-image {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* ナビゲーション */
-        .nav {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav a:hover {
-            color: #8B4513;
-        }
-
-        .nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #8B4513;
-            transition: width 0.3s ease;
-        }
-
-        .nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ドロップダウンメニュー */
-        .has-dropdown {
-            position: relative;
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            list-style: none;
-        }
-
-        .has-dropdown:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown li {
-            padding: 0;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: #333;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .dropdown a:hover {
-            background-color: #f8f8f8;
-            color: #8B4513;
-        }
-
-        .dropdown a::after {
-            display: none;
-        }
-
-        /* ハンバーガーメニュー */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* メインコンテンツ */
-        main {
-            margin-top: 80px;
-        }
-
-        /* ページヘッダー */
-        .page-header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), linear-gradient(135deg, #8B4513, #654321);
-            color: white;
-            padding: 120px 20px 80px;
-            text-align: center;
-        }
-
-        .page-header-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-        }
-
-        .page-header-content p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* コンテンツセクション */
-        .content-section {
-            padding: 80px 20px;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .content-block {
-            margin-bottom: 4rem;
-        }
-
-        .content-block h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .content-block h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #8B4513;
-        }
-
-        /* 沿革テキストスタイル */
-        .content-block p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-            text-align: left;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* 原則グリッド */
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .principle-item {
-            background: #f8f9fa;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-
-        .principle-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .icon-container {
-            width: 80px;
-            height: 80px;
-            background: #8B4513;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            transition: background 0.3s ease;
-        }
-
-        .principle-item:hover .icon-container {
-            background: #654321;
-        }
-
-        .icon-container i {
-            font-size: 2rem;
-            color: white;
-        }
-
-        .principle-item h3 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .principle-item p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-
-        /* フッター */
-        .footer {
-            background: #2c2c2c;
-            color: #ccc;
-            padding: 60px 20px 30px;
-            text-align: center;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .footer-section h3 {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .footer-nav a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-nav a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #444;
-            padding-top: 2rem;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* フェードインアニメーション */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* レスポンシブデザイン */
-        @media (max-width: 768px) {
-            .header-container {
-                height: 70px;
-            }
-
-            .logo-image {
-                height: 50px;
-            }
-
-            .nav {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            }
-
-            .nav.active {
-                left: 0;
-            }
-
-            .nav a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .dropdown {
-                position: static;
-                box-shadow: none;
-                background: transparent;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                padding: 0;
-                margin-top: 1rem;
-            }
-
-            .dropdown a {
-                color: #666;
-                font-size: 1rem;
-                padding: 0.5rem 0;
-                border-bottom: none;
-            }
-
-            main {
-                margin-top: 70px;
-            }
-
-            .page-header {
-                padding: 100px 20px 60px;
-            }
-            
-            .page-header-content h1 {
-                font-size: 2rem;
-            }
-            
-            .page-header-content p {
-                font-size: 1rem;
-            }
-            
-            .content-section {
-                padding: 60px 20px;
-            }
-            
-            .content-block h2 {
-                font-size: 1.6rem;
-            }
-            
-            .content-block p {
-                font-size: 1rem;
-            }
-            
-            .principles-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .principle-item {
-                padding: 2rem 1.5rem;
-            }
-            
-            .icon-container {
-                width: 70px;
-                height: 70px;
-            }
-            
-            .icon-container i {
-                font-size: 1.8rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .footer-nav {
-                justify-content: center;
-                gap: 1rem;
-            }
+            background-image: url('space.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -514,6 +39,7 @@
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </nav>
+
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -523,44 +49,61 @@
     </header>
 
     <main>
-        <section class="page-header">
-            <div class="page-header-content fade-in">
-                <h1>光輪寺の沿革</h1>
-                <p>当寺の歩みと未来への思い</p>
+        <div class="page-header">
+            <div class="page-header-content">
+                <h1>沿革</h1>
+                <p>光輪寺の歴史と、真宗大谷派の三つの原則</p>
             </div>
-        </section>
-
+        </div>
+        
         <section class="content-section">
-            <div class="container main-content">
-                <div class="content-block fade-in">
-                    <h2>沿革</h2>
-                    <p>1980年に当寺院の創建。地域仏教の拠点として歩みを始める。</p>
-                    <p>1995年に本堂の改修工事を実施。より多くの檀家様をお迎えできる施設に。</p>
-                    <p>2005年に永代供養墓を建立。少子化時代に対応した新しい供養の形を提案。</p>
-                    <p>2015年にウェブサイトを開設。より多くの方に当寺の情報を発信する。</p>
-                    <p>現在、地域に根差した寺院として、仏教の教えを伝えています。</p>
+            <div class="container">
+                <div class="main-content">
+                    <h2>光輪寺の歩み</h2>
+                    <ul class="history-timeline">
+                        <li>
+                            <span class="timeline-point"></span>
+                            <div class="timeline-date">1950年</div>
+                            <p>開基</p>
+                        </li>
+                        <li>
+                            <span class="timeline-point"></span>
+                            <div class="timeline-date">1970年</div>
+                            <p>本堂落慶</p>
+                        </li>
+                        <li>
+                            <span class="timeline-point"></span>
+                            <div class="timeline-date">2005年</div>
+                            <p>納骨堂設置</p>
+                        </li>
+                        <li>
+                            <span class="timeline-point"></span>
+                            <div class="timeline-date">2020年</div>
+                            <p>ウェブサイト開設</p>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="content-block fade-in">
-                    <h2>光輪寺の三つの原則</h2>
+                <div class="main-content">
+                    <h2>真宗大谷派の三つの原則</h2>
                     <div class="principles-grid">
-                        <div class="principle-item">
-                            <div class="icon-container">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h3>慈悲の心</h3>
-                            <p>すべての人々に対し、分け隔てなく慈悲の心を持って接します。</p>
-                        </div>
                         <div class="principle-item">
                             <div class="icon-container">
                                 <i class="fas fa-hand-holding-heart"></i>
                             </div>
-                            <h3>寄り添う姿勢</h3>
-                            <p>人々の苦しみや悩みに寄り添い、心の安らぎを提供します。</p>
+                            <h3>念仏の教え</h3>
+                            <p>阿弥陀如来の本願を信じ、念仏を称えることによって救われる教えです。</p>
                         </div>
                         <div class="principle-item">
                             <div class="icon-container">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>心の安らぎ</h3>
+                            <p>仏教の教えを通して、心の安らぎと真の幸福を見出すことを目指します。</p>
+                        </div>
+                        <div class="principle-item">
+                            <div class="icon-container">
+                                <i class="fas fa-community"></i>
                             </div>
                             <h3>地域との絆</h3>
                             <p>地域コミュニティの中心として、人々のつながりを深めていきます。</p>
@@ -603,84 +146,7 @@
             </div>
         </div>
     </footer>
-    
-    <script>
-        // ハンバーガーメニューの機能
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const nav = document.getElementById('nav');
-            
-            if (hamburger && nav) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    nav.classList.toggle('active');
-                });
-                
-                // メニュー項目をクリックした時にメニューを閉じる
-                const navLinks = nav.querySelectorAll('a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        hamburger.classList.remove('active');
-                        nav.classList.remove('active');
-                    });
-                });
-            }
-            
-            // フェードインアニメーション
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            // fade-inクラスを持つ要素を監視
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
-            
-            // スムーススクロール
-            const links = document.querySelectorAll('a[href^="#"]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // ヘッダーの背景色変更（スクロール時）
-            const header = document.querySelector('.header');
-            if (header) {
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 50) {
-                        header.style.background = 'rgba(255, 255, 255, 0.95)';
-                        header.style.backdropFilter = 'blur(10px)';
-                    } else {
-                        header.style.background = '#ffffff';
-                        header.style.backdropFilter = 'none';
-                    }
-                });
-            }
-        });
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
