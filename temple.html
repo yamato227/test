@@ -4,117 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - 本堂・施設紹介</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* ここは temple.html 固有のスタイルのみを記述します */
-        .main-content {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .main-content h2 {
-            font-size: 2em;
-            color: #004d40;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .main-content h3 {
-            font-size: 1.5em;
-            color: #556b2f;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .main-content p {
-            margin-bottom: 1em;
-            text-align: justify;
-        }
-
-        .facility-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap; /* レスポンシブ対応 */
-        }
-
-        .facility-item:nth-child(even) {
-            flex-direction: row-reverse; /* 偶数番目は画像を右に */
-        }
-
-        .facility-item img {
-            width: 45%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: cover;
-            aspect-ratio: 16 / 9;
-            margin-right: 5%;
-        }
-
-        .facility-item:nth-child(even) img {
-            margin-left: 5%;
-            margin-right: 0;
-        }
-        
-        .facility-item .facility-item-text {
-            width: 50%;
-        }
-
-        .facility-item h3 {
-            color: #004d40;
-        }
-
-        .no-image {
-            display: block;
-        }
-
-        .no-image .facility-item-text {
-            width: 100%;
-        }
-
-        .no-image .facility-item-text h3 {
-            text-align: center;
-        }
-
-        .no-image .facility-item-text p {
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .facility-item,
-            .facility-item:nth-child(even) {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .facility-item img {
-                width: 100%;
-                max-width: 100%;
-                margin: 0 0 20px 0;
-            }
-
-            .facility-item:nth-child(even) img {
-                margin: 0 0 20px 0;
-            }
-
-            .facility-item .facility-item-text {
-                width: 100%;
-                margin: 0;
-                padding: 0 15px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header class="header">
@@ -122,6 +14,7 @@
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
             </a>
+            
             <nav>
                 <ul class="nav" id="nav">
                     <li><a href="index.html">ホーム</a></li>
@@ -145,31 +38,40 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <h2>本堂・施設紹介</h2>
-
-        <p>光輪寺の境内には、皆様の心の安らぎを育む様々な施設がございます。</p>
-
-        <section class="facility-item">
-            <img src="hondo.jpg" alt="本堂の外観" />
-            <div class="facility-item-text">
-                <h3>本堂</h3>
-                <p>当寺の中心となる本堂です。日々の勤行や法要が執り行われ、皆様の心の拠り所となっています。静謐な空間で、仏様と向き合う時間をお過ごしください。</p>
+    <main>
+        <section class="page-header">
+            <div class="page-header-content fade-in">
+                <h1>本堂・施設紹介</h1>
+                <p>皆様の心の安らぎを育む空間</p>
             </div>
         </section>
 
-        <section class="facility-item">
-            <img src="kyakuma.jpg" alt="客間" />
-            <div class="facility-item-text">
-                <h3>客間</h3>
-                <p>ご法事の際に親族の方々がお集まりになる場所としてご利用いただけます。落ち着いた和の雰囲気の中で、故人との思い出を語り合い、親睦を深める時間をお過ごしください。</p>
-            </div>
-        </section>
-
-        <section class="facility-item no-image">
-            <div class="facility-item-text">
-                <h3>駐車場</h3>
-                <p>当寺院に駐車場はございません。近隣のコインパーキングをご利用ください。</p>
+        <section class="content-section">
+            <div class="container main-content">
+                <h2>光輪寺の境内には、皆様の心の安らぎを育む様々な施設がございます。</h2>
+        
+                <section class="facility-item fade-in">
+                    <img src="hondo.jpg" alt="本堂の外観" />
+                    <div class="facility-item-text">
+                        <h3>本堂</h3>
+                        <p>当寺の中心となる本堂です。日々の勤行や法要が執り行われ、皆様の心の拠り所となっています。静謐な空間で、仏様と向き合う時間をお過ごしください。</p>
+                    </div>
+                </section>
+        
+                <section class="facility-item fade-in">
+                    <img src="kyakuma.jpg" alt="客間" />
+                    <div class="facility-item-text">
+                        <h3>客間</h3>
+                        <p>ご法事の際に親族の方々がお集まりになる場所としてご利用いただけます。落ち着いた和の雰囲気の中で、故人との思い出を語り合い、親睦を深める時間をお過ごしください。</p>
+                    </div>
+                </section>
+        
+                <section class="facility-item no-image fade-in">
+                    <div class="facility-item-text">
+                        <h3>駐車場</h3>
+                        <p>当寺院に駐車場はございません。近隣のコインパーキングをご利用ください。</p>
+                    </div>
+                </section>
             </div>
         </section>
     </main>
@@ -206,6 +108,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
