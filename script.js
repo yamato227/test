@@ -6,11 +6,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // ハンバーガーメニューの制御
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
+    const body = document.body;
 
     if (hamburger && nav) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function(event) {
+            event.stopPropagation(); // ハンバーガーメニューのクリックイベントがbodyに伝播しないように
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
+        });
+
+        nav.addEventListener('click', function(event) {
+            event.stopPropagation(); // ナビゲーション内のクリックイベントがbodyに伝播しないように
+        });
+
+        body.addEventListener('click', function() {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
     }
 
@@ -42,116 +55,54 @@ document.addEventListener('DOMContentLoaded', function() {
     // 動画の読み込みエラー処理と自動再生の確保
     const heroVideo = document.getElementById('heroVideo');
     if (heroVideo) {
-        // 動画の読み込み完了時の処理
-        heroVideo.addEventListener('loadeddata', function() {
+        heroVideo.addEventListener('loadeddata', () => {
             heroVideo.play().catch(error => {
-                console.error("動画の自動再生がブロックされました:", error);
+                console.error('Video auto-play failed:', error);
             });
         });
+        
+        // 再生が止まった場合の再開処理
+        heroVideo.addEventListener('ended', () => {
+            heroVideo.play().catch(error => {
+                console.error('Video auto-play failed after ending:', error);
+            });
+        });
+
+        // ページが非表示になった場合の停止と再表示になった場合の再生
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                heroVideo.pause();
+            } else {
+                heroVideo.play().catch(error => {
+                    console.error('Video auto-play failed after visibility change:', error);
+                });
+            }
+        });
     }
-    
-    // スムーススクロール
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
 
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                return;
-            }
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - (header ? header.offsetHeight : 0),
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // フェードインアニメーション
-    const fadeInElements = document.querySelectorAll('.fade-in');
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        rootMargin: '0px',
-        threshold: 0.2
-    });
-
-    fadeInElements.forEach(element => {
-        observer.observe(element);
-    });
-
-    // お問い合わせフォームのバリデーション（contact.html専用）
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            let isValid = true;
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            
-            // 既存のエラーメッセージをクリア
-            document.querySelectorAll('.error-message').forEach(el => el.remove());
-
-            if (name && !name.value.trim()) {
-                showError(name, 'お名前を入力してください。');
-                isValid = false;
-            }
-            
-            if (email && !email.value.trim()) {
-                showError(email, 'メールアドレスを入力してください。');
-                isValid = false;
-            } else if (email && !isValidEmail(email.value)) {
-                showError(email, '正しいメールアドレスを入力してください。');
-                isValid = false;
-            }
-            
-            if (message && !message.value.trim()) {
-                showError(message, 'メッセージを入力してください。');
-                isValid = false;
-            }
-            
-            if (!isValid) {
+    // スムーススクロールの調整
+    const links = document.querySelectorAll('a.scroll-link');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || href.startsWith('#')) {
                 e.preventDefault();
+                const targetId = href.substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                }
             }
         });
-    }
-
-    // エラーメッセージ表示関数
-    function showError(element, message) {
-        // 既存のエラーメッセージを削除
-        const existingError = element.parentNode.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
-        
-        // 新しいエラーメッセージを作成
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.style.color = '#e74c3c';
-        errorDiv.style.fontSize = '0.9rem';
-        errorDiv.style.marginTop = '0.5rem';
-        errorDiv.textContent = message;
-        
-        element.parentNode.appendChild(errorDiv);
-        element.focus();
-    }
-
-    // メールアドレス形式チェック関数
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
+    });
 });
