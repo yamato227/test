@@ -13,7 +13,7 @@
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
-            height: 50vh;
+            padding: 80px 20px; /* ヒーローセクションのサイズを調整 */
             color: white;
             display: flex;
             justify-content: center;
@@ -34,14 +34,21 @@
             z-index: -1;
         }
 
+        .hero-sougi .hero-content {
+            max-width: 800px; /* テキストの幅を制限して読みやすくする */
+            width: 100%;
+            padding: 0 20px;
+        }
+
         .hero-sougi .hero-content h1 {
             font-size: 2.5em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.5em; /* 単位をemに変更 */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .hero-sougi .hero-content p {
             font-size: 1.2em;
+            line-height: 1.8; /* 行間を広げて読みやすくする */
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
         
