@@ -6,7 +6,453 @@
     <title>お問い合わせ - 真宗大谷派 光輪寺</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* style.css の内容をここに挿入 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            background-color: #f0f4f7;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 20px;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* ナビゲーション */
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 29px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #004d40;
+        }
+
+
+
+        .has-dropdown {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            list-style: none;
+            min-width: 200px;
+            border-radius: 5px;
+            z-index: 100;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .has-dropdown:hover .dropdown {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            color: #666;
+            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+            display: block;
+            white-space: nowrap;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background-color: #f8f8f8;
+            color: #004d40;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ページコンテンツ */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ヒーローセクション */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px 100px; /* 上下のサイズを3分の2に縮小 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px; /* ヘッダーの高さ分スペースを空ける */
+        }
+        
+        .hero-section .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: none;
+            padding-bottom: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        /* お問い合わせページ固有のスタイル */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .contact-form,
+        .contact-info-block,
+        .access-info-block {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h2,
+        .contact-info-block h2,
+        .access-info-block h2 {
+            font-size: 1.8rem;
+            color: #004d40;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a3c9b8;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #004d40;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #003d33;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-item .icon-container {
+            font-size: 1.5rem;
+            color: #004d40;
+            margin-right: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .contact-info-item .text-container strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .contact-info-item .text-container p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .map-container {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .access-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .access-item strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .access-item p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* フッター */
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #5a7d75;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #a3c9b8;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #a3c9b8;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header-container {
+                height: 60px;
+            }
+
+            .logo-image {
+                height: 50px;
+            }
+
+            .nav {
+                display: none;
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 70%;
+                height: calc(100vh - 60px);
+                background-color: #fff;
+                flex-direction: column;
+                padding-top: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+
+            .nav.active {
+                left: 0;
+            }
+
+            .nav a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding: 0;
+                margin-top: 1rem;
+            }
+
+            .dropdown a {
+                color: #666;
+                font-size: 1rem;
+                padding: 0.5rem 0;
+                border-bottom: none;
+            }
+            
+            .hero-section {
+                padding: 80px 20px; /* スマートフォン向けにさらに縮小 */
+            }
+
+            .hero-section .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -30,6 +476,7 @@
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </nav>
+            
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -39,16 +486,16 @@
     </header>
 
     <main>
-        <section class="page-header">
-            <div class="page-header-content fade-in">
-                <h1>お問い合わせ</h1>
-                <p>ご質問やご相談など、お気軽にお問い合わせください。</p>
-            </div>
+        <section class="hero-section">
+            <h2 class="page-title">お問い合わせ</h2>
+            <p>
+                ご質問やご相談など、お気軽にお問い合わせください。
+            </p>
         </section>
 
-        <section class="content-section">
-            <div class="container main-content">
-                <div class="contact-form fade-in">
+        <section class="main-content">
+            <div class="contact-content">
+                <div class="contact-form">
                     <h2>お問い合わせフォーム</h2>
                     <form id="contactForm" action="submit_form.php" method="POST">
                         <div class="form-group">
@@ -66,38 +513,40 @@
                         <button type="submit" class="submit-button">送信</button>
                     </form>
                 </div>
-    
-                <div class="contact-info-block fade-in">
-                    <h2>直接お問い合わせ</h2>
-                    <div class="contact-info-item">
-                        <div class="icon-container"><i class="fas fa-phone"></i></div>
-                        <div class="text-container">
-                            <strong>電話</strong>
-                            <p>048-202-3377</p>
+                
+                <div>
+                    <div class="contact-info-block" style="margin-bottom: 30px;">
+                        <h2>直接お問い合わせ</h2>
+                        <div class="contact-info-item">
+                            <div class="icon-container"><i class="fas fa-phone"></i></div>
+                            <div class="text-container">
+                                <strong>電話</strong>
+                                <p>048-202-3377</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon-container"><i class="fas fa-envelope"></i></div>
+                            <div class="text-container">
+                                <strong>メール</strong>
+                                <p>info@kourinji.jp</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-info-item">
-                        <div class="icon-container"><i class="fas fa-envelope"></i></div>
-                        <div class="text-container">
-                            <strong>メール</strong>
-                            <p>info@kourinji.jp</p>
+                    
+                    <div class="access-info-block">
+                        <h2>アクセス</h2>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4789178229875!2d139.5802107!3d35.8080645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35bc8f60f0d2c98b%3A0xc34a1d4b1f66d6d!2z576O5Lq65a2d6L6y5bed5oqA5bSO!5e0!3m2!1sja!2sjp!4v1678873095388!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-                    </div>
-                </div>
-
-                <div class="access-info-block fade-in">
-                    <h2>アクセス</h2>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.132899450849!2d139.5815615152504!3d35.81525098016462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346bde5b1d9d9d0d%3A0xf62c0f2f3d5e2e8e!2z55u46YOo5aW9!5e0!3m2!1sja!2sjp!4v1620353100236!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <div class="access-details">
-                        <div class="access-item">
-                            <strong>電車</strong>
-                            <p>東武東上線 志木駅より徒歩10分</p>
-                        </div>
-                        <div class="access-item">
-                            <strong>駐車場</strong>
-                            <p>完備（無料）</p>
+                        <div class="access-details">
+                            <div class="access-item">
+                                <strong>電車</strong>
+                                <p>東武東上線 志木駅より徒歩10分</p>
+                            </div>
+                            <div class="access-item">
+                                <strong>駐車場</strong>
+                                <p>完備（無料）</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,6 +587,63 @@
         </div>
     </footer>
     
-    <script src="script.js"></script>
+    <script>
+        // script.js の内容をここに挿入
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+            }
+
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (hamburger && nav) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (header) {
+                    if (window.scrollY > 100) {
+                        header.style.background = 'rgba(255, 255, 255, 0.95)';
+                        header.style.backdropFilter = 'blur(10px)';
+                    } else {
+                        header.style.background = '#ffffff';
+                        header.style.backdropFilter = 'none';
+                    }
+                }
+            });
+
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
