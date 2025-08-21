@@ -1,1022 +1,672 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>本堂・施設紹介 - 真宗大谷派 光輪寺</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* style.css の内容 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Serif JP', serif;
-            background-color: #ffffff;
-            color: #333;
-            line-height: 1.7;
-        }
-
-        /* ヘッダー */
-        .header {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 0 20px;
-            transition: background 0.3s ease, backdrop-filter 0.3s ease;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            display: block;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-image {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* ナビゲーション */
-        .nav {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav a:hover {
-            color: #8B4513;
-        }
-
-        .nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #8B4513;
-            transition: width 0.3s ease;
-        }
-
-        .nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ドロップダウンメニュー */
-        .has-dropdown {
-            position: relative;
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            list-style: none;
-        }
-
-        .has-dropdown:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown li {
-            padding: 0;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: #333;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .dropdown a:hover {
-            background-color: #f8f8f8;
-            color: #8B4513;
-        }
-
-        .dropdown a::after {
-            display: none;
-        }
-
-        /* ハンバーガーメニュー */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* メインコンテンツ */
-        main {
-            margin-top: 80px;
-        }
-
-        /* ヒーローセクション */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            background-color: #000;
-            margin-top: 80px;
-            background-image: url('space.png');
-            background-size: cover; /* 画像を画面全体に広げる */
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* 暗いオーバーレイ */
-            z-index: 1;
-        }
-        
-        .page-header-content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        
-        .page-header-content h1 {
-            font-size: 3rem; /* サイズを調整 */
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-        
-        .page-header-content p {
-            font-size: 1.2rem; /* サイズを調整 */
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-        
-        /* 動画背景のスタイル */
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .video-background video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .video-fallback {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            z-index: 2;
-        }
-
-        /* イントロセクション */
-        .intro-section {
-            padding: 80px 20px;
-            background: #ffffff;
-        }
-
-        .intro-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .intro-section h2 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .intro-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: #555;
-        }
-
-        /* お知らせセクション */
-        .news-section {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-
-        .news-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .news-section h2 {
-            font-size: 2.2rem;
-            color: #333;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .news-item {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .news-date {
-            background: #8B4513;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: 600;
-            min-width: 120px;
-            text-align: center;
-        }
-
-        .news-text {
-            flex: 1;
-            color: #555;
-        }
-
-        /* サービスセクション */
-        .services-section {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-section h2 {
-            font-size: 2.2rem;
-            color: #333;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #8B4513;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* フッター */
-        .footer {
-            background: #2c2c2c;
-            color: #ccc;
-            padding: 60px 20px 30px;
-            text-align: center;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .footer-section h3 {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .footer-nav a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-nav a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #444;
-            padding-top: 2rem;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* レスポンシブデザイン */
-        @media (max-width: 768px) {
-            .header-container {
-                height: 60px; /* ヘッダーの高さを調整 */
-            }
-
-            .logo-image {
-                height: 40px; /* ロゴの高さを調整 */
-            }
-
-            .nav {
-                position: fixed;
-                top: 60px; /* ヘッダーの高さに合わせて調整 */
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            }
-
-            .nav.active {
-                left: 0;
-            }
-
-            .nav a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .dropdown {
-                position: static;
-                box-shadow: none;
-                background: transparent;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                padding: 0;
-                margin-top: 1rem;
-            }
-
-            .dropdown a {
-                color: #666;
-                font-size: 1rem;
-                padding: 0.5rem 0;
-                border-bottom: none;
-            }
-
-            main {
-                margin-top: 60px; /* ヘッダーの高さに合わせて調整 */
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .intro-section {
-                padding: 60px 20px;
-            }
-
-            .intro-section h2 {
-                font-size: 2rem;
-            }
-
-            .news-section,
-            .services-section {
-                padding: 60px 20px;
-            }
-
-            .news-section h2,
-            .services-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .news-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .news-date {
-                min-width: auto;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .footer-nav {
-                justify-content: center;
-                gap: 1rem;
-            }
-        }
-        /* ここから temple.html 固有のスタイル */
-        .page-content {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .content-container {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .page-intro {
-            text-align: center;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #555;
-        }
-        
-        .facility-section {
-            margin-bottom: 60px;
-        }
-        
-        .facility-item {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 40px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        
-        .facility-item.reverse {
-            flex-direction: row-reverse;
-        }
-        
-        .facility-image {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .facility-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .facility-content {
-            flex: 2;
-        }
-        
-        .facility-content h2 {
-            font-size: 2.2rem;
-            color: #004d40;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
-            text-align: left;
-        }
-        
-        .facility-content p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .facility-item.no-image {
-            display: block;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .no-image-icon {
-            font-size: 3rem;
-            color: #004d40;
-            margin-bottom: 1rem;
-        }
-
-        .facilities-overview {
-            text-align: center;
-            padding: 40px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-        }
-
-        .facilities-overview h2 {
-            font-size: 2rem;
-            color: #004d40;
-            margin-bottom: 2rem;
-        }
-
-        .facilities-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .info-card {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            text-align: center;
-            width: 250px;
-        }
-
-        .info-icon {
-            font-size: 2.5rem;
-            color: #004d40;
-            margin-bottom: 0.5rem;
-        }
-        
-        .info-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .info-card p {
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .facility-item {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .facility-item.reverse {
-                flex-direction: column;
-            }
-            .facility-content h2 {
-                text-align: center;
-            }
-            .facilities-info {
-                flex-direction: column;
-                align-items: center;
-            }
-            .info-card {
-                width: 100%;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本堂・施設紹介 - 真宗大谷派 光輪寺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* style.css の内容をここに挿入 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            background-color: #f0f4f7;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 20px;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* ナビゲーション */
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 29px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #004d40;
+        }
+
+        .has-dropdown {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            list-style: none;
+            min-width: 200px;
+            border-radius: 5px;
+            z-index: 100;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .has-dropdown:hover .dropdown {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            color: #666;
+            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+            display: block;
+            white-space: nowrap;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background-color: #f8f8f8;
+            color: #004d40;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* ページコンテンツ */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ヒーローセクション */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+        }
+
+        .hero-section .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: none;
+            padding-bottom: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* 本堂・施設紹介固有のスタイル */
+        .temple-facilities {
+            padding: 20px;
+        }
+
+        .temple-facilities h2 {
+            font-size: 2em;
+            color: #004d40;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .facility-item {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .facility-item:last-child {
+            border-bottom: none;
+        }
+
+        .facility-image-container {
+            flex: 1 1 50%;
+            max-width: 50%;
+            padding-right: 30px;
+        }
+
+        .facility-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .facility-description {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+
+        .facility-description h3 {
+            font-size: 1.5em;
+            color: #004d40;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .facility-description p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .info-card {
+            background-color: #f9f9f9;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-card .icon-container {
+            font-size: 3rem;
+            color: #004d40;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            color: #004d40;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* フッター */
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #5a7d75;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #a3c9b8;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #a3c9b8;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header-container {
+                height: 60px; /* ヘッダーの高さを調整 */
+            }
+
+            .logo-image {
+                height: 40px; /* ロゴの高さを調整 */
+            }
+
+            .nav {
+                position: fixed;
+                top: 60px; /* ヘッダーの高さに合わせて調整 */
+                left: -100%; /* 初期位置を左端に */
+                width: 50%; /* 幅を半分に */
+                height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
+                background: white;
+                flex-direction: column;
+                align-items: flex-start; /* メニューアイテムを左寄せに */
+                justify-content: flex-start;
+                padding-top: 2rem;
+                padding-left: 1rem; /* 左側に少し余白を追加 */
+                gap: 0.5rem;
+                transition: left 0.3s ease; /* スライドインのアニメーション */
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* 右側にシャドウ */
+            }
+
+            .nav.active {
+                left: 0; /* アクティブ時に左から表示 */
+            }
+
+            .nav a {
+                font-size: 1.1rem;
+                padding: 0.7rem 0;
+                width: 100%; /* 幅を親要素に合わせる */
+                border-bottom: 1px solid #eee; /* 区切り線 */
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding: 0;
+                margin-top: 0.5rem;
+                margin-left: 1rem; /* ドロップダウンも少し左に寄せる */
+            }
+
+            .dropdown a {
+                color: #666;
+                font-size: 1rem;
+                padding: 0.5rem 0;
+                border-bottom: none;
+            }
+
+            main {
+                margin-top: 60px; /* ヘッダーの高さに合わせて調整 */
+            }
+
+            .hero-section .page-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .facility-item {
+                flex-direction: column;
+            }
+
+            .facility-image-container,
+            .facility-description {
+                flex: 1 1 100%;
+                max-width: 100%;
+                padding-right: 0;
+            }
+
+            .facility-description {
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
-            </a>
-            
-            <nav>
-                <ul class="nav" id="nav">
-                    <li><a href="index.html">ホーム</a></li>
-                    <li class="has-dropdown">
-                        <a href="#">光輪寺について</a>
-                        <ul class="dropdown">
-                            <li><a href="history.html">沿革</a></li>
-                            <li><a href="temple.html">本堂・施設紹介</a></li>
-                            <li><a href="priest.html">住職紹介</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="sougi.html">葬儀・法要について</a></li>
-                    <li><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </nav>
-            
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
+            </a>
+            
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-    <main>
-        <div class="hero-section">
-            <div class="page-header-content">
-                <h1>本堂・施設紹介</h1>
-                <p>心安らぐ祈りの空間</p>
-            </div>
-        </div>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="page-title">本堂・施設紹介</h1>
+                <p>皆様が心穏やかに過ごせる場所</p>
+            </div>
+        </section>
 
-        <section class="page-content">
-            <div class="content-container">
-                <div class="page-intro">
-                    <p>光輪寺の境内には、皆様の心の安らぎを育む様々な施設がございます。それぞれが歴史と伝統を刻みながら、現代に生きる私たちの祈りの場となっています。</p>
-                </div>
+        <section class="main-content temple-facilities">
+            <h2>光輪寺の施設</h2>
+            <div class="facility-item">
+                <div class="facility-image-container">
+                    <img src="temple1.jpg" alt="本堂">
+                </div>
+                <div class="facility-description">
+                    <h3>本堂</h3>
+                    <p>
+                        当寺の本堂は、落ち着いた雰囲気の中で仏様の教えに耳を傾けることができる空間です。
+                        法要や行事の際にご利用いただけます。美しい装飾と静寂な空気が、心を癒します。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="facility-item">
+                <div class="facility-image-container">
+                    <img src="temple2.jpg" alt="納骨堂">
+                </div>
+                <div class="facility-description">
+                    <h3>納骨堂</h3>
+                    <p>
+                        故人様を永代にわたりお預かりする納骨堂です。
+                        個別のお骨預かりから、合祀墓まで、ご家族の事情に合わせた供養の方法をご提案いたします。
+                        静かで清潔な環境で、いつでもお参りいただけます。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="facility-item">
+                <div class="facility-image-container">
+                    <img src="temple3.jpg" alt="茶室">
+                </div>
+                <div class="facility-description">
+                    <h3>客殿・茶室</h3>
+                    <p>
+                        法要後の会食や、ご参拝いただいた皆様の休憩所としてご利用いただける客殿と、
+                        静寂なひとときを過ごせる本格的な茶室がございます。
+                        心ゆくまでおくつろぎください。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="facility-item">
+                <div class="facility-image-container">
+                    <img src="temple4.jpg" alt="庭園">
+                </div>
+                <div class="facility-description">
+                    <h3>庭園</h3>
+                    <p>
+                        手入れの行き届いた庭園は、四季折々の美しい景色を楽しむことができます。
+                        心を落ち着かせる散策路として、また瞑想の場としてご利用いただけます。
+                        自然の美しさが、皆様の心を豊かにします。
+                    </p>
+                </div>
+            </div>
 
-                <div class="facility-section">
-                    <div class="facility-item">
-                        <div class="facility-image">
-                            <img src="hondo.jpg" alt="本堂の外観">
-                        </div>
-                        <div class="facility-content">
-                            <h2>本堂</h2>
-                            <p>当寺の中心となる本堂です。日々の勤行や法要が執り行われ、皆様の心の拠り所となっています。静謐な空間で、仏様と向き合う時間をお過ごしください。</p>
-                            <p>荘厳なご本尊をお祀りし、四季を通じて参拝者の皆様をお迎えしています。葬儀や法要の際には、故人様への想いを込めてお勤めをさせていただきます。</p>
-                        </div>
-                    </div>
+            <div class="contact-info-grid">
+                <div class="info-card">
+                    <div class="icon-container">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon-container">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>受付時間</h3>
+                    <p>9:00〜17:00</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon-container">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>お問い合わせ</h3>
+                    <p>048-202-3377<br>受付：9:00〜17:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-                    <div class="facility-item reverse">
-                        <div class="facility-image">
-                            <img src="kyakuma.jpg" alt="客間">
-                        </div>
-                        <div class="facility-content">
-                            <h2>客間</h2>
-                            <p>ご法事の際に親族の方々がお集まりになる場所としてご利用いただけます。落ち着いた和の雰囲気の中で、故人との思い出を語り合い、親睦を深める時間をお過ごしください。</p>
-                            <p>最大20名様までご利用いただけ、お茶やお食事のご用意も可能です。詳細につきましては、事前にご相談ください。</p>
-                        </div>
-                    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                        埼玉県志木市本町５丁目２−８<br>
+                        TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                        駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                        法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-                    <div class="facility-item no-image">
-                        <div class="facility-content">
-                            <div class="no-image-icon">
-                                <i class="fas fa-car"></i>
-                            </div>
-                            <h2>駐車場について</h2>
-                            <p>申し訳ございませんが、当寺院専用の駐車場はございません。お車でお越しの際は、近隣のコインパーキングをご利用ください。</p>
-                            <p>志木駅周辺には複数のコインパーキングがございます。法要等でお越しの際は、事前に駐車場の場所についてもご案内いたします。</p>
-                        </div>
-                    </div>
-                </div>
+    <script>
+        // script.js
+        // DOMContentLoaded イベントでスクリプトを実行
+        document.addEventListener('DOMContentLoaded', function() {
+            // ハンバーガーメニューの制御
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
 
-                <div class="facilities-overview">
-                    <h2>施設のご利用について</h2>
-                    <div class="facilities-info">
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3>開門時間</h3>
-                            <p>午前6時〜午後6時<br>（季節により変動あり）</p>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                            <h3>法要予約</h3>
-                            <p>事前予約制<br>お電話にてご相談ください</p>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h3>お問い合わせ</h3>
-                            <p>048-202-3377<br>受付：9:00〜17:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+            }
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>真宗大谷派 光輪寺</h3>
-                    <p>〒353-0004<br>
-                        埼玉県志木市本町５丁目２−８<br>
-                        TEL: 048-202-3377</p>
-                </div>
-                <div class="footer-section">
-                    <h3>アクセス</h3>
-                    <p>東武東上線 志木駅より徒歩10分<br>
-                        駐車場完備</p>
-                </div>
-                <div class="footer-section">
-                    <h3>受付時間</h3>
-                    <p>平日・土日祝日 9:00〜17:00<br>
-                        法要等のご相談は事前にお電話ください</p>
-                </div>
-            </div>
-            
-            <nav class="footer-nav">
-                <a href="index.html">ホーム</a>
-                <a href="contact.html">お問い合わせ</a>
-                <a href="privacy-policy.html">プライバシーポリシー</a>
-            </nav>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+            // メニューリンクをクリックした時にメニューを閉じる
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (hamburger && nav) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                });
+            });
 
-    <script>
-        // script.js
+            // スクロール時のヘッダー効果
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 100) {
+                        header.style.background = 'rgba(255, 255, 255, 0.95)';
+                        header.style.backdropFilter = 'blur(10px)';
+                    } else {
+                        header.style.background = '#ffffff';
+                        header.style.backdropFilter = 'none';
+                    }
+                });
+            }
 
-        // DOMContentLoaded イベントでスクリプトを実行
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // ハンバーガーメニューの制御
-            const hamburger = document.getElementById('hamburger');
-            const nav = document.getElementById('nav');
+            // スムーススクロールの調整
+            const links = document.querySelectorAll('a.scroll-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            const headerHeight = document.querySelector('.header').offsetHeight;
+                            const targetPosition = target.offsetTop - headerHeight;
 
-            if (hamburger && nav) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    nav.classList.toggle('active');
-                });
-            }
-
-            // メニューリンクをクリックした時にメニューを閉じる
-            const navLinks = document.querySelectorAll('.nav a');
-            navLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
-                    if (hamburger && nav) {
-                        hamburger.classList.remove('active');
-                        nav.classList.remove('active');
-                    }
-                });
-            });
-
-            // スクロール時のヘッダー効果
-            const header = document.querySelector('.header');
-            if (header) {
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 100) {
-                        header.style.background = 'rgba(255, 255, 255, 0.95)';
-                        header.style.backdropFilter = 'blur(10px)';
-                    } else {
-                        header.style.background = '#ffffff';
-                        header.style.backdropFilter = 'none';
-                    }
-                });
-            }
-
-            // 動画の読み込みエラー処理と自動再生の確保
-            const heroVideo = document.getElementById('heroVideo');
-            if (heroVideo) {
-                // 動画の読み込み完了時の処理
-                heroVideo.addEventListener('loadeddata', function() {
-                    heroVideo.play().catch(error => {
-                        console.error("動画の自動再生がブロックされました:", error);
-                    });
-                });
-            }
-            
-            // スムーススクロール
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                        return;
-                    }
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - (header ? header.offsetHeight : 0),
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // フェードインアニメーション
-            const fadeInElements = document.querySelectorAll('.fade-in');
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                rootMargin: '0px',
-                threshold: 0.2
-            });
-
-            fadeInElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // お問い合わせフォームのバリデーション（contact.html専用）
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    let isValid = true;
-                    const name = document.getElementById('name');
-                    const email = document.getElementById('email');
-                    const message = document.getElementById('message');
-                    
-                    // 既存のエラーメッセージをクリア
-                    document.querySelectorAll('.error-message').forEach(el => el.remove());
-
-                    if (name && !name.value.trim()) {
-                        showError(name, 'お名前を入力してください。');
-                        isValid = false;
-                    }
-                    
-                    if (email && !email.value.trim()) {
-                        showError(email, 'メールアドレスを入力してください。');
-                        isValid = false;
-                    } else if (email && !isValidEmail(email.value)) {
-                        showError(email, '正しいメールアドレスを入力してください。');
-                        isValid = false;
-                    }
-                    
-                    if (message && !message.value.trim()) {
-                        showError(message, 'メッセージを入力してください。');
-                        isValid = false;
-                    }
-                    
-                    if (!isValid) {
-                        e.preventDefault();
-                    }
-                });
-            }
-
-            // エラーメッセージ表示関数
-            function showError(element, message) {
-                // 既存のエラーメッセージを削除
-                const existingError = element.parentNode.querySelector('.error-message');
-                if (existingError) {
-                    existingError.remove();
-                }
-                
-                // 新しいエラーメッセージを作成
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.style.color = '#e74c3c';
-                errorDiv.style.fontSize = '0.9rem';
-                errorDiv.style.marginTop = '0.5rem';
-                errorDiv.textContent = message;
-                
-                element.parentNode.appendChild(errorDiv);
-                element.focus();
-            }
-
-            // メールアドレス形式チェック関数
-            function isValidEmail(email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
-        });
-    </script>
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            if (nav.classList.contains('active')) {
+                                nav.classList.remove('active');
+                                hamburger.classList.remove('active');
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
