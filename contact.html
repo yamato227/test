@@ -14,6 +14,7 @@
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
             </a>
+            
             <nav>
                 <ul class="nav" id="nav">
                     <li><a href="index.html">ホーム</a></li>
@@ -39,66 +40,65 @@
 
     <main>
         <section class="page-header">
-            <div class="page-header-content">
-                <h1>お問い合わせ（現在停止中）</h1>
-                <p>お気軽にご相談ください</p>
+            <div class="page-header-content fade-in">
+                <h1>お問い合わせ</h1>
+                <p>ご質問やご相談など、お気軽にお問い合わせください。</p>
             </div>
         </section>
 
-        <section class="page-content">
-            <div class="container">
-                <p class="contact-intro">
-                    ご質問、ご相談などございましたら、お電話にてお問い合わせください。<br>
-                    ご相談内容によっては、ご来寺いただく場合もございます。
-                </p>
-
-                <div class="contact-info-block">
-                    <h2>ご連絡先</h2>
-                    <div class="contact-info-item">
-                        <div class="icon-container">
-                            <i class="fas fa-phone-alt"></i>
+        <section class="content-section">
+            <div class="container main-content">
+                <div class="contact-form fade-in">
+                    <h2>お問い合わせフォーム</h2>
+                    <form id="contactForm" action="submit_form.php" method="POST">
+                        <div class="form-group">
+                            <label for="name">お名前</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">送信</button>
+                    </form>
+                </div>
+    
+                <div class="contact-info-block fade-in">
+                    <h2>直接お問い合わせ</h2>
+                    <div class="contact-info-item">
+                        <div class="icon-container"><i class="fas fa-phone"></i></div>
                         <div class="text-container">
-                            <strong>電話番号</strong>
+                            <strong>電話</strong>
                             <p>048-202-3377</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
-                        <div class="icon-container">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="icon-container"><i class="fas fa-envelope"></i></div>
                         <div class="text-container">
-                            <strong>受付時間</strong>
-                            <p>平日・土日祝日 9:00〜17:00</p>
+                            <strong>メール</strong>
+                            <p>info@kourinji.jp</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-info-block">
-                    <h2>寺院所在地</h2>
-                    <div class="contact-info-item">
-                        <div class="icon-container">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="text-container">
-                            <strong>住所</strong>
-                            <p>〒353-0004 埼玉県志木市本町５丁目２−８</p>
-                        </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.196397361413!2d139.58882411525048!3d35.74838388018269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018fd7d10e06001%3A0x74e897a2e0a2d211!2z5aWJ5L2L5a2Q5aSn6aeF5L2c!5e0!3m2!1sja!2sjp!4v1628173491913!5m2!1sja!2sjp" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-
-                <div class="contact-info-block">
+                <div class="access-info-block fade-in">
                     <h2>アクセス</h2>
-                    <div class="access-item">
-                        <strong>電車</strong>
-                        <p>東武東上線 志木駅より徒歩10分</p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.132899450849!2d139.5815615152504!3d35.81525098016462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346bde5b1d9d9d0d%3A0xf62c0f2f3d5e2e8e!2z55u46YOo5aW9!5e0!3m2!1sja!2sjp!4v1620353100236!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                    <div class="access-item">
-                        <strong>駐車場</strong>
-                        <p>完備（無料）</p>
+                    <div class="access-details">
+                        <div class="access-item">
+                            <strong>電車</strong>
+                            <p>東武東上線 志木駅より徒歩10分</p>
+                        </div>
+                        <div class="access-item">
+                            <strong>駐車場</strong>
+                            <p>完備（無料）</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,6 +137,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
