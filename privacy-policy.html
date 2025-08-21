@@ -4,22 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - プライバシーポリシー</title>
-    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1> </header>
-
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">ホーム</a></li> <li class="has-dropdown">
-                <a href="#">光輪寺について</a>
-                <ul class="dropdown">
-                    <li><a href="history.html">沿革</a></li> <li><a href="temple.html">本堂・施設紹介</a></li> <li><a href="priest.html">住職紹介</a></li> </ul>
-            </li>
-            <li><a href="sougi.html">葬儀・法要について</a></li> <li><a href="contact.html">お問い合わせ</a></li> </ul>
-    </nav>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
+            </a>
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
     <main class="main-content">
         <h2>プライバシーポリシー</h2>
@@ -46,20 +62,48 @@
             <p>当寺院は、ご本人から自己の個人情報について開示・訂正・利用停止・消去等の請求がある場合、速やかに対応いたします。</p>
             <p>なお、ご請求の際には、ご本人確認のため身分証明書のご提示をお願いする場合がございます。</p>
 
-            <h3>6. 本方針の変更</h3>
-            <p>本方針の内容は、必要に応じて変更することがあります。変更後の本方針は、当サイトに掲載したときから効力を生じるものとします。</p>
+            <h3>6. 本プライバシーポリシーの変更</h3>
+            <p>当寺院は、個人情報保護の改善のため、または法令の変更に伴い、本プライバシーポリシーを改定することがございます。改定後のプライバシーポリシーは、当ウェブサイトに掲載したときから効力を生じるものとします。</p>
 
-            <p class="last-update">制定日：2025年7月5日</p>
+            <h3>7. お問い合わせ</h3>
+            <p>個人情報に関するご質問やお問い合わせは、下記までご連絡ください。<br>
+                真宗大谷派 光輪寺<br>
+                TEL: 048-202-3377</p>
         </section>
     </main>
 
     <footer class="footer">
-        <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
-        <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
-        <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="privacy-policy.html">プライバシーポリシー</a> </div>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                        埼玉県志木市本町５丁目２−８<br>
+                        TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                        駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                        法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
