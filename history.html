@@ -132,22 +132,21 @@
         .hamburger {
             display: none;
             flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
             cursor: pointer;
+            padding: 5px;
         }
 
         .hamburger span {
-            display: block;
-            width: 100%;
+            width: 25px;
             height: 3px;
-            background-color: #333;
-            transition: all 0.3s ease-in-out;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(-45deg) translate(-5px, 6px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -155,7 +154,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         /* ページコンテンツ */
@@ -175,12 +174,12 @@
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 100px 20px 100px; /* 上下のサイズを3分の2に縮小 */
+            padding: 100px 20px 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 80px; /* ヘッダーの高さ分スペースを空ける */
+            margin-top: 80px;
         }
         
         .hero-section .page-title {
@@ -331,35 +330,43 @@
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
             .header-container {
-                height: 60px;
+                height: 60px; /* ヘッダーの高さを調整 */
             }
 
             .logo-image {
-                height: 50px;
+                height: 40px; /* ロゴの高さを調整 */
             }
 
             .nav {
-                display: none;
                 position: fixed;
-                top: 60px;
-                left: -100%;
-                width: 70%;
-                height: calc(100vh - 60px);
-                background-color: #fff;
+                top: 60px; /* ヘッダーの高さに合わせて調整 */
+                right: -100%; /* 初期位置を右端に */
+                width: 50%; /* 幅を半分に */
+                height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
+                background: white;
                 flex-direction: column;
+                align-items: flex-start; /* メニューアイテムを左寄せに */
+                justify-content: flex-start;
                 padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                padding-left: 1rem; /* 左側に少し余白を追加 */
+                gap: 0.5rem;
+                transition: right 0.3s ease; /* スライドインのアニメーション */
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1); /* 左側にシャドウ */
             }
 
             .nav.active {
-                left: 0;
+                right: 0; /* アクティブ時に右から表示 */
             }
 
             .nav a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
+                font-size: 1.1rem;
+                padding: 0.7rem 0;
+                width: 100%; /* 幅を親要素に合わせる */
+                border-bottom: 1px solid #eee; /* 区切り線 */
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
             }
 
             .hamburger {
@@ -374,7 +381,8 @@
                 visibility: visible;
                 transform: none;
                 padding: 0;
-                margin-top: 1rem;
+                margin-top: 0.5rem;
+                margin-left: 1rem; /* ドロップダウンも少し左に寄せる */
             }
 
             .dropdown a {
@@ -382,6 +390,10 @@
                 font-size: 1rem;
                 padding: 0.5rem 0;
                 border-bottom: none;
+            }
+            
+            main {
+                margin-top: 60px; /* ヘッダーの高さに合わせて調整 */
             }
             
             .hero-section {
@@ -392,9 +404,36 @@
                 font-size: 2.5rem;
             }
 
-            .contact-content {
+            .main-content {
+                padding: 20px;
+            }
+
+            .history-timeline {
+                padding-left: 20px;
+            }
+
+            .history-timeline::before {
+                left: 0;
+            }
+
+            .history-timeline .timeline-point {
+                left: -5px;
+                top: 5px;
+            }
+
+            .principles-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-nav {
+                justify-content: center;
+                gap: 1rem;
             }
         }
     </style>
@@ -528,19 +567,36 @@
     </footer>
     
     <script>
-        // script.js の内容をここに挿入
+        // script.js
+
+        // DOMContentLoaded イベントでスクリプトを実行
         document.addEventListener('DOMContentLoaded', function() {
             
+            // ハンバーガーメニューの制御
             const hamburger = document.getElementById('hamburger');
             const nav = document.getElementById('nav');
+            const body = document.body;
 
             if (hamburger && nav) {
-                hamburger.addEventListener('click', function() {
+                hamburger.addEventListener('click', function(event) {
+                    event.stopPropagation(); // ハンバーガーメニューのクリックイベントがbodyに伝播しないように
                     hamburger.classList.toggle('active');
                     nav.classList.toggle('active');
                 });
+
+                nav.addEventListener('click', function(event) {
+                    event.stopPropagation(); // ナビゲーション内のクリックイベントがbodyに伝播しないように
+                });
+
+                body.addEventListener('click', function() {
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
             }
 
+            // メニューリンクをクリックした時にメニューを閉じる
             const navLinks = document.querySelectorAll('.nav a');
             navLinks.forEach(function(link) {
                 link.addEventListener('click', function() {
@@ -551,9 +607,10 @@
                 });
             });
 
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('.header');
-                if (header) {
+            // スクロール時のヘッダー効果
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', function() {
                     if (window.scrollY > 100) {
                         header.style.background = 'rgba(255, 255, 255, 0.95)';
                         header.style.backdropFilter = 'blur(10px)';
@@ -561,25 +618,31 @@
                         header.style.background = '#ffffff';
                         header.style.backdropFilter = 'none';
                     }
-                }
-            });
+                });
+            }
 
-            const links = document.querySelectorAll('a[href^="#"]');
+            // スムーススクロールの調整
+            const links = document.querySelectorAll('a.scroll-link');
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                    if (href === '#' || href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            const headerHeight = document.querySelector('.header').offsetHeight;
+                            const targetPosition = target.offsetTop - headerHeight;
+
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            if (nav.classList.contains('active')) {
+                                nav.classList.remove('active');
+                                hamburger.classList.remove('active');
+                            }
+                        }
                     }
                 });
             });
