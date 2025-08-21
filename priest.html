@@ -1,98 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>光輪寺 - 住職紹介</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* ここは priest.html 固有のスタイルのみを記述します */
-        .main-content {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .main-content h2 {
-            font-size: 2em;
-            color: #004d40;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .priest-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 0;
-        }
-
-        .priest-section .priest-image {
-            max-width: 300px;
-            height: auto;
-            display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: cover;
-            aspect-ratio: 1 / 1;
-        }
-
-        .priest-name {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #004d40;
-            margin-bottom: 5px;
-        }
-
-        .priest-title {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .priest-profile,
-        .priest-message {
-            max-width: 700px;
-            width: 100%;
-            margin-bottom: 30px;
-        }
-
-        .priest-profile h3,
-        .priest-message h3 {
-            font-size: 1.5em;
-            color: #556b2f;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .priest-profile ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .priest-profile li {
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-left: 3px solid #004d40;
-            margin-bottom: 10px;
-        }
-
-        .priest-message p {
-            text-align: justify;
-            margin-bottom: 1em;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header class="header">
@@ -100,6 +14,7 @@
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
             </a>
+            
             <nav>
                 <ul class="nav" id="nav">
                     <li><a href="index.html">ホーム</a></li>
@@ -123,41 +38,50 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <h2>住職紹介</h2>
-
-        <section class="priest-section">
-            <img src="priest.jpg" alt="光輪寺住職の写真" class="priest-image" />
-
-            <div class="priest-name">○○ ○○</div>
-            <div class="priest-title">光輪寺 住職</div>
-
-            <section class="priest-profile">
-                <h3>略歴</h3>
-                <ul>
-                    <li>〇〇年〇月：〇〇大学〇〇学部卒業</li>
-                    <li>〇〇年〇月：〇〇寺にて得度</li>
-                    <li>〇〇年〇月：光輪寺副住職に就任</li>
-                    <li>〇〇年〇月：光輪寺住職に就任</li>
-                    <li>（その他、役職や活動など）</li>
-                </ul>
-            </section>
-
-            <section class="priest-message">
-                <h3>ご挨拶</h3>
-                <p>
-                    この度、光輪寺のウェブサイトをご覧いただき、誠にありがとうございます。
-                    当寺は、真宗大谷派の教えを基に、皆様が心安らかに過ごせる場を提供しております。
-                </p>
-                <p>
-                    現代社会において、私たちを取り巻く環境は目まぐるしく変化しておりますが、
-                    仏様の教えは、いつの時代も変わることなく私たちの心に光を与えてくれます。
-                </p>
-                <p>
-                    皆様の人生における様々なご縁に寄り添い、共に歩んでいくことを願っております。
-                    どうぞお気軽にお寺へお立ち寄りください。心よりお待ちしております。
-                </p>
-            </section>
+    <main>
+        <section class="page-header">
+            <div class="page-header-content fade-in">
+                <h1>住職紹介</h1>
+                <p>光輪寺 住職からのご挨拶と略歴</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <div class="container main-content">
+                <div class="priest-section fade-in">
+                    <img src="priest.jpg" alt="光輪寺住職の写真" class="priest-image" />
+        
+                    <div class="priest-name">○○ ○○</div>
+                    <div class="priest-title">光輪寺 住職</div>
+        
+                    <section class="priest-profile">
+                        <h3>略歴</h3>
+                        <ul>
+                            <li>〇〇年〇月：〇〇大学〇〇学部卒業</li>
+                            <li>〇〇年〇月：〇〇寺にて得度</li>
+                            <li>〇〇年〇月：光輪寺副住職に就任</li>
+                            <li>〇〇年〇月：光輪寺住職に就任</li>
+                            <li>（その他、役職や活動など）</li>
+                        </ul>
+                    </section>
+        
+                    <section class="priest-message">
+                        <h3>ご挨拶</h3>
+                        <p>
+                            この度、光輪寺のウェブサイトをご覧いただき、誠にありがとうございます。
+                            当寺は、真宗大谷派の教えを基に、皆様が心安らかに過ごせる場を提供しております。
+                        </p>
+                        <p>
+                            現代社会において、私たちを取り巻く環境は目まぐるしく変化しておりますが、
+                            仏様の教えは、いつの時代も変わることなく私たちの心に光を与えてくれます。
+                        </p>
+                        <p>
+                            皆様の人生における様々なご縁に寄り添い、共に歩んでいくことを願っております。
+                            どうぞお気軽にお寺へお立ち寄りください。心よりお待ちしております。
+                        </p>
+                    </section>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -193,6 +117,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
