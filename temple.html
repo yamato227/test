@@ -363,25 +363,25 @@
             }
 
             .nav {
-                position: fixed;
-                top: 60px; /* ヘッダーの高さに合わせて調整 */
-                left: -100%; /* 初期位置を左端に */
-                width: 50%; /* 幅を半分に */
-                height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
-                background: white;
-                flex-direction: column;
-                align-items: flex-start; /* メニューアイテムを左寄せに */
-                justify-content: flex-start;
-                padding-top: 2rem;
-                padding-left: 1rem; /* 左側に少し余白を追加 */
-                gap: 0.5rem;
-                transition: left 0.3s ease; /* スライドインのアニメーション */
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* 右側にシャドウ */
-            }
+        position: fixed;
+        top: 60px;
+        right: -100%; /* ここを left から right に変更 */
+        width: 50%;
+        height: calc(100vh - 60px);
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        padding-left: 1rem;
+        gap: 0.5rem;
+        transition: right 0.3s ease; /* transitionも right に変更 */
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1); /* シャドウの方向を左に変更 */
+    }
 
-            .nav.active {
-                left: 0; /* アクティブ時に左から表示 */
-            }
+    .nav.active {
+        right: 0; /* ここを left から right に変更 */
+    }
 
             .nav a {
                 font-size: 1.1rem;
@@ -512,21 +512,7 @@
                     </p>
                 </div>
             </div>
-            
-            <div class="facility-item">
-                <div class="facility-image-container">
-                    <img src="temple3.jpg" alt="茶室">
-                </div>
-                <div class="facility-description">
-                    <h3>客殿・茶室</h3>
-                    <p>
-                        法要後の会食や、ご参拝いただいた皆様の休憩所としてご利用いただける客殿と、
-                        静寂なひとときを過ごせる本格的な茶室がございます。
-                        心ゆくまでおくつろぎください。
-                    </p>
-                </div>
-            </div>
-            
+       
             <div class="facility-item no-image">
                         <div class="facility-content">
                             <div class="no-image-icon">
