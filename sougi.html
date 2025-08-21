@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - 葬儀・法要について</title>
-    <link rel="stylesheet" href="style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         /* ここは sougi.html 固有のスタイルのみを記述します */
         .main-content {
@@ -51,89 +51,48 @@
             border-radius: 5px;
             margin-bottom: 15px;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
         }
 
-        .service-list li strong {
+        .service-list strong {
             display: block;
             font-size: 1.2em;
+            margin-bottom: 0.5em;
             color: #004d40;
-            margin-bottom: 10px;
-        }
-
-        .service-contact {
-            text-align: center;
-            padding: 30px;
-            background-color: #e0f2f1;
-            border-radius: 8px;
-            margin-top: 40px;
-        }
-
-        .service-contact p {
-            font-size: 1.1em;
-            color: #004d40;
-            margin-bottom: 15px;
-        }
-
-        .service-contact .tel-link {
-            display: inline-block;
-            background-color: #6b8e23;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.3em;
-            transition: background-color 0.3s ease;
-        }
-
-        .service-contact .tel-link:hover {
-            background-color: #556b2f;
-        }
-
-        /* レスポンシブ対応 (sougi.htmlのメディアクエリに合わせる) */
-        @media (max-width: 768px) {
-            .main-content {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .main-content h2 {
-                font-size: 1.8em;
-            }
-
-            .service-contact .tel-link {
-                font-size: 1.1em;
-                padding: 10px 20px;
-            }
         }
     </style>
 </head>
 <body>
-
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
-    </header>
-
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li class="has-dropdown">
-                <a href="#">光輪寺について</a>
-                <ul class="dropdown">
-                    <li><a href="history.html">沿革</a></li>
-                    <li><a href="temple.html">本堂・施設紹介</a></li>
-                    <li><a href="priest.html">住職紹介</a></li>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
+            </a>
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
-            </li>
-            <li><a href="sougi.html">葬儀・法要について</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-    </nav>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
     <main class="main-content">
         <h2>葬儀・法要について</h2>
-
         <p>
             光輪寺では、故人様を偲び、ご遺族の皆様が心安らかに故人をお見送りし、
             供養できるよう、真宗大谷派の教えに基づいた葬儀・法要を執り行っております。
@@ -159,23 +118,40 @@
                 <p>ご遺骨の納骨や、永代にわたるご供養についてもご相談を承ります。当寺の納骨堂のご案内や、永代供養の詳細についてご説明させていただきます。</p>
             </li>
         </ul>
-
-        <div class="service-contact">
-            <p>葬儀・法要に関するご相談、ご不明な点がございましたら、お気軽にお問い合わせください。</p>
-            <a href="tel:0482023377" class="tel-link">お電話でのお問い合わせ：048-202-3377</a>
-            <p>（受付時間：午前9時～午後5時）</p>
-        </div>
-
     </main>
 
     <footer class="footer">
-        <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
-        <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
-        <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                        埼玉県志木市本町５丁目２−８<br>
+                        TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                        駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                        法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
