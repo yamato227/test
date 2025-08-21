@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // スクロール時のヘッダー効果
+    // スクロール時のヘッダー効果（常に固定表示）
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
         if (header) {
@@ -38,6 +38,39 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // 動画の読み込みエラー処理と自動再生の確保
+    const heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+        // 動画の読み込み完了時の処理
+        heroVideo.addEventListener('loadeddata', function() {
+            console.log('動画が読み込まれました');
+        });
+
+        // 動画の読み込みエラー時の処理
+        heroVideo.addEventListener('error', function(e) {
+            console.error('動画の読み込みに失敗しました:', e);
+            // フォールバック背景色またはイメージを設定
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.background = 'linear-gradient(135deg, #2c3e50, #34495e)';
+            }
+        });
+
+        // 動画が準備できた時の処理
+        heroVideo.addEventListener('canplay', function() {
+            heroVideo.play().catch(function(error) {
+                console.warn('動画の自動再生に失敗しました:', error);
+            });
+        });
+
+        // 動画の自動再生を強制的に試行
+        if (heroVideo.readyState >= 2) {
+            heroVideo.play().catch(function(error) {
+                console.warn('動画の自動再生に失敗しました:', error);
+            });
+        }
+    }
 
     // スムーススクロール機能（アンカーリンク用）
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
