@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -16,7 +17,7 @@ box-sizing: border-box;
 
     body {
         font-family: 'Noto Serif JP', serif;
-        background-color: #ffffff;
+        background-color: #f0f4f7;
         color: #333;
         line-height: 1.7;
     }
@@ -116,192 +117,201 @@ box-sizing: border-box;
         background-color: #f4f4f4;
     }
 
-    /* ハンバーガーメニュー */
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 5px;
-    }
-
-    .hamburger span {
-        width: 25px;
-        height: 3px;
-        background: #333;
-        margin: 3px 0;
-        transition: 0.3s;
-        border-radius: 2px;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    /* メインコンテンツ */
-    main {
-        margin-top: 80px;
-        background-color: #ffffff;
-    }
-
-    /* 共通ページヘッダー（space.png背景を適用） */
-    .page-header {
-        background-image: url('space.png');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        text-align: center;
-        padding: 100px 20px 60px;
+    /* ヒーローセクション (index.html用) */
+    .hero-section {
         position: relative;
+        height: 100vh;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
     }
 
-    /* ページヘッダーにオーバーレイを追加して文字を読みやすくする */
-    .page-header::before {
-        content: '';
+    .hero-video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    .video-overlay {
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%;
+        height: 100%;
         background: rgba(0, 0, 0, 0.4);
-        z-index: 1;
+        z-index: -1;
     }
 
-    .page-header-content {
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+    /* イントロセクション (index.html用) */
+    .intro-section {
+        padding: 80px 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
+
+    .intro-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #004d40;
+        margin-bottom: 2rem;
+    }
+
+    .intro-text {
         max-width: 800px;
         margin: 0 auto;
-        position: relative;
-        z-index: 2;
-        color: white;
+        font-size: 1.1rem;
+        line-height: 1.8;
     }
 
-    .page-header h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    }
-
-    .page-header p {
-        font-size: 1.2rem;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    }
-
-    /* コンテンツセクション（白背景） */
-    .content-section {
-        padding: 60px 20px;
-        background-color: #ffffff;
-    }
-
-    .container {
+    /* ニュースセクション (index.html用) */
+    .news-section {
+        padding: 80px 20px;
         max-width: 1200px;
         margin: 0 auto;
     }
 
-    .main-content {
-        max-width: 960px;
-        padding: 30px;
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        margin: 40px auto;
-    }
-
-    .main-content h2 {
-        font-size: 2em;
-        color: #004d40;
-        text-align: center;
-        margin-bottom: 30px;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 10px;
-    }
-
-    .main-content h3 {
-        font-size: 1.5em;
-        color: #004d40;
-        margin-top: 30px;
-        margin-bottom: 15px;
-    }
-
-    /* 沿革ページのタイムライン専用スタイル */
-    .history-timeline {
-        list-style: none;
-        position: relative;
-        padding-left: 30px;
-    }
-
-    .history-timeline::before {
-        content: '';
-        position: absolute;
-        left: 10px;
-        top: 0;
-        height: 100%;
-        width: 2px;
-        background-color: #ddd;
-    }
-
-    .history-timeline li {
-        position: relative;
-        margin-bottom: 30px;
-    }
-
-    .history-timeline .timeline-point {
-        position: absolute;
-        left: -20px;
-        top: 0;
-        width: 20px;
-        height: 20px;
-        background-color: #004d40;
-        border-radius: 50%;
-        border: 3px solid #fff;
-        box-shadow: 0 0 0 3px #004d40;
-    }
-
-    .history-timeline .timeline-date {
+    .news-section h2 {
+        font-size: 2.5rem;
         font-weight: 700;
         color: #004d40;
-        font-size: 1.2rem;
-        margin-bottom: 5px;
+        text-align: center;
+        margin-bottom: 3rem;
     }
 
-    /* 三つの原則のスタイル */
-    .principles-grid {
+    .news-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
-        margin-top: 2rem;
+    }
+
+    .news-item {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .news-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .news-date {
+        display: block;
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .news-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .news-summary {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* サービスセクション (index.html用) */
+    .services-section {
+        padding: 80px 20px;
+        background-color: #f0f4f7;
         text-align: center;
     }
 
-    .principle-item {
-        background-color: #f9f9f9;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .services-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #004d40;
+        margin-bottom: 3rem;
     }
 
-    .principle-item .icon-container {
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .service-card {
+        background-color: #fff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
         font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
         color: #004d40;
         margin-bottom: 1rem;
     }
 
-    .principle-item h3 {
-        font-size: 1.4rem;
-        color: #004d40;
-        margin-bottom: 0.8rem;
-    }
-
-    .principle-item p {
+    .service-card p {
+        font-size: 1rem;
         color: #555;
+        line-height: 1.6;
     }
 
     /* フッター */
@@ -365,6 +375,138 @@ box-sizing: border-box;
         color: #aaa;
     }
 
+    /* 共通ページヘッダー＆コンテンツスタイル (index.html以外のページ用) */
+    .page-header {
+        background-color: #f0f4f7;
+        text-align: center;
+        padding: 100px 20px 60px;
+        margin-top: 80px;
+    }
+
+    .page-header-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #004d40;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+        font-size: 1.2rem;
+        color: #555;
+    }
+
+    .content-section {
+        padding: 60px 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .main-content {
+        max-width: 960px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        margin: 40px auto;
+    }
+
+    .main-content h2 {
+        font-size: 2em;
+        color: #004d40;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .main-content h3 {
+        font-size: 1.5em;
+        color: #004d40;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    /* 沿革ページのタイムライン専用スタイル */
+    .history-timeline {
+        list-style: none;
+        position: relative;
+        padding-left: 35px;
+    }
+
+    .history-timeline::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background-color: #ddd;
+    }
+
+    .history-timeline li {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .history-timeline .timeline-point {
+        position: absolute;
+        left: -25px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        background-color: #004d40;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: 0 0 0 3px #004d40;
+    }
+
+    .history-timeline .timeline-date {
+        font-weight: 700;
+        color: #004d40;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    /* 三つの原則のスタイル */
+    .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .principle-item {
+        background-color: #f9f9f9;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .principle-item .icon-container {
+        font-size: 3rem;
+        color: #004d40;
+        margin-bottom: 1rem;
+    }
+
+    .principle-item h3 {
+        font-size: 1.4rem;
+        color: #004d40;
+        margin-bottom: 0.8rem;
+    }
+
+    .principle-item p {
+        color: #555;
+    }
+
     /* メディアクエリ */
     @media (max-width: 768px) {
         .header-container {
@@ -413,16 +555,39 @@ box-sizing: border-box;
             border-bottom: none;
         }
         main {
-            margin-top: 60px;
+            margin-top: 70px;
         }
-        .page-header {
-            padding: 80px 20px 40px;
-        }
-        .page-header h1 {
+        .hero-content h1 {
             font-size: 2.2rem;
         }
-        .page-header p {
+        .hero-content p {
             font-size: 1rem;
+        }
+        .intro-section {
+            padding: 60px 20px;
+        }
+        .intro-section h2 {
+            font-size: 2rem;
+        }
+        .news-section,
+        .services-section {
+            padding: 60px 20px;
+        }
+        .news-section h2,
+        .services-section h2 {
+            font-size: 1.8rem;
+        }
+        .news-item {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+        }
+        .news-date {
+            min-width: auto;
+        }
+        .services-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
         .footer-content {
             grid-template-columns: 1fr;
@@ -437,13 +602,13 @@ box-sizing: border-box;
             gap: 0.5rem;
         }
         .history-timeline {
-            padding-left: 20px;
+            padding-left: 25px;
         }
         .history-timeline::before {
-            left: 5px;
+            left: 10px;
         }
         .history-timeline .timeline-point {
-            left: -5px;
+            left: 0px;
         }
     }
     /* ここまで style.css の内容 */
@@ -480,7 +645,7 @@ box-sizing: border-box;
     </div>
 </header>
 
-<main>
+<main style="background-image: url('space.png'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
     <div class="page-header">
         <div class="page-header-content">
             <h1>沿革</h1>
@@ -535,7 +700,7 @@ box-sizing: border-box;
                     </div>
                     <div class="principle-item">
                         <div class="icon-container">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-community"></i>
                         </div>
                         <h3>地域との絆</h3>
                         <p>地域コミュニティの中心として、人々のつながりを深めていきます。</p>
@@ -579,28 +744,6 @@ box-sizing: border-box;
     </div>
 </footer>
 
-<script>
-// ハンバーガーメニューの機能
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
-    
-    if (hamburger && nav) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-        
-        // メニュー項目をクリックした時にメニューを閉じる
-        const navLinks = nav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-            });
-        });
-    }
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
