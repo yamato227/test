@@ -4,154 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>光輪寺 - 真宗大谷派</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* ここは index.html 固有のスタイルのみを記述します */
-        .hero-section {
-            background-image: url('unnamed.webp');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            height: 400px; /* 適宜調整 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* オーバーレイ */
-            z-index: 1;
-        }
-
-        .hero-section h2, .hero-section p {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-section h2 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-section p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-
-        .intro-section {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .intro-section h3 {
-            font-size: 2em;
-            color: #004d40;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .intro-section p {
-            margin-bottom: 1em;
-            text-align: justify;
-        }
-
-        /* レスポンシブ対応 (sougi.htmlのメディアクエリに合わせる) */
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 300px;
-                padding: 60px 20px;
-            }
-
-            .hero-section h2 {
-                font-size: 2.2em;
-            }
-
-            .hero-section p {
-                font-size: 1em;
-            }
-
-            .intro-section {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .intro-section h3 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
 </head>
 <body>
-
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
-    </header>
-
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li class="has-dropdown">
-                <a href="#">光輪寺について</a>
-                <ul class="dropdown">
-                    <li><a href="history.html">沿革</a></li>
-                    <li><a href="temple.html">本堂・施設紹介</a></li>
-                    <li><a href="priest.html">住職紹介</a></li>
+        <div class="header-container">
+            <a href="index.html" class="logo">真宗大谷派 光輪寺</a>
+            
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
-            </li>
-            <li><a href="sougi.html">葬儀・法要について</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-    </nav>
+            </nav>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
     <main>
         <section class="hero-section">
-            <h2>心の安らぎを見つける場所</h2>
-            <p>真宗大谷派 光輪寺は、心の平安と安らぎを求める皆様をお迎えするお寺です。<br>
-                仏様の教えを通じて、豊かな人生を歩むお手伝いをいたします。</p>
+            <div class="hero-content">
+                <h1>心の安らぎを見つける場所</h1>
+                <p>真宗大谷派 光輪寺は、心の平安と安らぎを求める皆様をお迎えするお寺です。<br>
+                   仏様の教えを通じて、豊かな人生を歩むお手伝いをいたします。</p>
+            </div>
         </section>
 
         <section class="intro-section">
-            <h3>光輪寺へようこそ</h3>
-            <p>
-                光輪寺は、皆様が日々の喧騒から離れ、静かに自分と向き合う時間を持てるよう、様々な行事やサービスを提供しております。<br>
-                ご法事やご供養、お墓の相談、心の悩み事など、どうぞお気軽にご相談ください。
-            </p>
-            <p>
-                私たちの寺院は、地域社会に根ざし、皆様の生活に寄り添う存在でありたいと願っています。<br>
-                仏教の教えを通じて、心の豊かさと穏やかさを育むお手伝いをさせていただきます。
-            </p>
+            <div class="intro-container">
+                <h2>光輪寺へようこそ</h2>
+                <p>
+                    光輪寺は、皆様が日々の喧騒から離れ、静かに自分と向き合う時間を持てるよう、様々な行事やサービスを提供しております。
+                    ご法事やご供養、お墓の相談、心の悩み事など、どうぞお気軽にご相談ください。
+                </p>
+                <p>
+                    私たちの寺院は、地域社会に根ざし、皆様の生活に寄り添う存在でありたいと願っています。
+                    仏教の教えを通じて、心の豊かさと穏やかさを育むお手伝いをさせていただきます。
+                </p>
+            </div>
         </section>
 
+        <section class="news-section">
+            <div class="news-container">
+                <h2>お知らせ</h2>
+                <div class="news-item">
+                    <div class="news-date">2025.01.15</div>
+                    <div class="news-text">新年法要のお知らせ - 1月20日（月）午前10時より開催いたします</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2024.12.20</div>
+                    <div class="news-text">年末年始の法要スケジュールについてご案内いたします</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2024.11.30</div>
+                    <div class="news-text">本堂修繕工事完了のご報告</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="services-container">
+                <h2>ご提供サービス</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🙏</div>
+                        <h3>法要・供養</h3>
+                        <p>年忌法要、月命日、お盆・お彼岸の供養など、様々な法要を執り行っております。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚱️</div>
+                        <h3>葬儀</h3>
+                        <p>故人様を偲び、ご家族の心に寄り添う葬儀を心を込めて執り行わせていただきます。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏛️</div>
+                        <h3>墓地・納骨</h3>
+                        <p>墓地のご案内、納骨のご相談など、お墓に関するあらゆるご相談をお受けいたします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        <p>〒353-0004 埼玉県志木市本町５丁目２−８</p>
-        <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
-        <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="privacy-policy.html">プライバシーポリシー</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                       埼玉県志木市本町５丁目２−８<br>
+                       TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                       駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                       法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
