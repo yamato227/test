@@ -176,32 +176,49 @@
         /* ページコンテンツ */
         .main-content {
             max-width: 1000px;
-            margin: 120px auto 60px;
+            margin: 0 auto 60px;
             padding: 20px 30px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-top: -80px; /* ヒーローセクションとの重なり調整 */
+            position: relative;
+            z-index: 10;
         }
-
-        .page-title {
-            font-size: 2.5rem;
-            color: #004d40;
+        
+        /* ヒーローセクション */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
+            color: white;
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #004d40;
+            padding: 150px 20px 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px; /* ヘッダーの高さ分スペースを空ける */
         }
-
-        .unified-section {
-            background-color: #e8e8e8; /* 統一感を持たせるための背景色 */
-            padding: 50px 0;
-            text-align: center;
-            margin: 40px 0;
+        
+        .hero-section .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: none;
+            padding-bottom: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
         .section-intro {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -387,7 +404,6 @@
             color: #a3c9b8;
         }
 
-
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
             .header-container {
@@ -447,9 +463,9 @@
             .main-content {
                 margin-top: 70px;
             }
-
-            .page-title {
-                font-size: 2rem;
+            
+            .hero-section .page-title {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -484,11 +500,14 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <h2 class="page-title">住職紹介</h2>
+    <main>
+        <section class="hero-section">
+            <h2 class="page-title">住職紹介</h2>
+            <p>皆様の人生に寄り添い、心に光を灯すお寺を目指して</p>
+        </section>
 
-        <section class="unified-section">
-            <div class="section-intro">
+        <div class="main-content">
+            <section class="section-intro">
                 <img src="priest.jpg" alt="光輪寺住職の写真" class="priest-image" />
                 <div class="priest-introduction">
                     <div class="priest-name">○○ ○○</div>
@@ -499,51 +518,51 @@
                         皆様の人生における様々なご縁に寄り添い、共に歩んでいくことを願っております。どうぞお気軽にお寺へお立ち寄りください。心よりお待ちしております。
                     </p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="content-section">
-            <h3>略歴</h3>
-            <div class="profile-timeline">
-                <div class="timeline-item">
-                    <span class="timeline-date">〇〇年〇月</span>
-                    <span class="timeline-event">〇〇大学〇〇学部卒業</span>
+            <section class="content-section">
+                <h3>略歴</h3>
+                <div class="profile-timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">〇〇年〇月</span>
+                        <span class="timeline-event">〇〇大学〇〇学部卒業</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">〇〇年〇月</span>
+                        <span class="timeline-event">〇〇寺にて得度</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">〇〇年〇月</span>
+                        <span class="timeline-event">光輪寺副住職に就任</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">〇〇年〇月</span>
+                        <span class="timeline-event">光輪寺住職に就任</span>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">〇〇年〇月</span>
-                    <span class="timeline-event">〇〇寺にて得度</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">〇〇年〇月</span>
-                    <span class="timeline-event">光輪寺副住職に就任</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">〇〇年〇月</span>
-                    <span class="timeline-event">光輪寺住職に就任</span>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="content-section">
-            <h3>住職の想い</h3>
-            <div class="philosophy-cards">
-                <div class="philosophy-card">
-                    <div class="card-icon"><i class="fas fa-heart"></i></div>
-                    <h4>慈悲の心</h4>
-                    <p>すべての存在に対する深い慈悲の心を大切にし、人々に寄り添うことを目指します。</p>
+            <section class="content-section">
+                <h3>住職の想い</h3>
+                <div class="philosophy-cards">
+                    <div class="philosophy-card">
+                        <div class="card-icon"><i class="fas fa-heart"></i></div>
+                        <h4>慈悲の心</h4>
+                        <p>すべての存在に対する深い慈悲の心を大切にし、人々に寄り添うことを目指します。</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="card-icon"><i class="fas fa-book"></i></div>
+                        <h4>法話の継承</h4>
+                        <p>真宗の教えを分かりやすく伝え、現代社会に生きる人々の心に響く法話を続けます。</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>地域との共生</h4>
+                        <p>地域社会の一員として、開かれたお寺を目指し、人々の交流の場を提供します。</p>
+                    </div>
                 </div>
-                <div class="philosophy-card">
-                    <div class="card-icon"><i class="fas fa-book"></i></div>
-                    <h4>法話の継承</h4>
-                    <p>真宗の教えを分かりやすく伝え、現代社会に生きる人々の心に響く法話を続けます。</p>
-                </div>
-                <div class="philosophy-card">
-                    <div class="card-icon"><i class="fas fa-handshake"></i></div>
-                    <h4>地域との共生</h4>
-                    <p>地域社会の一員として、開かれたお寺を目指し、人々の交流の場を提供します。</p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
@@ -581,10 +600,8 @@
 
     <script>
         // script.js の内容をここに挿入
-        // DOMContentLoaded イベントでスクリプトを実行
         document.addEventListener('DOMContentLoaded', function() {
             
-            // ハンバーガーメニューの制御
             const hamburger = document.getElementById('hamburger');
             const nav = document.getElementById('nav');
 
@@ -595,7 +612,6 @@
                 });
             }
 
-            // メニューリンクをクリックした時にメニューを閉じる
             const navLinks = document.querySelectorAll('.nav a');
             navLinks.forEach(function(link) {
                 link.addEventListener('click', function() {
@@ -606,7 +622,6 @@
                 });
             });
 
-            // スクロール時のヘッダー効果（常に固定表示）
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('.header');
                 if (header) {
@@ -620,31 +635,6 @@
                 }
             });
 
-            // 動画の読み込みエラー処理と自動再生の確保
-            const heroVideo = document.getElementById('heroVideo');
-            if (heroVideo) {
-                // 動画の読み込み完了時の処理
-                heroVideo.addEventListener('canplaythrough', function() {
-                    heroVideo.play();
-                });
-
-                // 動画の読み込みエラー処理
-                heroVideo.addEventListener('error', function() {
-                    console.error('動画の読み込みに失敗しました。');
-                    const fallbackImage = document.createElement('img');
-                    fallbackImage.src = 'fallback.jpg'; // フォールバック画像
-                    fallbackImage.alt = '動画の代替画像';
-                    heroVideo.parentNode.replaceChild(fallbackImage, heroVideo);
-                });
-                
-                // 動画が自動再生されない場合、手動で再生を試みる
-                heroVideo.play().catch(error => {
-                    console.log("自動再生がブロックされました。ユーザーの操作が必要です。");
-                    // ユーザーに再生を促すUIを表示することも可能
-                });
-            }
-
-            // スムーズスクロール
             const links = document.querySelectorAll('a[href^="#"]');
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -664,69 +654,6 @@
                     }
                 });
             });
-            
-            // お問い合わせフォームの入力チェック（簡単な例）
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    const name = document.getElementById('name');
-                    const email = document.getElementById('email');
-                    const message = document.getElementById('message');
-                    
-                    let isValid = true;
-                    
-                    // エラーメッセージをクリア
-                    document.querySelectorAll('.error-message').forEach(el => el.remove());
-
-                    if (name && !name.value.trim()) {
-                        showError(name, 'お名前を入力してください。');
-                        isValid = false;
-                    }
-                    
-                    if (email && !email.value.trim()) {
-                        showError(email, 'メールアドレスを入力してください。');
-                        isValid = false;
-                    } else if (email && !isValidEmail(email.value)) {
-                        showError(email, '正しいメールアドレスを入力してください。');
-                        isValid = false;
-                    }
-                    
-                    if (message && !message.value.trim()) {
-                        showError(message, 'メッセージを入力してください。');
-                        isValid = false;
-                    }
-                    
-                    if (!isValid) {
-                        e.preventDefault();
-                    }
-                });
-            }
-
-            // エラーメッセージ表示関数
-            function showError(element, message) {
-                // 既存のエラーメッセージを削除
-                const existingError = element.parentNode.querySelector('.error-message');
-                if (existingError) {
-                    existingError.remove();
-                }
-                
-                // 新しいエラーメッセージを作成
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.style.color = '#e74c3c';
-                errorDiv.style.fontSize = '0.9rem';
-                errorDiv.style.marginTop = '0.5rem';
-                errorDiv.textContent = message;
-                
-                element.parentNode.appendChild(errorDiv);
-                element.focus();
-            }
-
-            // メールアドレス形式チェック関数
-            function isValidEmail(email) {
-                const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-                return emailRegex.test(email);
-            }
         });
     </script>
 </body>
