@@ -3,133 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光輪寺 - 沿革</title>
+    <title>沿革 - 真宗大谷派 光輪寺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* ここは history.html 固有のスタイルのみを記述します */
-        .main-content {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .main-content h2 {
-            font-size: 2em;
-            color: #004d40;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .main-content h3 {
-            font-size: 1.5em;
-            color: #556b2f;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .main-content p {
-            margin-bottom: 1em;
-            text-align: justify;
-        }
-
-        .history-section {
-            margin-bottom: 30px;
-        }
-
-        .history-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .history-section li {
-            margin-bottom: 15px;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-left: 5px solid #6b8e23;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .history-section li strong {
-            display: block;
-            font-size: 1.1em;
-            color: #004d40;
-            margin-bottom: 5px;
-        }
-
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            .main-content {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .main-content h2 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
 </head>
 <body>
-
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
+            </a>
+            
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li class="has-dropdown">
-                <a href="#">光輪寺について</a>
-                <ul class="dropdown">
-                    <li><a href="history.html">沿革</a></li>
-                    <li><a href="temple.html">本堂・施設紹介</a></li>
-                    <li><a href="priest.html">住職紹介</a></li>
-                </ul>
-            </li>
-            <li><a href="sougi.html">葬儀・法要について</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-    </nav>
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <h1>沿革</h1>
+                <p>光輪寺の歩み</p>
+            </div>
+        </section>
 
-    <main class="main-content">
-        <h2>沿革</h2>
+        <section class="page-content">
+            <div class="content-container">
+                <div class="history-intro">
+                    <h2>光輪寺の歴史</h2>
+                    <p>
+                        光輪寺の歴史は、深い信仰心と地域の皆様との強い結びつきと共に歩んできました。
+                        真宗大谷派の教えを基盤として、多くの方々の心の支えとなるべく、日々精進を重ねております。
+                    </p>
+                </div>
 
-        <section class="history-section">
-            <p>光輪寺の歴史は、深い信仰心と共に歩んできました。</p>
-            <h3>当寺の歴史</h3>
-            <ul>
-                <li>
-                    <strong>20xx年x月 </strong>
-                    <p>埼玉県志木市に開教所を設立。</p>
-                </li>
-                <li>
-                    <strong>20xx年x月</strong>
-                    <p>何かイベントがあれば。</p>
-                </li>
-                <li>
-                    <strong>20xx年x月</strong>
-                    <p>多くの門徒さんからの支援により〇〇の地で墓地併設の寺院を建立。</p>
-                </li>
-            </ul>
-            <p>光輪寺は、これからも皆様と共に、豊かな歴史を刻んでまいります。</p>
+                <div class="timeline-section">
+                    <h2>沿革</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">昭和xx年</div>
+                            <div class="timeline-content">
+                                <h3>開教所設立</h3>
+                                <p>埼玉県志木市に開教所を設立。地域の皆様の信仰の拠り所として歩み始める。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">平成xx年</div>
+                            <div class="timeline-content">
+                                <h3>寺院建立</h3>
+                                <p>多くの門徒さんからのご支援により、現在の地で本格的な寺院を建立。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">平成xx年</div>
+                            <div class="timeline-content">
+                                <h3>墓地開設</h3>
+                                <p>門徒の皆様のご要望にお応えし、寺院併設の墓地を開設。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">令和x年</div>
+                            <div class="timeline-content">
+                                <h3>本堂修繕</h3>
+                                <p>より良い環境での法要執行のため、本堂の大規模修繕を実施。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="heritage-section">
+                    <h2>受け継がれる想い</h2>
+                    <div class="heritage-content">
+                        <p>
+                            光輪寺は、親鸞聖人の教えを基盤とした真宗大谷派の寺院として、
+                            「すべての人が等しく救われる」という慈悲の心を大切にしてまいりました。
+                        </p>
+                        <p>
+                            時代は変わっても、人々の心の支えとなり、安らぎの場を提供するという
+                            私たちの使命は変わりません。これからも地域の皆様と共に歩み、
+                            豊かな歴史を刻んでまいります。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="future-vision">
+                    <h2>これからの光輪寺</h2>
+                    <div class="vision-cards">
+                        <div class="vision-card">
+                            <div class="vision-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>継承</h3>
+                            <p>伝統的な教えと行事を大切に継承し、次世代へと受け継いでいきます。</p>
+                        </div>
+                        <div class="vision-card">
+                            <div class="vision-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3>寄り添い</h3>
+                            <p>現代社会に生きる人々の様々な悩みに寄り添い、心の支えとなります。</p>
+                        </div>
+                        <div class="vision-card">
+                            <div class="vision-icon">
+                                <i class="fas fa-community"></i>
+                            </div>
+                            <h3>地域との絆</h3>
+                            <p>地域コミュニティの中心として、人々のつながりを深めていきます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
-        <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
-        <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                        埼玉県志木市本町５丁目２−８<br>
+                        TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                        駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                        法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
