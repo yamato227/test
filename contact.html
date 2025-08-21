@@ -3,153 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光輪寺 - お問い合わせ</title>
+    <title>お問い合わせ - 真宗大谷派 光輪寺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* ここは contact.html 固有のスタイルのみを記述します */
-        .main-content {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .main-content h2 {
-            font-size: 2em;
-            color: #004d40;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .contact-info p {
-            margin-bottom: 1em;
-            text-align: center;
-        }
-
-        .contact-form {
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #556b2f;
-        }
-
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1em;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-form button {
-            display: block;
-            width: 100%;
-            padding: 12px 20px;
-            background-color: #6b8e23;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #556b2f;
-        }
-
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            .main-content {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .main-content h2 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
 </head>
 <body>
-
     <header class="header">
-        <h1 class="site-title"><a href="index.html">真宗大谷派 光輪寺</a></h1>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
+            </a>
+            
+            <nav>
+                <ul class="nav" id="nav">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">光輪寺について</a>
+                        <ul class="dropdown">
+                            <li><a href="history.html">沿革</a></li>
+                            <li><a href="temple.html">本堂・施設紹介</a></li>
+                            <li><a href="priest.html">住職紹介</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sougi.html">葬儀・法要について</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li class="has-dropdown">
-                <a href="#">光輪寺について</a>
-                <ul class="dropdown">
-                    <li><a href="history.html">沿革</a></li>
-                    <li><a href="temple.html">本堂・施設紹介</a></li>
-                    <li><a href="priest.html">住職紹介</a></li>
-                </ul>
-            </li>
-            <li><a href="sougi.html">葬儀・法要について</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-    </nav>
-
-    <main class="main-content">
-        <h2>お問い合わせ（現在停止中）</h2>
-
-        <section class="contact-info">
-            <p>ご質問やご相談がございましたら、お気軽にお問い合わせください。</p>
-            <p>お電話でのご連絡：048-202-3377 （受付時間：午前9時～午後5時）</p>
-            <p>また、以下のフォームからもお問い合わせいただけます。</p>
+    <main>
+        <section class="page-header">
+            <div class="page-header-content">
+                <h1>お問い合わせ（現在停止中）</h1>
+                <p>お気軽にご相談ください</p>
+            </div>
         </section>
 
-        <section class="contact-form">
-            <form action="#" method="post">
-                <label for="name">お名前:</label>
-                <input type="text" id="name" name="name" required>
+        <section class="page-content">
+            <div class="content-container">
+                <div class="contact-intro">
+                    <h2>ご相談・お問い合わせについて</h2>
+                    <p>
+                        光輪寺では、ご法事やご供養、お墓のご相談、心の悩み事など、
+                        様々なご相談をお受けしております。どうぞお気軽にお問い合わせください。
+                    </p>
+                </div>
 
-                <label for="email">メールアドレス:</label>
-                <input type="email" id="email" name="email" required>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>お電話でのお問い合わせ</h3>
+                        <p class="contact-detail">048-202-3377</p>
+                        <p>受付時間：9:00〜17:00（年中無休）</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>メールでのお問い合わせ</h3>
+                        <p>下記のフォームをご利用ください</p>
+                        <p class="note">※現在、メールフォームでの受付は停止中です</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>直接お越しいただく場合</h3>
+                        <p>事前にお電話でご連絡ください</p>
+                        <p>〒353-0004 埼玉県志木市本町５丁目２−８</p>
+                    </div>
+                </div>
 
-                <label for="subject">件名:</label>
-                <input type="text" id="subject" name="subject">
+                <div class="contact-form-section">
+                    <h2>お問い合わせフォーム</h2>
+                    <p class="form-notice">現在、フォームでの受付は停止しております。お電話でのお問い合わせをお願いいたします。</p>
+                    
+                    <form class="contact-form" id="contact-form" action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">お電話番号</label>
+                            <input type="tel" id="phone" name="phone" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">件名</label>
+                            <select id="subject" name="subject" disabled>
+                                <option value="">選択してください</option>
+                                <option value="法要">法要について</option>
+                                <option value="葬儀">葬儀について</option>
+                                <option value="墓地">墓地・納骨について</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required disabled></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" disabled>送信（現在停止中）</button>
+                    </form>
+                </div>
 
-                <label for="message">お問い合わせ内容:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">送信</button>
-            </form>
+                <div class="access-info">
+                    <h2>アクセス情報</h2>
+                    <div class="access-details">
+                        <div class="access-item">
+                            <strong>所在地</strong>
+                            <p>〒353-0004 埼玉県志木市本町５丁目２−８</p>
+                        </div>
+                        <div class="access-item">
+                            <strong>交通アクセス</strong>
+                            <p>東武東上線 志木駅より徒歩10分</p>
+                        </div>
+                        <div class="access-item">
+                            <strong>駐車場</strong>
+                            <p>完備（無料）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>〒353-0004 埼玉県志木市本町５丁目２−８5</p>
-        <p>TEL: 048-202-3377</p>
-        <p>&copy; 2025 kourin-ji All Rights Reserved.</p>
-        <div>
-            <a href="index.html">ホーム</a> | <a href="contact.html">お問い合わせ</a> | <a href="#">プライバシーポリシー</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>真宗大谷派 光輪寺</h3>
+                    <p>〒353-0004<br>
+                        埼玉県志木市本町５丁目２−８<br>
+                        TEL: 048-202-3377</p>
+                </div>
+                <div class="footer-section">
+                    <h3>アクセス</h3>
+                    <p>東武東上線 志木駅より徒歩10分<br>
+                        駐車場完備</p>
+                </div>
+                <div class="footer-section">
+                    <h3>受付時間</h3>
+                    <p>平日・土日祝日 9:00〜17:00<br>
+                        法要等のご相談は事前にお電話ください</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="index.html">ホーム</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+            </nav>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 光輪寺 All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
