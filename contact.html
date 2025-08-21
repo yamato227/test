@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>沿革 - 真宗大谷派 光輪寺</title>
+    <title>お問い合わせ - 真宗大谷派 光輪寺</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -19,6 +19,7 @@
             background-color: #f0f4f7;
             color: #333;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         /* ヘッダー */
@@ -40,7 +41,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            height: 60px; /* ロゴに合わせてヘッダーの高さを調整 */
         }
 
         .logo {
@@ -54,7 +55,7 @@
         }
 
         .logo-image {
-            height: 60px;
+            height: 40px; /* ロゴを小さく */
             width: auto;
             object-fit: contain;
         }
@@ -72,7 +73,7 @@
             font-weight: 600;
             font-size: 1.1rem;
             position: relative;
-            padding: 29px 0;
+            padding: 18px 0;
             transition: color 0.3s ease;
         }
 
@@ -136,6 +137,7 @@
             width: 30px;
             height: 25px;
             cursor: pointer;
+            z-index: 1001; /* メニューの上に配置 */
         }
 
         .hamburger span {
@@ -147,7 +149,7 @@
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(-2px, 2px);
+            transform: rotate(-45deg) translate(-5px, 6px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -155,7 +157,26 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(-2px, -2px);
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* メニューのオーバーレイ */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+        }
+
+        .nav-overlay.active {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* ページコンテンツ */
@@ -175,12 +196,12 @@
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 100px 20px 100px;
+            padding: 100px 20px 100px; /* 上下のサイズを3分の2に縮小 */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 80px;
+            margin-top: 60px; /* ヘッダーの高さ分スペースを空ける */
         }
         
         .hero-section .page-title {
@@ -200,87 +221,129 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
-        /* 沿革ページ固有のスタイル */
-        .history-timeline {
-            list-style: none;
-            position: relative;
-            padding-left: 35px;
+        /* お問い合わせページ固有のスタイル */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        .history-timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: #ddd;
+        .contact-form,
+        .contact-info-block,
+        .access-info-block {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .history-timeline li {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .history-timeline .timeline-point {
-            position: absolute;
-            left: -25px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            background-color: #004d40;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 3px #004d40;
-        }
-
-        .history-timeline .timeline-date {
-            font-weight: 700;
+        .contact-form h2,
+        .contact-info-block h2,
+        .access-info-block h2 {
+            font-size: 1.8rem;
             color: #004d40;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a3c9b8;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #004d40;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #003d33;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-item .icon-container {
+            font-size: 1.5rem;
+            color: #004d40;
+            margin-right: 15px;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .contact-info-item .text-container strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .contact-info-item .text-container p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .map-container {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .access-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .access-item strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #333;
             margin-bottom: 5px;
         }
 
-        .history-timeline .timeline-event p {
-            font-size: 1rem;
+        .access-item p {
             color: #666;
-        }
-
-        /* 信仰の基本理念セクション */
-        .principles-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .principle-item {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-
-        .principle-item .icon-container {
-            font-size: 3rem;
-            color: #004d40;
-            margin-bottom: 1rem;
-        }
-
-        .principle-item h3 {
-            font-size: 1.4rem;
-            color: #004d40;
-            margin-bottom: 0.8rem;
-        }
-
-        .principle-item p {
-            color: #555;
+            margin: 0;
         }
 
         /* フッター */
@@ -346,27 +409,26 @@
             }
 
             .logo-image {
-                height: 50px;
+                height: 40px;
             }
 
             .nav {
-                display: none;
+                display: flex; /* Flexboxを維持 */
                 position: fixed;
-                top: 60px;
-                right: -50%;
-                width: 50%;
-                height: calc(100vh - 60px);
+                top: 0;
+                right: -50%; /* 画面右からメニューを隠す */
+                width: 50%; /* 画面の半分を使用 */
+                height: 100vh;
                 background-color: #fff;
                 flex-direction: column;
-                padding-top: 2rem;
+                padding-top: 60px; /* ヘッダーの高さ分スペースを空ける */
                 gap: 1rem;
-                transition: right 0.3s ease;
+                transition: right 0.3s ease; /* rightプロパティをトランジション対象に */
                 box-shadow: -2px 0 10px rgba(0,0,0,0.1);
             }
 
             .nav.active {
-                display: flex;
-                right: 0;
+                right: 0; /* アクティブ時に右からスライドイン */
             }
 
             .nav a {
@@ -408,18 +470,6 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
-            .history-timeline {
-                padding-left: 0;
-            }
-            
-            .history-timeline::before {
-                left: 10px;
-            }
-
-            .history-timeline .timeline-point {
-                left: -10px;
-            }
         }
     </style>
 </head>
@@ -454,37 +504,73 @@
         </div>
     </header>
 
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <main>
         <section class="hero-section">
-            <h2 class="page-title">沿革</h2>
-            <p>光輪寺の長い歴史と歩みをご紹介します。</p>
+            <h2 class="page-title">お問い合わせ</h2>
+            <p>
+                ご質問やご相談など、お気軽にお問い合わせください。
+            </p>
         </section>
 
         <section class="main-content">
-            <div class="history-content">
-                <ul class="history-timeline">
-                    <li>
-                        <div class="timeline-point"></div>
-                        <div class="timeline-event">
-                            <h3 class="timeline-date">1950年</h3>
-                            <p>開山</p>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h2>お問い合わせフォーム</h2>
+                    <form id="contactForm" action="submit_form.php" method="POST">
+                        <div class="form-group">
+                            <label for="name">お名前</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                    </li>
-                    <li>
-                        <div class="timeline-point"></div>
-                        <div class="timeline-event">
-                            <h3 class="timeline-date">1970年</h3>
-                            <p>本堂建立</p>
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                    </li>
-                    <li>
-                        <div class="timeline-point"></div>
-                        <div class="timeline-event">
-                            <h3 class="timeline-date">2000年</h3>
-                            <p>納骨堂建立</p>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                    </li>
-                </ul>
+                        <button type="submit" class="submit-button">送信</button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="contact-info-block" style="margin-bottom: 30px;">
+                        <h2>直接お問い合わせ</h2>
+                        <div class="contact-info-item">
+                            <div class="icon-container"><i class="fas fa-phone"></i></div>
+                            <div class="text-container">
+                                <strong>電話</strong>
+                                <p>048-202-3377</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="icon-container"><i class="fas fa-envelope"></i></div>
+                            <div class="text-container">
+                                <strong>メール</strong>
+                                <p>info@kourinji.jp</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="access-info-block">
+                        <h2>アクセス</h2>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.4789178229875!2d139.5802107!3d35.8080645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35bc8f60f0d2c98b%3A0xc34a1d4b1f66d6d!2z576O5Lq65a2d6L6y5bed5oqA5bSO!5e0!3m2!1sja!2sjp!4v1678873095388!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="access-details">
+                            <div class="access-item">
+                                <strong>電車</strong>
+                                <p>東武東上線 志木駅より徒歩10分</p>
+                            </div>
+                            <div class="access-item">
+                                <strong>駐車場</strong>
+                                <p>完備（無料）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -528,20 +614,23 @@
             
             const hamburger = document.getElementById('hamburger');
             const nav = document.getElementById('nav');
+            const overlay = document.getElementById('nav-overlay');
 
-            if (hamburger && nav) {
+            if (hamburger && nav && overlay) {
                 hamburger.addEventListener('click', function() {
                     hamburger.classList.toggle('active');
                     nav.classList.toggle('active');
+                    overlay.classList.toggle('active');
                 });
             }
 
             const navLinks = document.querySelectorAll('.nav a');
             navLinks.forEach(function(link) {
                 link.addEventListener('click', function() {
-                    if (hamburger && nav) {
+                    if (hamburger && nav && overlay) {
                         hamburger.classList.remove('active');
                         nav.classList.remove('active');
+                        overlay.classList.remove('active');
                     }
                 });
             });
@@ -561,10 +650,10 @@
 
             const links = document.querySelectorAll('a[href^="#"]');
             links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === '#') return;
-                
                 link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
