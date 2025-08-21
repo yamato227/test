@@ -158,35 +158,43 @@ main {
     margin-top: 80px;
 }
 
-/* ヒーローセクション */
+/* ヒーローセクションを動画背景用に変更 */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><path fill="%23ddd" d="M0 400c200-50 400-50 600 0s400 50 600 0v200H0z"/></svg>');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 120px 20px 80px;
-    min-height: 500px;
+    position: relative; /* 子要素（動画）を絶対配置するための基点 */
+    width: 100%;
+    height: 100vh; /* 画面いっぱいの高さ */
+    overflow: hidden; /* 動画がはみ出さないように */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: #000; /* 動画が読み込まれるまでの背景色 */
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    font-weight: 700;
-    letter-spacing: 0.05em;
+/* 動画をコンテンツの背後に配置するコンテナ */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    line-height: 1.8;
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* コンテナに合わせて動画を拡大・縮小 */
+}
+
+/* ヒーローコンテンツを動画の上に配置 */
+.hero-content {
+    position: relative;
+    z-index: 1; /* コンテンツを動画の上に配置 */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4); /* コンテンツの視認性を高めるための背景 */
+    border-radius: 10px;
 }
 
 /* イントロセクション */
