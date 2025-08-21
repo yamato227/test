@@ -483,6 +483,13 @@ h2.section-title::after {
     border-radius: 50%;
 }
 
+.timeline-date {
+    font-weight: bold;
+    color: #004d40;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
 .principles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -530,14 +537,14 @@ h2.section-title::after {
     .logo-image {
         height: 45px;
     }
-
+    
     .nav {
         flex-direction: column;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         position: fixed;
         top: 60px;
-        right: -100vw;
+        right: -100%;
         width: 80%;
         height: calc(100vh - 60px);
         padding-top: 2rem;
@@ -580,7 +587,7 @@ h2.section-title::after {
     }
 
     main {
-        padding-top: 60px;
+        margin-top: 60px;
     }
 
     .hero-content h1 {
