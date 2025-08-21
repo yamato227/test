@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // スクロール時のヘッダー効果
-    const header = document.querySelector('.header');
-    if (header) {
-        window.addEventListener('scroll', function() {
+    // スクロール時のヘッダー効果（常に固定表示）
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (header) {
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
@@ -36,75 +36,142 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.style.background = '#ffffff';
                 header.style.backdropFilter = 'none';
             }
-        });
-    }
+        }
+    });
 
     // 動画の読み込みエラー処理と自動再生の確保
     const heroVideo = document.getElementById('heroVideo');
     if (heroVideo) {
         // 動画の読み込み完了時の処理
         heroVideo.addEventListener('loadeddata', function() {
-            heroVideo.play().catch(error => {
-                console.error("動画の自動再生がブロックされました:", error);
+            console.log('動画が読み込まれました');
+        });
+
+        // 動画の読み込みエラー時の処理
+        heroVideo.addEventListener('error', function(e) {
+            console.error('動画の読み込みに失敗しました:', e);
+            // フォールバック背景色またはイメージを設定
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.background = 'linear-gradient(135deg, #2c3e50, #34495e)';
+            }
+        });
+
+        // 動画が準備できた時の処理
+        heroVideo.addEventListener('canplay', function() {
+            heroVideo.play().catch(function(error) {
+                console.warn('動画の自動再生に失敗しました:', error);
             });
         });
+
+        // 動画の自動再生を強制的に試行
+        if (heroVideo.readyState >= 2) {
+            heroVideo.play().catch(function(error) {
+                console.warn('動画の自動再生に失敗しました:', error);
+            });
+        }
     }
-    
-    // スムーススクロール
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
 
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') {
+    // スムーススクロール機能（アンカーリンク用）
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const href = link.getAttribute('href');
+            if (href === '#') return;
+            
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                
                 window.scrollTo({
-                    top: 0,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
-                return;
-            }
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - (header ? header.offsetHeight : 0),
-                    behavior: 'smooth'
-                });
+                
+                // モバイルメニューが開いている場合は閉じる
+                if (hamburger && nav) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                }
             }
         });
     });
 
-    // フェードインアニメーション
-    const fadeInElements = document.querySelectorAll('.fade-in');
+    // サービスカードのアニメーション効果
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, {
-        rootMargin: '0px',
-        threshold: 0.2
+    }, observerOptions);
+
+    // サービスカードとニュースアイテムの観察を開始
+    const serviceCards = document.querySelectorAll('.service-card');
+    const newsItems = document.querySelectorAll('.news-item');
+    
+    serviceCards.forEach(function(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
     });
 
-    fadeInElements.forEach(element => {
-        observer.observe(element);
+    newsItems.forEach(function(item) {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
     });
 
-    // お問い合わせフォームのバリデーション（contact.html専用）
-    const contactForm = document.getElementById('contactForm');
+    // ページトップへ戻るボタン（必要に応じて）
+    const scrollToTop = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    // Escキーでモバイルメニューを閉じる
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (hamburger && nav && nav.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        }
+    });
+
+    // ウィンドウサイズ変更時の処理
+    window.addEventListener('resize', function() {
+        // デスクトップサイズに戻った時にモバイルメニューを閉じる
+        if (window.innerWidth > 768) {
+            if (hamburger && nav) {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        }
+    });
+
+    // フォームバリデーション（お問い合わせページ用）
+    const contactForm = document.querySelector('#contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            let isValid = true;
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
+            const name = contactForm.querySelector('input[name="name"]');
+            const email = contactForm.querySelector('input[name="email"]');
+            const message = contactForm.querySelector('textarea[name="message"]');
             
-            // 既存のエラーメッセージをクリア
-            document.querySelectorAll('.error-message').forEach(el => el.remove());
-
+            let isValid = true;
+            
+            // 簡単なバリデーション
             if (name && !name.value.trim()) {
                 showError(name, 'お名前を入力してください。');
                 isValid = false;
@@ -154,4 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
+
+    console.log('光輪寺ウェブサイトが正常に読み込まれました。');
 });
