@@ -12,8 +12,7 @@
     <header class="header">
         <div class="header-container">
             <a href="index.html" class="logo">
-                <img src="logo.png" alt="光輪寺ロゴ">
-                <span class="logo-text">真宗大谷派 光輪寺</span>
+                <img src="logo.png" alt="真宗大谷派 光輪寺" class="logo-image">
             </a>
             
             <nav>
@@ -43,11 +42,12 @@
     <main>
         <section class="hero-section">
             <div class="video-background">
-                <video autoplay muted loop playsinline id="heroVideo">
+                <video autoplay muted loop playsinline id="heroVideo" preload="auto">
                     <source src="te.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                    <div class="video-fallback">
+                        <p>お使いのブラウザでは動画を再生できません。</p>
+                    </div>
                 </video>
-                <div class="video-overlay"></div>
             </div>
             <div class="hero-content">
                 <h1>心の安らぎを見つける場所</h1>
@@ -145,23 +145,6 @@
         </div>
     </footer>
 
-    <script>
-        // ハンバーガーメニューの動作
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.getElementById('nav');
-
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-
-        // 動画の読み込みエラーハンドリング
-        const video = document.getElementById('heroVideo');
-        video.addEventListener('error', function() {
-            console.log('Video could not be loaded');
-            // 動画が読み込めない場合のフォールバック背景
-            document.querySelector('.hero-section').style.background = 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("fallback-image.jpg") center/cover';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
