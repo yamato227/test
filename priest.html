@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光輪寺 - 住職紹介</title>
+    <title>住職紹介 - 真宗大谷派 光輪寺</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -80,8 +80,6 @@
             color: #004d40;
         }
 
-
-
         .has-dropdown {
             position: relative;
         }
@@ -134,22 +132,21 @@
         .hamburger {
             display: none;
             flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
             cursor: pointer;
+            padding: 5px;
         }
 
         .hamburger span {
-            display: block;
-            width: 100%;
+            width: 25px;
             height: 3px;
-            background-color: #333;
-            transition: all 0.3s ease-in-out;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(-45deg) translate(-5px, 6px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -157,7 +154,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         /* ページコンテンツ */
@@ -171,20 +168,20 @@
             position: relative;
             z-index: 10;
         }
-        
+
         /* ヒーローセクション */
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('space.png') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 100px 20px 100px; /* 上下のサイズを3分の2に縮小 */
+            padding: 100px 20px 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 80px; /* ヘッダーの高さ分スペースを空ける */
+            margin-top: 80px;
         }
-        
+
         .hero-section .page-title {
             font-size: 3.5rem;
             font-weight: 700;
@@ -194,7 +191,7 @@
             padding-bottom: 0;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
-        
+
         .hero-section p {
             font-size: 1.2rem;
             max-width: 700px;
@@ -202,136 +199,129 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
-        .section-intro {
-            max-width: 800px;
-            margin: 40px auto 0;
+        /* 住職紹介固有のスタイル */
+        .priest-introduction {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .priest-photo {
+            flex-shrink: 0;
         }
 
         .priest-image {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .priest-introduction {
-            text-align: center;
+        .priest-info {
+            flex-grow: 1;
         }
-        
-        .priest-introduction .priest-name {
-            font-size: 2rem;
+
+        .priest-name {
+            font-size: 2.2rem;
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .priest-introduction .priest-title {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
-
-        .priest-introduction p {
-            font-size: 1.1rem;
-            color: #666;
-            text-align: justify;
-            padding: 0 20px;
-        }
-
-        .content-section {
-            padding: 30px 0;
-        }
-        
-        .content-section h3 {
-            font-size: 1.6rem;
             color: #004d40;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-bottom: 0.5rem;
         }
 
-        /* 略歴タイムライン */
+        .priest-title {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .priest-content h2 {
+            font-size: 2em;
+            color: #004d40;
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
         .profile-timeline {
-            border-left: 3px solid #004d40;
-            padding-left: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            list-style: none;
+            padding-left: 0;
+            border-left: 2px solid #ddd;
+            margin-left: 1rem;
         }
 
         .timeline-item {
             position: relative;
-            padding: 10px 0;
+            padding-left: 2rem;
+            margin-bottom: 20px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27px;
-            top: 15px;
-            width: 15px;
-            height: 15px;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
             background-color: #004d40;
             border-radius: 50%;
             border: 3px solid #fff;
             box-shadow: 0 0 0 3px #004d40;
         }
 
-        .timeline-date {
-            display: block;
+        .timeline-year {
             font-weight: 700;
+            color: #004d40;
+            font-size: 1rem;
+        }
+
+        .timeline-desc {
+            font-size: 1rem;
             color: #555;
         }
 
-        .timeline-event {
-            display: block;
-            color: #777;
+        .priest-message p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #555;
         }
 
-        /* 住職の想いカード */
-        .philosophy-cards {
+        .principles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .philosophy-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .philosophy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .principle-item {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
 
-        .card-icon {
+        .principle-item .icon-container {
             font-size: 3rem;
             color: #004d40;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
-        .philosophy-card h4 {
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
+        .principle-item h3 {
+            font-size: 1.4rem;
+            color: #004d40;
+            margin-bottom: 0.8rem;
         }
 
-        .philosophy-card p {
-            font-size: 0.9rem;
-            color: #777;
+        .principle-item p {
+            color: #555;
         }
 
         /* フッター */
@@ -393,35 +383,43 @@
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
             .header-container {
-                height: 60px;
+                height: 60px; /* ヘッダーの高さを調整 */
             }
 
             .logo-image {
-                height: 50px;
+                height: 40px; /* ロゴの高さを調整 */
             }
 
             .nav {
-                display: none;
                 position: fixed;
-                top: 60px;
-                left: -100%;
-                width: 70%;
-                height: calc(100vh - 60px);
-                background-color: #fff;
+                top: 60px; /* ヘッダーの高さに合わせて調整 */
+                left: -100%; /* 初期位置を左端に */
+                width: 50%; /* 幅を半分に */
+                height: calc(100vh - 60px); /* ヘッダーの高さに合わせて調整 */
+                background: white;
                 flex-direction: column;
+                align-items: flex-start; /* メニューアイテムを左寄せに */
+                justify-content: flex-start;
                 padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                padding-left: 1rem; /* 左側に少し余白を追加 */
+                gap: 0.5rem;
+                transition: left 0.3s ease; /* スライドインのアニメーション */
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* 右側にシャドウ */
             }
 
             .nav.active {
-                left: 0;
+                left: 0; /* アクティブ時に左から表示 */
             }
 
             .nav a {
-                font-size: 1.2rem;
-                padding: 1rem 0;
+                font-size: 1.1rem;
+                padding: 0.7rem 0;
+                width: 100%; /* 幅を親要素に合わせる */
+                border-bottom: 1px solid #eee; /* 区切り線 */
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
             }
 
             .hamburger {
@@ -436,7 +434,8 @@
                 visibility: visible;
                 transform: none;
                 padding: 0;
-                margin-top: 1rem;
+                margin-top: 0.5rem;
+                margin-left: 1rem; /* ドロップダウンも少し左に寄せる */
             }
 
             .dropdown a {
@@ -445,13 +444,40 @@
                 padding: 0.5rem 0;
                 border-bottom: none;
             }
-            
-            .hero-section {
-                padding: 80px 20px; /* スマートフォン向けにさらに縮小 */
+
+            main {
+                margin-top: 60px; /* ヘッダーの高さに合わせて調整 */
             }
 
             .hero-section .page-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .priest-introduction {
+                flex-direction: column;
+            }
+
+            .priest-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-timeline {
+                border-left: none;
+                margin-left: 0;
+            }
+
+            .timeline-item {
+                border-left: 2px solid #ddd;
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -8px;
             }
         }
     </style>
@@ -489,67 +515,92 @@
 
     <main>
         <section class="hero-section">
-            <h2 class="page-title">住職紹介</h2>
-            <p>皆様の人生に寄り添い、心に光を灯すお寺を目指して</p>
+            <div class="hero-content">
+                <h1 class="page-title">住職紹介</h1>
+                <p>皆様と共に歩む道のり</p>
+            </div>
         </section>
 
-        <div class="main-content">
-            <section class="section-intro">
-                <img src="priest.jpg" alt="光輪寺住職の写真" class="priest-image" />
-                <div class="priest-introduction">
-                    <div class="priest-name">○○ ○○</div>
-                    <div class="priest-title">光輪寺 住職</div>
-                    <p>
-                        この度、光輪寺のウェブサイトをご覧いただき、誠にありがとうございます。当寺は、真宗大谷派の教えを基に、皆様が心安らかに過ごせる場を提供しております。
-                        現代社会において、私たちを取り巻く環境は目まぐるしく変化しておりますが、仏様の教えは、いつの時代も変わることなく私たちの心に光を与えてくれます。
-                        皆様の人生における様々なご縁に寄り添い、共に歩んでいくことを願っております。どうぞお気軽にお寺へお立ち寄りください。心よりお待ちしております。
-                    </p>
+        <section class="main-content">
+            <div class="priest-introduction">
+                <div class="priest-photo">
+                    <img src="priest.jpg" alt="光輪寺住職" class="priest-image">
                 </div>
-            </section>
+                <div class="priest-info">
+                    <h2 class="priest-name">○○ ○○</h2>
+                    <p class="priest-title">光輪寺 住職</p>
+                </div>
+            </div>
 
-            <section class="content-section">
-                <h3>略歴</h3>
-                <div class="profile-timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-date">〇〇年〇月</span>
-                        <span class="timeline-event">〇〇大学〇〇学部卒業</span>
+            <div class="priest-content">
+                <section class="priest-profile">
+                    <h2>略歴</h2>
+                    <div class="profile-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">○○年○月</div>
+                            <div class="timeline-desc">○○大学○○学部卒業</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">○○年○月</div>
+                            <div class="timeline-desc">○○寺にて得度</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">○○年○月</div>
+                            <div class="timeline-desc">光輪寺副住職に就任</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">○○年○月</div>
+                            <div class="timeline-desc">光輪寺住職に就任</div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">〇〇年〇月</span>
-                        <span class="timeline-event">〇〇寺にて得度</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">〇〇年〇月</span>
-                        <span class="timeline-event">光輪寺副住職に就任</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">〇〇年〇月</span>
-                        <span class="timeline-event">光輪寺住職に就任</span>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="content-section">
-                <h3>住職の想い</h3>
-                <div class="philosophy-cards">
-                    <div class="philosophy-card">
-                        <div class="card-icon"><i class="fas fa-heart"></i></div>
-                        <h4>慈悲の心</h4>
-                        <p>すべての存在に対する深い慈悲の心を大切にし、人々に寄り添うことを目指します。</p>
+                <section class="priest-message">
+                    <h2>ご挨拶</h2>
+                    <div class="message-content">
+                        <p>
+                            この度、光輪寺のウェブサイトをご覧いただき、誠にありがとうございます。
+                            当寺は、真宗大谷派の教えを基に、皆様が心安らかに過ごせる場を提供しております。
+                        </p>
+                        <p>
+                            現代社会において、私たちを取り巻く環境は目まぐるしく変化しておりますが、
+                            仏様の教えは、いつの時代も変わることなく私たちの心のよりどころとなります。
+                            私は、皆様一人ひとりの声に耳を傾け、共に仏道を歩んでいきたいと願っております。
+                        </p>
+                        <p>
+                            皆様のお参りを心よりお待ちしております。
+                        </p>
                     </div>
-                    <div class="philosophy-card">
-                        <div class="card-icon"><i class="fas fa-book"></i></div>
-                        <h4>法話の継承</h4>
-                        <p>先人から受け継がれた仏法の教えを、現代に分かりやすくお伝えします。</p>
+                </section>
+
+                <section class="principles-section">
+                    <h2>住職の信条</h2>
+                    <div class="principles-grid">
+                        <div class="principle-item">
+                            <div class="icon-container">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>慈悲の心</h3>
+                            <p>すべての人々への思いやりと、分かち合う心を大切にしています。</p>
+                        </div>
+                        <div class="principle-item">
+                            <div class="icon-container">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>開かれた寺</h3>
+                            <p>どなたでも気軽に訪れ、対話できる、開かれたお寺であることを目指します。</p>
+                        </div>
+                        <div class="principle-item">
+                            <div class="icon-container">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>地域との絆</h3>
+                            <p>地域の皆様との絆を深め、共に支え合うコミュニティづくりに努めています。</p>
+                        </div>
                     </div>
-                    <div class="philosophy-card">
-                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
-                        <h4>地域との共生</h4>
-                        <p>地域社会の一員として、開かれたお寺を目指し、人々の交流の場を提供します。</p>
-                    </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -586,9 +637,10 @@
     </footer>
 
     <script>
-        // script.js の内容をここに挿入
+        // script.js
+        // DOMContentLoaded イベントでスクリプトを実行
         document.addEventListener('DOMContentLoaded', function() {
-            
+            // ハンバーガーメニューの制御
             const hamburger = document.getElementById('hamburger');
             const nav = document.getElementById('nav');
 
@@ -599,6 +651,7 @@
                 });
             }
 
+            // メニューリンクをクリックした時にメニューを閉じる
             const navLinks = document.querySelectorAll('.nav a');
             navLinks.forEach(function(link) {
                 link.addEventListener('click', function() {
@@ -609,9 +662,10 @@
                 });
             });
 
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('.header');
-                if (header) {
+            // スクロール時のヘッダー効果
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', function() {
                     if (window.scrollY > 100) {
                         header.style.background = 'rgba(255, 255, 255, 0.95)';
                         header.style.backdropFilter = 'blur(10px)';
@@ -619,25 +673,31 @@
                         header.style.background = '#ffffff';
                         header.style.backdropFilter = 'none';
                     }
-                }
-            });
+                });
+            }
 
-            const links = document.querySelectorAll('a[href^="#"]');
+            // スムーススクロールの調整
+            const links = document.querySelectorAll('a.scroll-link');
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                    if (href === '#' || href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            const headerHeight = document.querySelector('.header').offsetHeight;
+                            const targetPosition = target.offsetTop - headerHeight;
+
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            if (nav.classList.contains('active')) {
+                                nav.classList.remove('active');
+                                hamburger.classList.remove('active');
+                            }
+                        }
                     }
                 });
             });
